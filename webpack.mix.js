@@ -1,4 +1,6 @@
 const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
+const autoprefixer = require('autoprefixer');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,7 +13,15 @@ const mix = require('laravel-mix');
  |
  */
 
+// admin
+mix.copy('resources/admin/js/init-alpine.js', 'public/admin/js')
+.js('resources/admin/js/app.js', 'public/admin/js')
+.postCss('resources/admin/css/app.css', 'public/admin/css', [
+    tailwindcss('tailwind-admin.config.js'),
+    autoprefixer,
+]);
+
 mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
     require('tailwindcss'),
-    require('autoprefixer'),
+    autoprefixer,
 ]);
