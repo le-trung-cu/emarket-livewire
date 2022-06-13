@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\StoreBranch;
 use Illuminate\Database\Seeder;
 
-class AdminSeeder extends Seeder
+class StoreBranchSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,9 +14,6 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Admin::factory()->create([
-            'name' => 'admin',
-            'email' => 'admin@admin.test',
-        ]);
+        StoreBranch::factory(2)->create();
     }
 }
