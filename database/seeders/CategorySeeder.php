@@ -25,5 +25,11 @@ class CategorySeeder extends Seeder
             $categoriesLv2 = Category::factory(3)->make(['parent_id' => $category->id])->toArray();
             DB::table('categories')->upsert($categoriesLv2, ['name', 'slug']);
         }
+
+        $categoriesLv2 = Category::query()->where('parent_id', '<>', null)->get();
+        foreach ($categoriesLv2 as $category) {
+            $categoriesLv3 = Category::factory(3)->make(['parent_id' => $category->id])->toArray();
+            DB::table('categories')->upsert($categoriesLv3, ['name', 'slug']);
+        }
     }
 }

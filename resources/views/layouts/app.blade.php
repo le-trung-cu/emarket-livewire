@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- Styles -->
+    @livewireStyles
     <link rel="stylesheet" href="{{ asset('admin/css/app.css') }}">
 
     <!-- Scripts -->
+    @wireUiScripts  {{-- <wireui:scripts /> --}}
     <script src="{{ asset('admin/js/init-alpine.js') }}" defer></script>
     <script src="{{ asset('admin/js/app.js') }}" defer></script>
 
@@ -59,14 +61,14 @@
                     </li>
                     <li class="relative px-6 py-3">
                         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                            href="cards.html">
+                            href="{{ route('admin.categories.index') }}">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path
                                     d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
                                 </path>
                             </svg>
-                            <span class="ml-4">Cards</span>
+                            <span class="ml-4">Categories</span>
                         </a>
                     </li>
                     <li class="relative px-6 py-3">
@@ -227,14 +229,14 @@
                     </li>
                     <li class="relative px-6 py-3">
                         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                            href="cards.html">
+                            href="{{ route('admin.categories.index') }}">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path
                                     d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
                                 </path>
                             </svg>
-                            <span class="ml-4">Cards</span>
+                            <span class="ml-4">Categories</span>
                         </a>
                     </li>
                     <li class="relative px-6 py-3">
@@ -509,9 +511,15 @@
             </header>
             <main class="h-full overflow-y-auto">
                 <div class="container px-6 mx-auto grid">
+                    @if ($header)
+                        {{ $header }}
+                    @endif
+                    {{ $slot }}
                 </div>
             </main>
         </div>
     </div>
+    @livewireScripts
 </body>
+
 </html>

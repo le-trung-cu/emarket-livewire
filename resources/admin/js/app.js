@@ -1,6 +1,5 @@
-import '../../js/bootstrap';
-
 import Alpine from 'alpinejs';
+import '../../js/bootstrap';
 
 window.Alpine = Alpine;
 
