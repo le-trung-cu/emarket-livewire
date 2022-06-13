@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
+
+.draggable--over {
+    @apply bg-yellow-50;
+}
+
 @tailwind utilities;

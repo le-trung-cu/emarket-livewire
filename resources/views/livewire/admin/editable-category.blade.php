@@ -14,7 +14,8 @@
         <span class="cursor-pointer" x-bind:class="{ 'font-bold': isName }"
             wire:click="$emitUp('categoryLv{{ $level }}Change', {{ $category->id }})">{{ $category->name }}</span>
         <div class="">
-            <button class="rounded-md text-purple-600 focus:outline-none focus:shadow-outline-purple" title="edit" @click="isEditing = true; $nextTick(() => focus())">
+            <button class="rounded-md text-purple-600 focus:outline-none focus:shadow-outline-purple" title="edit"
+                @click="isEditing = true; $nextTick(() => focus())">
                 <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                         d="M4.75 19.25L9 18.25L18.2929 8.95711C18.6834 8.56658 18.6834 7.93342 18.2929 7.54289L16.4571 5.70711C16.0666 5.31658 15.4334 5.31658 15.0429 5.70711L5.75 15L4.75 19.25Z">

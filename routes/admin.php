@@ -3,7 +3,6 @@
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Livewire\Admin\CategoryList;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,7 +23,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::group(['middleware' => 'auth:admin'], function(){
         Route::get('/dashboard', function(){
             return view('dashboard');
-        });
+        })->name('dashboard');
 
         Route::get('/categories', CategoryList::class)->name('categories.index');
     });

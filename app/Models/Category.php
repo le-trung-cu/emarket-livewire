@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Builder;
 
 class Category extends Model
 {
@@ -12,9 +13,21 @@ class Category extends Model
 
     protected $fillable = ['name', 'slug', 'description', 'parent_id'];
 
+    protected static function booted()
+    {
+        static::addGlobalScope('order', function (Builder $builder) {
+            $builder->orderBy('order');
+        });
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'parent_id');
+    }
+
     public function children()
     {
-        return $this->hasMany(Category::class, 'parent_id');
+        return $this->hasMany(Category::class, 'parent_id')->orderBy('order');
     }
 
     /**

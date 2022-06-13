@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class CategoryList extends Component
@@ -30,8 +32,7 @@ class CategoryList extends Component
     protected $rules = [
         'shownModal' => 'required',
         'categoriesLv2.*' => 'required',
-        'selectedCategory1' => 'required',
-        // 'categoryForDeleting' => 'nullable',
+        'categoryForDeleting' => 'nullable',
     ];
 
     public function render()
@@ -41,7 +42,7 @@ class CategoryList extends Component
 
     public function mount()
     {
-        $this->categoriesLv1 = Category::where('parent_id', null)->get();
+        $this->categoriesLv1 = Category::query()->where('parent_id', null)->get();
     }
 
     public function confirmDeleteCategory(Category $category)
@@ -52,10 +53,14 @@ class CategoryList extends Component
 
     public function delete(Category $category)
     {
-        if($category->delete()){
+        if ($category->delete()) {
             $this->confirmDeleteCategoryModal = false;
             $this->categoryForDeleting = null;
-            $this->emitSelf('refresh');
+
+            $this->categoriesLv1 = Category::where('parent_id', null)->get();
+            $this->categoriesLv2 = Category::where('parent_id', $this->selectedCategory1)->get();
+            $this->categoriesLv3 = Category::where('parent_id', $this->selectedCategory2)->get();
+            //$this->emitSelf('refresh');
         }
     }
 
@@ -77,7 +82,7 @@ class CategoryList extends Component
     public function onCategoryLv2Change(?Category $category)
     {
         $this->selectedCategory2 = $category->id;
-        $this->selectedCategory3 = null;
+        $this->selectedCategory3 =  null;
         if ($category) {
             $this->categoriesLv3 = $category->children;
         } else {
@@ -88,5 +93,33 @@ class CategoryList extends Component
     public function onCategoryLv3Change(?Category $category)
     {
         $this->selectedCategory3 = $category->id;
+    }
+
+    public function updateCategoryOrder($orders)
+    {
+        $mapCategoryIdToOrder = (array) collect($orders)->reduce(function ($result, $item) {
+            $result[$item['value']] = $item['order'];
+            return $result;
+        }, []);
+
+        $categories = Category::whereIn('id', array_keys($mapCategoryIdToOrder))->get();
+        foreach ($categories as $category) {
+            if ($category->order != $mapCategoryIdToOrder[$category->id]) {
+                $category->order = $mapCategoryIdToOrder[$category->id];
+                $category->save();
+            }
+        }
+        $category = $categories->first();
+        if ($category) {
+            if ($category->parent_id === null) {
+                $this->categoriesLv1 = Category::where('parent_id', null)->get();
+            } elseif ($category->parent && $category->parent->parent === null && $this->selectedCategory1) {
+                $this->categoriesLv2 = Category::where('parent_id', $this->selectedCategory1)->get();
+            } elseif ($this->selectedCategory2) {
+                $this->categoriesLv3 = Category::where('parent_id', $this->selectedCategory2)->get();
+            }
+        }
+
+        // $this->emitSelf('refresh');
     }
 }

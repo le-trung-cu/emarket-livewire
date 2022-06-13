@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="{{ asset('admin/css/app.css') }}">
 
     <!-- Scripts -->
-    @wireUiScripts  {{-- <wireui:scripts /> --}}
+    @livewireScripts
+    @wireUiScripts
     <script src="{{ asset('admin/js/init-alpine.js') }}" defer></script>
     <script src="{{ asset('admin/js/app.js') }}" defer></script>
-
 </head>
 
 <body>
@@ -32,8 +32,11 @@
                 </a>
                 <ul class="mt-6">
                     <li class="relative px-6 py-3">
-                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                            aria-hidden="true"></span>
+                        @if (Route::currentRouteName() === 'admin.dashboard')
+                            <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                                aria-hidden="true"></span>
+                        @endif
+
                         <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
                             href="index.html">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -60,6 +63,10 @@
                         </a>
                     </li>
                     <li class="relative px-6 py-3">
+                        @if (Route::currentRouteName() === 'admin.categories.index')
+                            <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                                aria-hidden="true"></span>
+                        @endif
                         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             href="{{ route('admin.categories.index') }}">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -200,8 +207,10 @@
                 </a>
                 <ul class="mt-6">
                     <li class="relative px-6 py-3">
-                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                            aria-hidden="true"></span>
+                        @if (Route::currentRouteName() == 'admin.dashboard')
+                            <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                                aria-hidden="true"></span>
+                        @endif
                         <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
                             href="index.html">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -216,6 +225,7 @@
                 </ul>
                 <ul>
                     <li class="relative px-6 py-3">
+
                         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             href="forms.html">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -228,6 +238,10 @@
                         </a>
                     </li>
                     <li class="relative px-6 py-3">
+                        @if (Route::currentRouteName() === 'admin.categories.index')
+                            <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                                aria-hidden="true"></span>
+                        @endif
                         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                             href="{{ route('admin.categories.index') }}">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -511,15 +525,12 @@
             </header>
             <main class="h-full overflow-y-auto">
                 <div class="container px-6 mx-auto grid">
-                    @if ($header)
-                        {{ $header }}
-                    @endif
+                    {{ $header }}
                     {{ $slot }}
                 </div>
             </main>
         </div>
     </div>
-    @livewireScripts
 </body>
 
 </html>

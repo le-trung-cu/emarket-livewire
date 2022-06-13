@@ -16,6 +16,7 @@
         "axios": "^0.25",
         "color": "^4.2.3",
         "laravel-mix": "^6.0.6",
+        "livewire-sortable": "^0.2.2",
         "lodash": "^4.17.19",
         "postcss": "^8.4.6",
         "tailwindcss": "^3.0.18"
