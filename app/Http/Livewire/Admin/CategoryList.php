@@ -3,8 +3,6 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class CategoryList extends Component
@@ -26,7 +24,6 @@ class CategoryList extends Component
         'categoryLv2Change' => 'onCategoryLv2Change',
         'categoryLv3Change' => 'onCategoryLv3Change',
         'confirmDeleteCategory',
-        'refresh' => '$refresh',
     ];
 
     protected $rules = [
@@ -60,7 +57,6 @@ class CategoryList extends Component
             $this->categoriesLv1 = Category::where('parent_id', null)->get();
             $this->categoriesLv2 = Category::where('parent_id', $this->selectedCategory1)->get();
             $this->categoriesLv3 = Category::where('parent_id', $this->selectedCategory2)->get();
-            //$this->emitSelf('refresh');
         }
     }
 
@@ -119,7 +115,5 @@ class CategoryList extends Component
                 $this->categoriesLv3 = Category::where('parent_id', $this->selectedCategory2)->get();
             }
         }
-
-        // $this->emitSelf('refresh');
     }
 }

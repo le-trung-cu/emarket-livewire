@@ -24,5 +24,10 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(StoreBranchSeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(ProductSeeder::class);
+        $this->call(SKUSeeder::class);
+        $this->call(VariationOptionSeeder::class);
+        $this->call(VariationValueSeeder::class);
+
     }
 }
