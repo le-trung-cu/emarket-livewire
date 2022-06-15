@@ -117,10 +117,6 @@
             <x-textarea wire:model.defer="product.description" label="Product description"
                 placeholder="Your product description" />
             <div class="flex justify-end items-center mt-3">
-                {{-- <button type="submit"
-                    class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                    Save
-                </button> --}}
                 <x-button type="submit" spinner purple label="Save" />
             </div>
         </fieldset>

@@ -32,6 +32,11 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function variationOptions()
+    {
+        return $this->hasMany(VariationOption::class);
+    }
+
     public function skus()
     {
         return $this->hasMany(SKU::class);

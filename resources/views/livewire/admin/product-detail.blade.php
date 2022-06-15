@@ -8,4 +8,6 @@
 
 <div>
     <livewire:admin.product-general-information :product="$product">
+    <div class="h-5"></div>
+    <livewire:admin.variation-option-manager :product="$product">
 </div>

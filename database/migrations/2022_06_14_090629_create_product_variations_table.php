@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\SKU;
-use App\Models\VariationOption;
+use App\Models\VariationValue;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,11 +15,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('variation_values', function (Blueprint $table) {
+        Schema::create('product_variations', function (Blueprint $table) {
             $table->id();
-            $table->string('value');
-            $table->string('label');
-            $table->foreignIdFor(VariationOption::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(SKU::class, 'sku_id')->constrained('skus');
+            $table->foreignIdFor(VariationValue::class)->constrained();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('variation_values');
+        Schema::dropIfExists('product_variations');
     }
 };

@@ -35,12 +35,4 @@ class SKU extends Model
     {
         return $this->hasMany(VariationValue::class, 'sku_id');
     }
-    public function mapVariationOptionValues()
-    {
-        return $this->variationValues()->get()
-            ->reduce(function ($result, $item) {
-                $result[$item->variation_option_id][] = $item;
-                return $result;
-            }, []);
-    }
 }
