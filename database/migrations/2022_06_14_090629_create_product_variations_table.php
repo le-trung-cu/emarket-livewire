@@ -16,10 +16,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('product_variations', function (Blueprint $table) {
-            $table->id();
             $table->foreignIdFor(SKU::class, 'sku_id')->constrained('skus');
             $table->foreignIdFor(VariationValue::class)->constrained();
             $table->timestamps();
+
+            $table->primary(['sku_id', 'variation_value_id']);
         });
     }
 

@@ -31,8 +31,12 @@ class SKU extends Model
         return $this->belongsTo(Product::class);
     }
 
-    private function variationValues()
+    public function variationValues()
     {
-        return $this->hasMany(VariationValue::class, 'sku_id');
+
+        return $this->hasManyThrough(VariationValue::class, ProductVariation::class, 'sku_id', 'id', 'id', 'variation_value_id');
+
+        // ^ "select * from `variation_values` inner join `product_variations` on `product_variations`.`c` = `variation_values`.`a` where `product_variations`.`sku_id` is null"
+        // return $this->hasManyThrough(VariationValue::class, ProductVariation::class, 'sku_id', 'a', 'b', 'c', 'd');
     }
 }
