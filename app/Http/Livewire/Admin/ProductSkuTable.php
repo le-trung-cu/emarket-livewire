@@ -9,7 +9,6 @@ use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\Detail;
 use PowerComponents\LivewirePowerGrid\Header;
-use PowerComponents\LivewirePowerGrid\Exportable;
 use PowerComponents\LivewirePowerGrid\PowerGrid;
 use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
@@ -18,7 +17,7 @@ use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 final class ProductSkuTable extends PowerGridComponent
 {
     use ActionButton;
-    public $weight, $price, $stock, $bardcode;
+    public $weight, $price, $stock, $barcode;
     public Product $product;
     public $options = [];
 
@@ -101,8 +100,8 @@ final class ProductSkuTable extends PowerGridComponent
                 }, []);
                 return json_encode($result);
             })
-            ->addColumn('bardcode', function (SKU $sku) {
-                return $sku->bardcode ?? 'NULL';
+            ->addColumn('barcode', function (SKU $sku) {
+                return $sku->barcode ?? 'NULL';
             })
             ->addColumn('activity')
             ->addColumn('weight')
@@ -131,7 +130,7 @@ final class ProductSkuTable extends PowerGridComponent
 
             Column::make('VARIATION', 'variations'),
 
-            Column::make('BARCODE', 'bardcode')
+            Column::make('BARCODE', 'barcode')
                 ->sortable()
                 ->editOnClick(),
 
@@ -164,6 +163,9 @@ final class ProductSkuTable extends PowerGridComponent
 
     public function onUpdatedEditable(string $id, string $field, string $value): void
     {
+        $this->validate([
+            'barcode.*' => 'string|unique:skus,barcode'
+        ]);
         $value = strtoupper($value) === 'NULL' ? null : $value;
         SKU::query()->find($id)->update([
             $field => $value,

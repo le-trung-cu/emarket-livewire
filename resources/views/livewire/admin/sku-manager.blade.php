@@ -22,9 +22,9 @@
     </x-modal>
 
     <x-modal wire:model.defer="isShowConfirmDeleteSkuModal">
-        <x-card title="Deleting Sku: {{ $skuForDeleting?->bardcode }} (#{{$skuForDeleting?->id}})">
+        <x-card title="Deleting Sku: {{ $skuForDeleting?->barcode }} (#{{$skuForDeleting?->id}})">
             <p class="text-gray-600">
-                Are you sure you want to delete SKU: {{ $skuForDeleting?->bardcode }} {{' '}} (#{{$skuForDeleting?->id}})
+                Are you sure you want to delete SKU: {{ $skuForDeleting?->barcode }} {{' '}} (#{{$skuForDeleting?->id}})
             </p>
      
             <x-slot name="footer">

@@ -5,10 +5,14 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Image\Manipulations;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Product extends Model
+class Product extends Model implements HasMedia
 {
-    use HasFactory, Sluggable;
+    use HasFactory, Sluggable, InteractsWithMedia;
 
     protected $fillable = [
         'name',
@@ -56,5 +60,14 @@ class Product extends Model
                 'source' => 'name'
             ]
         ];
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        // The Collection component will show a preview thumbnail for items in the collection it is showing.
+        $this
+            ->addMediaConversion('preview')
+            ->fit(Manipulations::FIT_CROP, 300, 300)
+            ->nonQueued();
     }
 }

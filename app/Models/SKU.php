@@ -12,7 +12,7 @@ class SKU extends Model
     protected $table = 'skus';
 
     protected $fillable = [
-        'bardcode',
+        'barcode',
         'activity',
         'weight',
         'price',
