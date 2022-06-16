@@ -12,6 +12,7 @@ class SKU extends Model
     protected $table = 'skus';
 
     protected $fillable = [
+        'bardcode',
         'activity',
         'weight',
         'price',
@@ -20,9 +21,9 @@ class SKU extends Model
     ];
 
     protected $casts = [
-        'activity' => 'bool',
+        'activity' => 'boolean',
         'weight' => 'integer',
-        'price' => 'decimal',
+        // 'price' => 'decimal',
         'stock' => 'integer',
     ];
 
@@ -31,12 +32,17 @@ class SKU extends Model
         return $this->belongsTo(Product::class);
     }
 
+    // public function variationValues()
+    // {
+
+    //     return $this->hasManyThrough(VariationValue::class, ProductVariation::class, 'sku_id', 'id', 'id', 'variation_value_id');
+
+    //     // ^ "select * from `variation_values` inner join `product_variations` on `product_variations`.`c` = `variation_values`.`a` where `product_variations`.`sku_id` is null"
+    //     // return $this->hasManyThrough(VariationValue::class, ProductVariation::class, 'sku_id', 'a', 'b', 'c', 'd');
+    // }
+
     public function variationValues()
     {
-
-        return $this->hasManyThrough(VariationValue::class, ProductVariation::class, 'sku_id', 'id', 'id', 'variation_value_id');
-
-        // ^ "select * from `variation_values` inner join `product_variations` on `product_variations`.`c` = `variation_values`.`a` where `product_variations`.`sku_id` is null"
-        // return $this->hasManyThrough(VariationValue::class, ProductVariation::class, 'sku_id', 'a', 'b', 'c', 'd');
+        return $this->belongsToMany(VariationValue::class, 'product_variations', 'sku_id');
     }
 }

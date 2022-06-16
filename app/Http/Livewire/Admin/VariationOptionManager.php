@@ -26,7 +26,7 @@ class VariationOptionManager extends Component
             'optionForCreation.product_id' => 'required',
         ];
     }
-    
+
     public function render()
     {
         return view('livewire.admin.variation-option-manager');
@@ -38,7 +38,7 @@ class VariationOptionManager extends Component
             'optionForCreation.name' => 'name',
             'optionForCreation.visual' => 'visual',
         ]);
-        if($this->optionForCreation->save()){
+        if ($this->optionForCreation->save()) {
             $this->isShowFormForCreationModal = false;
             $this->product->refresh();
         }
@@ -46,7 +46,7 @@ class VariationOptionManager extends Component
 
     public function delete()
     {
-        if($this->optionForDeleting->delete()){
+        if ($this->optionForDeleting->delete()) {
             $this->isShowConfirmDeleteModal = false;
             $this->product->refresh();
         }

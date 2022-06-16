@@ -1,8 +1,13 @@
 @tailwind base;
 @tailwind components;
 
+
+
 .draggable--over {
     @apply bg-yellow-50;
 }
 
+.wireui-button {
+    @apply outline-none inline-flex justify-center items-center transition-all ease-in duration-150 focus:ring-2 focus:ring-offset-2 hover:shadow-sm disabled:opacity-80 disabled:cursor-not-allowed rounded gap-x-2 text-sm px-4 py-2 ring-purple-500 text-white bg-purple-500 hover:bg-purple-600 hover:ring-purple-600 dark:bg-purple-700 dark:ring-purple-700 dark:hover:bg-purple-600 cursor-pointer;
+}
 @tailwind utilities;

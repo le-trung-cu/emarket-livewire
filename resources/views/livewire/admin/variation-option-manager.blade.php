@@ -1,7 +1,7 @@
 <div>
 
     <fieldset
-        class="shadow shadow-gray-900 border border-solid rounded-lg text-gray-700 dark:text-gray-400 border-gray-300 p-3">
+        class="shadow-sm shadow-gray-500 border border-solid rounded-lg text-gray-700 dark:text-gray-400 border-gray-300 p-3">
         <legend>
             <h3 class="flex items-baseline bg-gray-50 text-gray-700 font-semibold dark:text-gray-400 h-9">Variation options:
                 <x-button.circle class="ml-2" xs primary label="+" title="Add variation option"

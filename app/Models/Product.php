@@ -37,6 +37,13 @@ class Product extends Model
         return $this->hasMany(VariationOption::class);
     }
 
+    public function variationValues()
+    {
+        return $this->hasManyThrough(VariationValue::class, VariationOption::class, 'product_id', 'variation_option_id', 'id', 'id');
+        // return $this->hasManyThrough(VariationValue::class, VariationOption::class, 'a', 'b', 'c', 'd');
+        // ^ "select * from `variation_values` inner join `variation_options` on `variation_options`.`d` = `variation_values`.`b` where `variation_options`.`a` is null"
+    }
+
     public function skus()
     {
         return $this->hasMany(SKU::class);

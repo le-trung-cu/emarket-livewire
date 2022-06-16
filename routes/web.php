@@ -22,5 +22,6 @@ Route::get('/data', function () {
     dd(Auth::user());
 })->middleware('auth');
 
+Route::view('/powergrid', 'powergrid-demo');
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';

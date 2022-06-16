@@ -13,10 +13,13 @@
 
     <!-- Styles -->
     @livewireStyles
+    @powerGridStyles
+
     <link rel="stylesheet" href="{{ asset('admin/css/app.css') }}">
 
     <!-- Scripts -->
     @livewireScripts
+    @powerGridScripts
     @wireUiScripts
     <script src="{{ asset('admin/js/init-alpine.js') }}" defer></script>
     <script src="{{ asset('admin/js/app.js') }}" defer></script>

@@ -16,7 +16,8 @@ return new class extends Migration
     {
         Schema::create('skus', function (Blueprint $table) {
             $table->id();
-            $table->boolean('activity');
+            $table->string('bardcode')->nullable()->unique();
+            $table->boolean('activity')->default(true);
             $table->unsignedInteger('weight')->nullable();
             $table->unsignedDecimal('price')->nullable();
             $table->unsignedInteger('stock')->default(0);

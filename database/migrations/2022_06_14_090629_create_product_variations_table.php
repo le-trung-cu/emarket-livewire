@@ -16,7 +16,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('product_variations', function (Blueprint $table) {
-            $table->foreignIdFor(SKU::class, 'sku_id')->constrained('skus');
+            $table->foreignIdFor(SKU::class, 'sku_id')->constrained('skus')->cascadeOnDelete();
             $table->foreignIdFor(VariationValue::class)->constrained();
             $table->timestamps();
 

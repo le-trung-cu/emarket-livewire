@@ -42,6 +42,8 @@ class VariationValueManager extends Component
         $this->variationValue = new VariationValue();
         $this->variationValue->variation_option_id = $this->option->id;
         $this->option->refresh();
+
+        $this->emitTo('admin.sku-manager', 'admin.sku-manager:eventRefresh');
     }
 
     public function delete()
@@ -49,6 +51,7 @@ class VariationValueManager extends Component
         if($this->variationForDeleting->delete()){
             $this->showConfirmDeleteVariationModal = false;
             $this->option->refresh();
+            $this->emitTo('admin.sku-manager', 'admin.sku-manager:eventRefresh');
         }
     }
 
