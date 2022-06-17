@@ -5,7 +5,6 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -17,6 +16,7 @@ class Product extends Model implements HasMedia
     protected $fillable = [
         'name',
         'slug',
+        'thumbnail',
         'regular_price',
         'store_branch_id',
         'category_id',
@@ -62,12 +62,24 @@ class Product extends Model implements HasMedia
         ];
     }
 
-    public function registerMediaConversions(Media $media = null): void
+    public function registerMediaCollections(): void
     {
-        // The Collection component will show a preview thumbnail for items in the collection it is showing.
+        $this->addMediaCollection('product-galary')
+            ->registerMediaConversions(function (Media $media) {
+                $this
+                    ->addMediaConversion('galary')
+                    ->withResponsiveImages()
+                    ->nonQueued();
+
+                $this
+                    ->addMediaConversion('preview')
+                    ->width(128)
+                    ->height(96)
+                    ->nonQueued();
+            });
+
         $this
-            ->addMediaConversion('preview')
-            ->fit(Manipulations::FIT_CROP, 300, 300)
-            ->nonQueued();
+            ->addMediaCollection('product-thumbnail')
+            ->singleFile();
     }
 }

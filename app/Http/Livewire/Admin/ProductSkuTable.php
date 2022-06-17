@@ -17,18 +17,11 @@ use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 final class ProductSkuTable extends PowerGridComponent
 {
     use ActionButton;
+    public bool $showErrorBag = true;
+
     public $weight, $price, $stock, $barcode;
     public Product $product;
     public $options = [];
-
-    // protected function getListeners(): array
-    // {
-    //     return array_merge(
-    //         parent::getListeners(), 
-    //         [
-    //             '',
-    //         ]);
-    // }
 
     /*
     |--------------------------------------------------------------------------
@@ -164,8 +157,12 @@ final class ProductSkuTable extends PowerGridComponent
     public function onUpdatedEditable(string $id, string $field, string $value): void
     {
         $this->validate([
-            'barcode.*' => 'string|unique:skus,barcode'
+            'barcode.*' => 'string|unique:skus,barcode,'.$id.',id',
+            'weight.*' => 'integer|between:0,5000',
+            'price.*' => 'numeric|min:0',
+            'stock.*' => 'integer|min:0'
         ]);
+
         $value = strtoupper($value) === 'NULL' ? null : $value;
         SKU::query()->find($id)->update([
             $field => $value,

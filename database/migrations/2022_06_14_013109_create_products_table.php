@@ -19,6 +19,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
+            $table->string('thumbnail')->nullable();
             $table->text('description')->nullable();
             $table->unsignedDecimal('regular_price');
             $table->foreignIdFor(StoreBranch::class)->constrained()->cascadeOnDelete();
