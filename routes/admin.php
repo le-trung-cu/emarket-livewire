@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Livewire\Admin\CategoryList;
 use App\Http\Livewire\Admin\ProductDetail;
+use App\Http\Livewire\Admin\ProductList;
 use Illuminate\Support\Facades\Route;
 
 
@@ -28,5 +29,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
         Route::get('/categories', CategoryList::class)->name('categories.index');
         Route::get('/products/{product}', ProductDetail::class)->name('product.show');
+
+        Route::get('products', ProductList::class)->name('product.index');
     });
 });

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" :class="{ 'theme-dark': dark }" x-data="data()">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" :class="{ 'dark': dark }" x-data="data()">
 
 <head>
     <meta charset="utf-8">
@@ -13,6 +13,7 @@
 
     <!-- Styles -->
     @livewireStyles
+    <!-- powerGridStyles -->
     @powerGridStyles
 
     <link rel="stylesheet" href="{{ asset('admin/css/app.css') }}">

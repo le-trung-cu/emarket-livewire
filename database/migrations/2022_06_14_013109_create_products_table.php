@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\ProductStatus;
 use App\Models\Category;
 use App\Models\StoreBranch;
 use Illuminate\Database\Migrations\Migration;
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('thumbnail')->nullable();
             $table->text('description')->nullable();
+            $table->enum('status', [1,2,3])->default(1);
             $table->unsignedDecimal('regular_price');
             $table->foreignIdFor(StoreBranch::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Category::class)->nullable()->constrained()->nullOnDelete();

@@ -1,6 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 const Color = require('color')
+const colors = require('tailwindcss/colors.js')
 
 module.exports = {
     presets: [
@@ -17,7 +18,7 @@ module.exports = {
         './vendor/power-components/livewire-powergrid/resources/views/**/*.php',
         './vendor/power-components/livewire-powergrid/src/Themes/Tailwind.php'
     ],
-    darkMode: ['class', '[class~="theme-dark"]'],
+    darkMode: 'class',
     theme: {
         customForms: (theme) => ({
             default: {
@@ -172,6 +173,7 @@ module.exports = {
                 '800': '#99154b',
                 '900': '#751a3d',
             },
+            slate: colors.slate,
         },
         extend: {
             maxHeight: {
@@ -214,7 +216,7 @@ module.exports = {
         require('@tailwindcss/forms')({
             strategy: 'class',
         }),
-        plugin(({ addUtilities, e, theme, variants }) => {
+        plugin(({ addUtilities, e, theme, variants, }) => {
             const newUtilities = {}
             Object.entries(theme('colors')).map(([name, value]) => {
                 if (name === 'transparent' || name === 'current') return

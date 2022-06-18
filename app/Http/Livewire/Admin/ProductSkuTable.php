@@ -19,7 +19,7 @@ final class ProductSkuTable extends PowerGridComponent
     use ActionButton;
     public bool $showErrorBag = true;
 
-    public $weight, $price, $stock, $barcode;
+    public $weight, $price, $stock, $barcode, $activity;
     public Product $product;
     public $options = [];
 
@@ -94,7 +94,7 @@ final class ProductSkuTable extends PowerGridComponent
                 return json_encode($result);
             })
             ->addColumn('barcode', function (SKU $sku) {
-                return $sku->barcode ?? 'NULL';
+                return  $sku->barcode ?? 'NULL';
             })
             ->addColumn('activity')
             ->addColumn('weight')
@@ -128,7 +128,7 @@ final class ProductSkuTable extends PowerGridComponent
                 ->editOnClick(),
 
             Column::make('ACTIVITY', 'activity')
-                ->makeBooleanFilter('activity', 'true', 'false')
+                // ->makeBooleanFilter('activity', 'Yes', 'No'),
                 ->toggleable(),
 
             Column::make('WEIGHT', 'weight')
@@ -171,8 +171,12 @@ final class ProductSkuTable extends PowerGridComponent
 
     public function onUpdatedToggleable(string $id, string $field, string $value): void
     {
+        $this->validate([
+            'activity.*' => 'boolean',
+        ]);
+
         SKU::query()->find($id)->update([
-            $field => $value === "1" ? !true : !false,
+            'activity' => $value,
         ]);
     }
 

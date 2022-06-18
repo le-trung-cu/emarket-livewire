@@ -10,4 +10,9 @@ class StoreBranch extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'phone', 'address', 'district_id', 'ward_code'];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

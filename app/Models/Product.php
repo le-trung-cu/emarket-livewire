@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ProductStatus;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,15 +19,17 @@ class Product extends Model implements HasMedia
         'slug',
         'thumbnail',
         'regular_price',
+        'status',
         'store_branch_id',
         'category_id',
     ];
 
     protected $casts = [
         // 'regular_price' => 'decimal',
+        // 'status' => ProductStatus::class,
     ];
 
-    public function store()
+    public function storeBranch()
     {
         return $this->belongsTo(StoreBranch::class);
     }
