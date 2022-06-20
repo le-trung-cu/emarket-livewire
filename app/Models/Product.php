@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\ProductStatus;
+use Brick\Money\Money;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -84,5 +85,10 @@ class Product extends Model implements HasMedia
         $this
             ->addMediaCollection('product-thumbnail')
             ->singleFile();
+    }
+
+    public function getPriceVndAttribute()
+    {
+        return Money::of($this->attributes['regular_price'], 'VND')->formatTo('vn_VN');
     }
 }
