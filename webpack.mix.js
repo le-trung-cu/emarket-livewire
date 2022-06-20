@@ -23,6 +23,7 @@ mix.copy('resources/admin/js/init-alpine.js', 'public/admin/js')
 
 
 // site
+mix.js('resources/site/js/app.js', 'public/site/js')
 mix.postCss('resources/site/css/app.css', 'public/site/css', [
     require('tailwindcss'),
     autoprefixer,

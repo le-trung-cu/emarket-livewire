@@ -1,5 +1,5 @@
 <div class="flex">
-    <a href="{{route('admin.product.show', $product)}}" 
+    <a href="{{route('admin.product.show', $product)}}" target="_blank"
         class="group-hover:text-purple-600 rounded-md mr-2 focus:outline-none focus:shadow-outline-purple" title="edit">
         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"

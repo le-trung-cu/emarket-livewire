@@ -19,6 +19,7 @@
 
 	<!-- Scripts -->
     @livewireScripts
+    <script src="{{ asset('site/js/app.js') }}" defer></script>
 </head>
 
 <body>
@@ -218,6 +219,7 @@
         <!-- section footer bottom  end -->
     </footer>
 
+    @stack('scripts')
 </body>
 
 </html>

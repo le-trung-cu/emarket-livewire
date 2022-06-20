@@ -52,7 +52,7 @@
             @foreach ($newProducts as $product)
                 <!-- COMPONENT: PRODUCT CARD -->
                 <article class="shadow-sm rounded bg-white border border-gray-200">
-                    <a href="#" class="relative block p-1">
+                    <a href="{{ route('site.product.show', $product) }}" class="relative block p-1">
                         <img src="images/items/10.jpg" class="mx-auto w-auto" style="height: 250px" height="250"
                             alt="{{ $product->name }}">
                         <span

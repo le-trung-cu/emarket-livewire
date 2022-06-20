@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Site\Home;
+use App\Http\Livewire\Site\ProductDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +21,9 @@ Route::get('/data', function () {
     dd(Auth::user());
 })->middleware('auth');
 
-Route::group(['as' => 'site'], function() {
+Route::group(['as' => 'site.'], function() {
     Route::get('/', Home::class)->name('home');
+    Route::get('products/{product}', ProductDetail::class)->name('product.show');
 });
 
 

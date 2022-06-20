@@ -91,4 +91,13 @@ class Product extends Model implements HasMedia
     {
         return Money::of($this->attributes['regular_price'], 'VND')->formatTo('vn_VN');
     }
+
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
