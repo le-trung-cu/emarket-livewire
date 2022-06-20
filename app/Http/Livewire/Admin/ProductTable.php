@@ -135,16 +135,13 @@ final class ProductTable extends PowerGridComponent
             Column::make('', 'thumbnail'),
 
             Column::make('NAME', 'name')
-                ->bodyAttribute('text-sm')
                 ->sortable(),
 
             Column::make('Variant', 'variant'),
 
-            Column::make('CATEGORY', 'category.name')
-                ->bodyAttribute('text-sm'),
+            Column::make('CATEGORY', 'category.name'),
 
             Column::make('PRICE', 'regular_price')
-                ->bodyAttribute('text-sm')
                 ->sortable()
                 ->searchable(),
 
@@ -157,14 +154,12 @@ final class ProductTable extends PowerGridComponent
                 ->sortable(),
 
             Column::make('CREATED AT', 'created_at_formatted', 'created_at')
-                ->bodyAttribute('text-sm')
                 ->hidden(true, false)
                 ->searchable()
                 ->sortable()
                 ->makeInputDatePicker(),
 
             Column::make('UPDATED AT', 'updated_at_formatted', 'updated_at')
-                ->bodyAttribute('text-sm')
                 ->hidden(true, false)
                 ->searchable()
                 ->sortable()

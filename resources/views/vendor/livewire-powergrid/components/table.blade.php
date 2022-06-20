@@ -85,7 +85,7 @@
                 >
                 @else
                     <tr style="{{ $theme->table->trBodyStyle }}"
-                        class="{{ $class }}"
+                        class="{{ $class }} group text-sm"
                         wire:key="{{ md5($row->{$primaryKey} ?? $loop->index) }}">
                         @endif
 
