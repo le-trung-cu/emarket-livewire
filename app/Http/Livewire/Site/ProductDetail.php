@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Site;
 
 use App\Models\Product;
 use App\Models\SKU;
+use Brick\Money\Money;
 use Livewire\Component;
 
 class ProductDetail extends Component
@@ -11,6 +12,8 @@ class ProductDetail extends Component
     public Product $product;
 
     public SKU $sku;
+    public $skus;
+    public $options;
 
     public function render()
     {
@@ -23,31 +26,23 @@ class ProductDetail extends Component
     {
         $this->product = $product;
         $this->sku = $product->skus()->first();
-    }
+
+        $this->options = $product->variationOptions()->with('values')->get()
+            ->map(
+                fn ($option) => [
+                    'id' => $option->id,
+                    'name' => $option->name,
+                    'visual' => $option->visual,
+                    'values' => $option->values->map(fn ($value) => ['id' => $value->id, 'value' => $value->value])
+                ]
+            );
+            // (object) Product::find(1)->skus()->with('variationValues')->get()->mapWithKeys(function($item, $key) {return [$item['id'] => ['barcode' => $item->barcode, 'id' => $item->id, 'price' => $item->price_vnd, 'variantionValueIds' => $item->variationValues->map(fn($value) => $value->id)]];});
+        
+            $this->skus = (object) $product->skus()->with('variationValues')->get()->mapWithKeys(function($item, $key) {return [$item['id'] => ['barcode' => $item->barcode, 'id' => $item->id, 'price' => $item->price_vnd, 'variantionValueIds' => $item->variationValues->map(fn($value) => $value->id)]];});
+        }
 
     public function addToCart($sku)
     {
-       dd($sku);
-    }
-
-    public function data()
-    {
-        $variantionValueIds = $this->product->skus->map(fn ($item) => $item->variationValues->map(fn ($value) => $value->id)->sort());
-        $mapVariantionCombinateToSku = (array) $this->product->skus
-            ->reduce(function ($result, $item) {
-                $key = implode('_', $item->variationValues->map(fn ($value) => $value->id)->sort());
-                $result[$key] = ['id' => $item->id, 'price' => $item->price];
-            }, []);
-
-        // collect([])->reduce()
-        // [
-        //     'variation_value_id_combinate' => 'sku',
-        // ];
-
-        // [
-        //     ['variation_value_id, ...']
-        // ];
-        // sku->variationValues
-        [['variation_value_id_selected']];
+        dd($sku);
     }
 }

@@ -29,8 +29,6 @@
                     <div class="border border-gray-200 shadow-sm p-3 text-center rounded mb-5">
                         <img x-ref="mainImage" width="400" class="w-full sm:w-auto sm:h-80" srcset=""
                             sizes="73vw" />
-                        {{-- <img class="object-cover inline-block" width="400" src="images/items/detail/big.jpg"
-                            alt="Product title"> --}}
                     </div>
                     <div class="flex space-x-2 overflow-auto text-center whitespace-nowrap">
                         @foreach ($galaries as $key => $galary)
@@ -83,30 +81,14 @@
                         and brown Odsy-1000 low-top sneakers.
                     </p>
 
-
-                    <ul class="mb-5">
-                        <li class="mb-1"> <b class="font-medium w-36 inline-block">Model#:</b>
-                            <span class="text-gray-500">Odsy-1000</span>
-                        </li>
-                        <li class="mb-1"> <b class="font-medium w-36 inline-block">Color:</b>
-                            <span class="text-gray-500">Brown</span>
-                        </li>
-                        <li class="mb-1"> <b class="font-medium w-36 inline-block">Delivery:</b>
-                            <span class="text-gray-500">Russia, USA & Europe</span>
-                        </li>
-                        <li class="mb-1"> <b class="font-medium w-36 inline-block">Color:</b>
-                            <span class="text-gray-500">Brown</span>
-                        </li>
-                    </ul>
-
                     <div class="mb-4">
                         <!-- select-custom -->
                         <template x-for="(option, optionIndex) in options" :key="option.id">
-                            <div class="flex flex-wrap">
-                                <span class="font-medium inline-block" x-text="option.name"></span>
+                            <div class="flex flex-wrap space-x-3">
+                                <span class="font-medium inline-block capitalize w-36" x-text="option.name"></span>
                                 <template x-for="value in option.values" :key="value.id">
-                                    <label>
-                                        <input type="radio" x-model="selectedValueIds[optionIndex]"
+                                    <label :class="{' mx-2 inline-block cursor-pointer': true, 'text-gray-400' : !optionValueEnabled[optionIndex].has(value.id)}">
+                                        <input  type="radio" x-model="selectedValueIds[optionIndex]"
                                             :value="value.id" :name="`selectedValueIds[${optionIndex}]`"
                                             @change="optionChange(optionIndex, value.id)"
                                             :disabled="!optionValueEnabled[optionIndex].has(value.id)" />
@@ -126,7 +108,7 @@
                         <a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
                             href="#" @click.prevent="addToCart(selectedSku.id)">
                             <i class="fa fa-shopping-cart mr-2"></i>
-                            Add to cart <span x-text="selectedSku.id"></span>
+                            Add to cart
                         </a>
                         <a class="px-4 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100"
                             href="#">
@@ -305,52 +287,8 @@
 
                 Alpine.data('productVariantionApp', () => ({
                     // options: [],
-                    options: [{
-                            name: 'color',
-                            id: 1,
-                            visual: 'color',
-                            values: [{
-                                    value: 'red',
-                                    id: 1
-                                },
-                                {
-                                    value: 'green',
-                                    id: 2
-                                },
-                            ]
-                        },
-                        {
-                            name: 'size',
-                            id: 2,
-                            visual: 'text',
-                            values: [{
-                                    value: 'X',
-                                    id: 3
-                                },
-                                {
-                                    value: 'XL',
-                                    id: 4
-                                },
-                            ]
-                        }
-                    ],
-                    skus: {
-                        'ABC1': {
-                            variantionValueIds: [1, 3],
-                            id: 1,
-                            price: 15000
-                        },
-                        'ABC2': {
-                            variantionValueIds: [1, 4],
-                            id: 2,
-                            price: 5000
-                        },
-                        'ABC3': {
-                            variantionValueIds: [2, 3],
-                            id: 3,
-                            price: 25000
-                        },
-                    },
+                    options: @js($options),
+                    skus: @js((object)$skus),
                     selectedValueIds: [],
                     optionValueEnabled: [],
                     selectedSku: {},

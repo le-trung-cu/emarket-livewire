@@ -19,7 +19,7 @@ class SKUFactory extends Factory
         return [
             'activity' => true,
             'weight' => 120,
-            'price' => 150_000.00,
+            'price' =>  $this->faker->randomElement([150_000.00, 120_000.00, 60_000.00]),
             'stock' => 12,
         ];
     }
