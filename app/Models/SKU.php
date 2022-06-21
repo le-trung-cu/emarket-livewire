@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Brick\Money\Money;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -35,5 +36,10 @@ class SKU extends Model
     public function variationValues()
     {
         return $this->belongsToMany(VariationValue::class, 'product_variations', 'sku_id');
+    }
+
+    public function getPriceVndAttribute()
+    {
+        return Money::of($this->attributes['price'], 'VND')->formatTo('vn_VN');
     }
 }

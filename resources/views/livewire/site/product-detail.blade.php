@@ -49,7 +49,7 @@
                     </div>
                     <!-- gallery end.// -->
                 </aside>
-                <main>
+                <main x-data="productVariantionApp">
                     <h2 class="font-semibold text-2xl mb-4">
                         {{ $product->name }}
                     </h2>
@@ -75,7 +75,7 @@
 
                     </div>
 
-                    <p class="mb-4 font-semibold text-xl">{{ $product->price_vnd }}</p>
+                    <p class="mb-4 font-semibold text-xl" x-text="selectedSku.price">{{ $sku->price_vnd }}</p>
 
                     <p class="mb-4 text-gray-500">
                         Virgil Abloh’s Off-White is a streetwear-inspired collection that
@@ -99,42 +99,23 @@
                         </li>
                     </ul>
 
-                    <div class="flex flex-wrap mb-4">
+                    <div class="mb-4">
                         <!-- select-custom -->
-                        <div class="relative w-1/3 lg:w-1/4 mr-2 mb-4">
-                            <select
-                                class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full">
-                                <option>Select size</option>
-                                <option>Extra large</option>
-                                <option>Medium size</option>
-                                <option>Normal size</option>
-                            </select>
-                            <i
-                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
-                                <svg width="24" height="24" class="fill-current h-5 w-5" viewBox="0 0 24 24">
-                                    <path d="M7 10l5 5 5-5H7z" />
-                                </svg>
-                            </i>
-                        </div>
-                        <!-- select-custom .//end  -->
-
-                        <!-- select-custom -->
-                        <div class="relative w-1/3 lg:w-1/4 mr-2 mb-4">
-                            <select
-                                class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full">
-                                <option>Select color</option>
-                                <option>Lightblue</option>
-                                <option>Green</option>
-                                <option>Black</option>
-                            </select>
-                            <i
-                                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
-                                <svg width="24" height="24" class="fill-current h-5 w-5" viewBox="0 0 24 24">
-                                    <path d="M7 10l5 5 5-5H7z" />
-                                </svg>
-                            </i>
-                        </div>
-                        <!-- select-custom .//end  -->
+                        <template x-for="(option, optionIndex) in options" :key="option.id">
+                            <div class="flex flex-wrap">
+                                <span class="font-medium inline-block" x-text="option.name"></span>
+                                <template x-for="value in option.values" :key="value.id">
+                                    <label>
+                                        <input type="radio" x-model="selectedValueIds[optionIndex]"
+                                            :value="value.id" :name="`selectedValueIds[${optionIndex}]`"
+                                            @change="optionChange(optionIndex, value.id)"
+                                            :disabled="!optionValueEnabled[optionIndex].has(value.id)" />
+                                        <span x-text="value.value"></span>
+                                    </label>
+                                </template>
+                            </div>
+                        </template>
+                         <!-- select-custom .//end -->
                     </div>
                     <!-- action buttons -->
                     <div class="flex flex-wrap gap-2">
@@ -143,9 +124,9 @@
                             Buy now
                         </a>
                         <a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-                            href="#">
+                            href="#" @click.prevent="addToCart(selectedSku.id)">
                             <i class="fa fa-shopping-cart mr-2"></i>
-                            Add to cart
+                            Add to cart <span x-text="selectedSku.id"></span>
                         </a>
                         <a class="px-4 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100"
                             href="#">
@@ -282,21 +263,6 @@
 
         </div> <!-- container.// -->
     </section>
-
-    {{-- <img srcset="
-        http://emarket.test/storage/1/responsive-images/1___galary_922_351.jpg 922w, 
-        http://emarket.test/storage/1/responsive-images/1___galary_771_294.jpg 771w,
-        http://emarket.test/storage/1/responsive-images/1___galary_645_246.jpg 645w, 
-        http://emarket.test/storage/1/responsive-images/1___galary_539_205.jpg 539w, 
-        http://emarket.test/storage/1/responsive-images/1___galary_451_172.jpg 451w, 
-        http://emarket.test/storage/1/responsive-images/1___galary_377_144.jpg 377w, 
-        data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHg9IjAiCiB5PSIwIiB2aWV3Qm94PSIwIDAgOTIyIDM1MSI+Cgk8aW1hZ2Ugd2lkdGg9IjkyMiIgaGVpZ2h0PSIzNTEiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvanBlZztiYXNlNjQsLzlqLzRBQVFTa1pKUmdBQkFRRUFZQUJnQUFELy9nQTdRMUpGUVZSUFVqb2daMlF0YW5CbFp5QjJNUzR3SUNoMWMybHVaeUJKU2tjZ1NsQkZSeUIyT0RBcExDQnhkV0ZzYVhSNUlEMGdPVEFLLzlzQVF3QURBZ0lEQWdJREF3TURCQU1EQkFVSUJRVUVCQVVLQndjR0NBd0tEQXdMQ2dzTERRNFNFQTBPRVE0TEN4QVdFQkVURkJVVkZRd1BGeGdXRkJnU0ZCVVUvOXNBUXdFREJBUUZCQVVKQlFVSkZBMExEUlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVUZCUVVGQlFVRkJRVS84QUFFUWdBREFBZ0F3RWlBQUlSQVFNUkFmL0VBQjhBQUFFRkFRRUJBUUVCQUFBQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVFBQUlCQXdNQ0JBTUZCUVFFQUFBQmZRRUNBd0FFRVFVU0lURkJCaE5SWVFjaWNSUXlnWkdoQ0NOQ3NjRVZVdEh3SkROaWNvSUpDaFlYR0JrYUpTWW5LQ2txTkRVMk56ZzVPa05FUlVaSFNFbEtVMVJWVmxkWVdWcGpaR1ZtWjJocGFuTjBkWFozZUhsNmc0U0Zob2VJaVlxU2s1U1ZscGVZbVpxaW82U2xwcWVvcWFxeXM3UzF0cmU0dWJyQ3c4VEZ4c2ZJeWNyUzA5VFYxdGZZMmRyaDR1UGs1ZWJuNk9ucThmTHo5UFgyOS9qNSt2L0VBQjhCQUFNQkFRRUJBUUVCQVFFQUFBQUFBQUFCQWdNRUJRWUhDQWtLQy8vRUFMVVJBQUlCQWdRRUF3UUhCUVFFQUFFQ2R3QUJBZ01SQkFVaE1RWVNRVkVIWVhFVElqS0JDQlJDa2FHeHdRa2pNMUx3RldKeTBRb1dKRFRoSmZFWEdCa2FKaWNvS1NvMU5qYzRPVHBEUkVWR1IwaEpTbE5VVlZaWFdGbGFZMlJsWm1kb2FXcHpkSFYyZDNoNWVvS0RoSVdHaDRpSmlwS1RsSldXbDVpWm1xS2pwS1dtcDZpcHFyS3p0TFcydDdpNXVzTER4TVhHeDhqSnl0TFQxTlhXMTlqWjJ1TGo1T1htNStqcDZ2THo5UFgyOS9qNSt2L2FBQXdEQVFBQ0VRTVJBRDhBKy9yL0FGYTVONEVVL0xtcDMxYTVTZUpGUDFxU0MyamE4Sks1K3RGeENuMjRISGFuYlM1TjliRnhOWG15QUd6VTlucWtyM0FEUFdWS1BMR1Y0NXAxbXgzaHUrYVJSLy9aIj4KCTwvaW1hZ2U+Cjwvc3ZnPg== 32w"
-        onload="window.requestAnimationFrame(function(){
-        if(!(size=getBoundingClientRect().width))return;
-        onload=null;
-        sizes=Math.ceil(size/window.innerWidth*100)+'vw';
-        });"
-        sizes="73vw" src="http://emarket.test/storage/1/conversions/1-galary.jpg" width="922" height="351"> --}}
 </div>
 
 
@@ -304,38 +270,139 @@
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('photoGalleryApp', () => ({
-                currentPhoto: 0,
-                photos: @json($galaries->map(fn($item) => $item->getSrcset('galary'))),
-                init() {
-                    this.changePhoto();
-                },
-                nextPhoto() {
-                    if (this.hasNext()) {
-                        this.currentPhoto++;
+                    currentPhoto: 0,
+                    photos: @json($galaries->map(fn($item) => $item->getSrcset('galary'))),
+                    init() {
                         this.changePhoto();
-                    }
-                },
-                previousPhoto() {
-                    if (this.hasPrevious()) {
-                        this.currentPhoto--;
+                    },
+                    nextPhoto() {
+                        if (this.hasNext()) {
+                            this.currentPhoto++;
+                            this.changePhoto();
+                        }
+                    },
+                    previousPhoto() {
+                        if (this.hasPrevious()) {
+                            this.currentPhoto--;
+                            this.changePhoto();
+                        }
+                    },
+                    changePhoto() {
+                        this.$refs.mainImage.srcset = this.photos[this.currentPhoto];
+                    },
+                    pickPhoto(index) {
+                        console.log('pick photo', index);
+                        this.currentPhoto = index;
                         this.changePhoto();
+                    },
+                    hasPrevious() {
+                        return this.currentPhoto > 0;
+                    },
+                    hasNext() {
+                        return this.photos.length > (this.currentPhoto + 1);
                     }
-                },
-                changePhoto() {
-                    this.$refs.mainImage.srcset = this.photos[this.currentPhoto];
-                },
-                pickPhoto(index) {
-                    console.log('pick photo', index);
-                    this.currentPhoto = index;
-                    this.changePhoto();
-                },
-                hasPrevious() {
-                    return this.currentPhoto > 0;
-                },
-                hasNext() {
-                    return this.photos.length > (this.currentPhoto + 1);
-                }
-            }))
+                })),
+
+                Alpine.data('productVariantionApp', () => ({
+                    // options: [],
+                    options: [{
+                            name: 'color',
+                            id: 1,
+                            visual: 'color',
+                            values: [{
+                                    value: 'red',
+                                    id: 1
+                                },
+                                {
+                                    value: 'green',
+                                    id: 2
+                                },
+                            ]
+                        },
+                        {
+                            name: 'size',
+                            id: 2,
+                            visual: 'text',
+                            values: [{
+                                    value: 'X',
+                                    id: 3
+                                },
+                                {
+                                    value: 'XL',
+                                    id: 4
+                                },
+                            ]
+                        }
+                    ],
+                    skus: {
+                        'ABC1': {
+                            variantionValueIds: [1, 3],
+                            id: 1,
+                            price: 15000
+                        },
+                        'ABC2': {
+                            variantionValueIds: [1, 4],
+                            id: 2,
+                            price: 5000
+                        },
+                        'ABC3': {
+                            variantionValueIds: [2, 3],
+                            id: 3,
+                            price: 25000
+                        },
+                    },
+                    selectedValueIds: [],
+                    optionValueEnabled: [],
+                    selectedSku: {},
+                    variantionValueIds: [],
+                    mapVariantionCombinateToSku: {},
+
+                    init() {
+                        
+                        this.variantionValueIds = Object.values(this.skus).map(sku => sku
+                            .variantionValueIds);
+                        this.mapVariantionCombinateToSku = Object.keys(this.skus).reduce((result,
+                        skuKey) => {
+                            const stringCombinate = this.skus[skuKey].variantionValueIds.join('_');
+                            result[stringCombinate] = skuKey;
+                            return result;
+                        }, {});
+                        if(this.options.length === 0){
+                            this.selectedSku = this.skus[Object.keys(this.skus)[0]];
+                            return;
+                        }
+                        if (this.variantionValueIds.length > 0) {
+                            this.optionValueEnabled[0] = new Set(
+                                this.variantionValueIds.map(valueIds => valueIds[0])
+                            );
+                            this.optionChange(0, 1);
+                        }
+                    },
+                    optionChange(optionIndex, valueId) {
+                        this.selectedValueIds[optionIndex] = valueId;
+                        this.selectedValueIds = [...this.selectedValueIds];
+                        console.log(this.selectedValueIds);
+
+                        if (optionIndex + 1 < this.options.length) {
+                            const selectedValueIdsLeft = this.selectedValueIds.slice(0, optionIndex + 1);
+                            const enables = this.variantionValueIds.filter(valueIds => {
+                                return selectedValueIdsLeft.every(id => valueIds.includes(id));
+                            });
+                            console.log('enables', enables[0]);
+                            this.optionValueEnabled[optionIndex + 1] = new Set(
+                                enables.map(valueIds => valueIds[optionIndex + 1])
+                            );
+                            this.optionChange(optionIndex + 1, enables[0][optionIndex + 1])
+                        } else {
+                            const stringCombinate = this.selectedValueIds.join('_');
+                            this.selectedSku = this.skus[this.mapVariantionCombinateToSku[stringCombinate]];
+                        }
+                    },
+                    addToCart(sku) {
+                        // livewire component
+                        @this.addToCart(sku);
+                    }
+                }))
         })
     </script>
 @endpush
