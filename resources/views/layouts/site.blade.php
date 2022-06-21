@@ -12,12 +12,12 @@
     <title>Tailwind Ecommerce Kit</title>
 
     <!-- Styles -->
-	@livewireStyles
+    @livewireStyles
     <link href="{{ asset('site/css/app.css') }}" rel="stylesheet" />
     <!-- Font awesome 5 -->
     <link href="{{ asset('fonts/fontawesome/css/all.min.css') }}" type="text/css" rel="stylesheet" />
 
-	<!-- Scripts -->
+    <!-- Scripts -->
     @livewireScripts
     <script src="{{ asset('site/js/app.js') }}" defer></script>
 </head>
@@ -29,7 +29,7 @@
             <div class="flex flex-wrap items-center">
                 <!-- Brand -->
                 <div class="flex-shrink-0 mr-5">
-                    <a href="#"> <img src="images/logo.svg" height="38" alt="Brand" /> </a>
+                    <a href="#"> <img src="{{ asset('images/logo.svg') }}" height="38" alt="Brand" /> </a>
                 </div>
                 <!-- Brand .//end -->
 
@@ -60,11 +60,8 @@
                         <span class="hidden lg:inline ml-1">Wishlist</span>
                     </a>
 
-                    <a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
-                        href="#">
-                        <i class="text-gray-400 w-5 fa fa-shopping-cart"></i>
-                        <span class="hidden lg:inline ml-1">My cart</span>
-                    </a>
+                    <livewire:site.cart-icon />
+                    
                 </div>
                 <!-- Actions .//end -->
 

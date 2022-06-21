@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Site;
 use App\Models\Product;
 use App\Models\SKU;
 use Brick\Money\Money;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
 
 class ProductDetail extends Component
@@ -36,13 +37,23 @@ class ProductDetail extends Component
                     'values' => $option->values->map(fn ($value) => ['id' => $value->id, 'value' => $value->value])
                 ]
             );
-            // (object) Product::find(1)->skus()->with('variationValues')->get()->mapWithKeys(function($item, $key) {return [$item['id'] => ['barcode' => $item->barcode, 'id' => $item->id, 'price' => $item->price_vnd, 'variantionValueIds' => $item->variationValues->map(fn($value) => $value->id)]];});
-        
-            $this->skus = (object) $product->skus()->with('variationValues')->get()->mapWithKeys(function($item, $key) {return [$item['id'] => ['barcode' => $item->barcode, 'id' => $item->id, 'price' => $item->price_vnd, 'variantionValueIds' => $item->variationValues->map(fn($value) => $value->id)]];});
-        }
+        // (object) Product::find(1)->skus()->with('variationValues')->get()->mapWithKeys(function($item, $key) {return [$item['id'] => ['barcode' => $item->barcode, 'id' => $item->id, 'price' => $item->price_vnd, 'variantionValueIds' => $item->variationValues->map(fn($value) => $value->id)]];});
 
-    public function addToCart($sku)
+        $this->skus = (object) $product->skus()->with('variationValues')->get()->mapWithKeys(function ($item, $key) {
+            return [$item['id'] => ['barcode' => $item->barcode, 'id' => $item->id, 'price' => $item->price_vnd, 'variantionValueIds' => $item->variationValues->map(fn ($value) => $value->id)]];
+        });
+    }
+
+    public function addToCart(SKU $sku)
     {
-        dd($sku);
+        Cart::instance('cart')->add([
+            'id' => $sku->id,
+            'name' => $sku->product->name,
+            'qty' => 1,
+            'price' => $sku->price,
+            'weight' => $sku->weight,
+        ]);
+
+        $this->emitTo('site.cart-icon', 'cartChanged');
     }
 }
