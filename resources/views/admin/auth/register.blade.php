@@ -14,35 +14,29 @@
 
             <!-- Name -->
             <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input icon="user" label="Name" placeholder="your name" :value="old('name')" required autofocus
+                    name="name"
+                    type="text" />
             </div>
 
             <!-- Email Address -->
             <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-input icon="user" label="Email" placeholder="your email" :value="old('email')" required
+                    name="email"
+                    type="email" />
+                
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
+                <x-input icon="key" label="Password" placeholder="your password" :value="old('password')" required
+                    autofocus name="password" type="password" autocomplete="new-password"/>
             </div>
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
+                <x-input icon="key" label="Confirm Password" placeholder="confirm password" :value="old('password')" required
+                    autofocus name="password_confirmation" type="password" autocomplete="new-password"/>
             </div>
 
             <div class="flex items-center justify-end mt-4">
@@ -50,7 +44,7 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ml-4">
+                <x-button type="submit" class="ml-4">
                     {{ __('Register') }}
                 </x-button>
             </div>
