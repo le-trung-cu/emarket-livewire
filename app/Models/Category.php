@@ -30,6 +30,11 @@ class Category extends Model
         return $this->hasMany(Category::class, 'parent_id')->orderBy('order');
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
     /**
      * Return the sluggable configuration array for this model.
      *

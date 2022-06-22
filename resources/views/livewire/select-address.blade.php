@@ -14,8 +14,6 @@
             'params' => $district,
         ]" option-label="description" option-value="value"
         option-description="description" />
-    <div>
 
-        <x-button primary label="Save Address" wire:click="selectedAddress" />
-    </div>
+    <x-input label="Home Address" placeholder="your home address" corner-hint="Optional" wire:model.lazy="homeAddress"/>
 </div>

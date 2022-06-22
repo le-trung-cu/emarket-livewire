@@ -4,8 +4,10 @@ use App\Http\Controllers\AddressController;
 use App\Http\Livewire\Site\CartDetail;
 use App\Http\Livewire\Site\Home;
 use App\Http\Livewire\Site\ProductDetail;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,14 @@ Route::controller(AddressController::class)->prefix('/address')->as('address.')-
     Route::get('wards', 'wards')->name('wards');
 });
 
+Route::get('/test', function() {
+    $product = Product::find(4);
+    // $product = new Product();
+    $product->addMedia(storage_path('test-image/10.jpg'))
+    ->preservingOriginal()
+    ->toMediaCollection('product-thumbnail');
+    // Product::find(5)->addMediaF($media)->toMediaCollection('preview');
+});
 
 Route::view('/powergrid', 'powergrid-demo');
 require __DIR__ . '/auth.php';

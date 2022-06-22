@@ -77,14 +77,22 @@ class Product extends Model implements HasMedia
 
                 $this
                     ->addMediaConversion('preview')
-                    ->width(128)
-                    ->height(96)
+                    ->width(56)
+                    ->height(56)
                     ->nonQueued();
             });
 
-        $this
-            ->addMediaCollection('product-thumbnail')
-            ->singleFile();
+        // 300x300; show in product index page
+        $this->addMediaCollection('product-thumbnail')
+            ->singleFile()
+            ->registerMediaConversions(function (Media $media) {
+                // 55x55; show in admin table
+                $this
+                    ->addMediaConversion('small')
+                    ->width(55)
+                    ->height(55)
+                    ->nonQueued();
+            });
     }
 
     public function getPriceVndAttribute()
@@ -99,5 +107,10 @@ class Product extends Model implements HasMedia
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function similarProducts(int $count = 4)
+    {
+        return Product::where('category_id', $this->category_id)->latest()->limit($count)->get();
     }
 }

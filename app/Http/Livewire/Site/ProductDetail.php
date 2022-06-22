@@ -15,18 +15,19 @@ class ProductDetail extends Component
     public SKU $sku;
     public $skus;
     public $options;
+    public $galaries;
 
     public function render()
     {
-        return view('livewire.site.product-detail', [
-            'galaries' => $this->product->getMedia('product-galary'),
-        ])->layout('layouts.site');
+        return view('livewire.site.product-detail')->layout('layouts.site');
     }
 
     public function mount(Product $product)
     {
         $this->product = $product;
         $this->sku = $product->skus()->first();
+        $this->galaries = $this->product->getMedia('product-galary');
+        $this->similarProducts = $this->product->similarProducts(4);
 
         $this->options = $product->variationOptions()->with('values')->get()
             ->map(

@@ -143,6 +143,10 @@ return [
         // 'store'  => 'redis',
     ],
 
+    'shop_id_ghn' => env('SHOP_ID_GHN'),
+    'token_ghn' => env('TOKEN_GHN'),
+    'shop_district_id_ghn' => env('SHOP_DISTRICT_ID_GHN'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

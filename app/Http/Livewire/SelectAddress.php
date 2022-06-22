@@ -13,14 +13,17 @@ class SelectAddress extends Component
     public $province = [];
     public $district = [];
     public $ward = [];
-
+    public $homeAddress = '';
     public $address = [];
 
     protected $rules = [
         'province' => 'required',
         'district' => 'required',
-        'ward' => 'required'
+        'ward' => 'required',
+        'homeAddress' => 'nullable',
     ];
+
+    protected $listeners = ['pickAddressEvent'];
 
     public function render()
     {
@@ -45,14 +48,15 @@ class SelectAddress extends Component
         $this->ward = (array) (json_decode($this->wardJson) ?? []);
     }
 
-    public function selectedAddress()
+    public function pickAddressEvent()
     {
         $address = [
             'province' => $this->province,
             'district' => $this->district,
             'ward' => $this->ward,
+            'homeAddress' => $this->homeAddress,
         ];
 
-        $this->emitUp('selectedAddress', $address);
+        $this->emitUp('pickAddressEvent', $address);
     }
 }

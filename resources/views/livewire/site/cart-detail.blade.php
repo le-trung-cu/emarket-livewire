@@ -59,8 +59,9 @@
                                         <a href="#"
                                             class="px-3 py-2 inline-block text-blue-600 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200">
                                             <i class="fa fa-heart"></i> </a>
-                                        <a class="px-4 py-2 inline-block text-red-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100"
-                                            href="#"> Remove </a>
+                                        <button
+                                            class="px-4 py-2 inline-block text-red-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100"
+                                            wire:click="updateCart('{{ $item->rowId }}', -1)"> Remove </button>
                                     </div>
                                 </div>
                             </div> <!-- item-cart end// -->
@@ -69,7 +70,22 @@
                         @endforeach
 
                         <h6 class="font-bold">Free Delivery within 1-2 weeks</h6>
-                        <x-button flat green label="Choose shipping address" wire:click="$set('isShowSelectAddressModal', true)" />
+                        @if (session('shipping_address'))
+                            <div class="p-2 bg-green-100 my-5 rounded-md">
+                                <p>
+                                    <span class="font-semibold text-sm">shipping address:</span> <span
+                                        class=" text-green-600 ">{{ session('shipping_address.addressLine') }}</span>
+                                </p>
+                                <p class="text-sm">
+                                    {{$services['message']}}
+                                </p>
+                                <div>
+
+                                </div>
+                            </div>
+                        @endif
+                        <x-button flat green label="Choose shipping address"
+                            wire:click="$set('isShowPickAddressModal', true)" />
                     </article> <!-- card end.// -->
 
                 </main>
@@ -80,15 +96,23 @@
                         <ul class="mb-5">
                             <li class="flex justify-between text-gray-600  mb-1">
                                 <span>Total price:</span>
-                                <span>{{ $cart->priceTotal() }}</span>
+                                <span>{{ $cart->priceTotalFormat() }}</span>
                             </li>
                             <li class="flex justify-between text-gray-600  mb-1">
                                 <span>Discount:</span>
                                 <span class="text-green-500">- đ0</span>
                             </li>
+                            <li class="flex justify-between text-gray-600  mb-1">
+                                <span>Weight:</span>
+                                <span>{{ $cart->weight() }}</span>
+                            </li>
+                            <li class="flex justify-between text-gray-600  mb-1">
+                                <span>Shipping fee:</span>
+                                <span class="text-green-500">{{ $cart->shippingFeeFormat() }}</span>
+                            </li>
                             <li class="text-lg font-bold border-t flex justify-between mt-3 pt-3">
                                 <span>Total price:</span>
-                                <span>$420.00</span>
+                                <span>{{ $cart->totalFormat() }}</span>
                             </li>
                         </ul>
 
@@ -96,7 +120,7 @@
                             href="#"> Checkout </a>
 
                         <a class="px-4 py-3 inline-block text-lg w-full text-center font-medium text-green-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100"
-                            href="#"> Back to shop </a>
+                            href="{{route('site.home') }}"> Back to shop </a>
 
                     </article> <!-- card end.// -->
 
@@ -150,8 +174,8 @@
                     <!-- COMPONENT: PRODUCT CARD -->
                     <article class="shadow-sm rounded bg-white border border-gray-200">
                         <a href="#" class="relative block p-1">
-                            <img src="images/items/9.jpg" class="mx-auto w-auto" style="height: 250px"
-                                height="250" alt="Product title here">
+                            <img src="images/items/9.jpg" class="mx-auto w-auto" style="height: 250px" height="250"
+                                alt="Product title here">
                         </a>
                         <div class="p-4 border-t border-t-gray-200">
                             <h6>
@@ -185,12 +209,14 @@
     </section>
     <!--  SECTION-RECOMMENDED  //END -->
 
-    <x-modal wire:model.defer="isShowSelectAddressModal">
-        <x-card title="Consent Terms">
+    <x-modal wire:model.defer="isShowPickAddressModal">
+        <x-card title="Shipping Address">
             <livewire:select-address />
             <x-slot name="footer">
                 <div class="flex justify-end gap-x-4">
                     <x-button flat label="Cancel" x-on:click="close" />
+                    <x-button primary label="Save Address"
+                        wire:click="$emitTo('select-address', 'pickAddressEvent')" />
                 </div>
             </x-slot>
         </x-card>

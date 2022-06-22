@@ -87,8 +87,10 @@
                             <div class="flex flex-wrap space-x-3">
                                 <span class="font-medium inline-block capitalize w-36" x-text="option.name"></span>
                                 <template x-for="value in option.values" :key="value.id">
-                                    <label :class="{' mx-2 inline-block cursor-pointer': true, 'text-gray-400' : !optionValueEnabled[optionIndex].has(value.id)}">
-                                        <input  type="radio" x-model="selectedValueIds[optionIndex]"
+                                    <label
+                                        :class="{ ' mx-2 inline-block cursor-pointer': true, 'text-gray-400': !
+                                                optionValueEnabled[optionIndex].has(value.id) }">
+                                        <input type="radio" x-model="selectedValueIds[optionIndex]"
                                             :value="value.id" :name="`selectedValueIds[${optionIndex}]`"
                                             @change="optionChange(optionIndex, value.id)"
                                             :disabled="!optionValueEnabled[optionIndex].has(value.id)" />
@@ -97,7 +99,7 @@
                                 </template>
                             </div>
                         </template>
-                         <!-- select-custom .//end -->
+                        <!-- select-custom .//end -->
                     </div>
                     <!-- action buttons -->
                     <div class="flex flex-wrap gap-2">
@@ -181,63 +183,20 @@
 
                     <article class="border border-gray-200 shadow-sm rounded bg-white p-4">
                         <h3 class="mb-5 text-lg font-semibold">Similar products</h3>
-
-                        <figure class="flex flex-row mb-4">
-                            <div>
-                                <a href="#"
-                                    class="block w-20 h-20 rounded border border-gray-200 overflow-hidden">
-                                    <img src="images/items/8.jpg" alt="Title">
-                                </a>
-                            </div>
-                            <figcaption class="ml-3">
-                                <p><a href="#" class="text-gray-600 hover:text-blue-600">Travel Bag Jeans Blue
-                                        Color Modern</a></p>
-                                <p class="mt-1 font-semibold">$712.00</p>
-                            </figcaption>
-                        </figure>
-
-                        <figure class="flex flex-row mb-4">
-                            <div>
-                                <a href="#"
-                                    class="block w-20 h-20 rounded border border-gray-200 overflow-hidden">
-                                    <img src="images/items/9.jpg" alt="Title">
-                                </a>
-                            </div>
-                            <figcaption class="ml-3">
-                                <p><a href="#" class="text-gray-600 hover:text-blue-600">Apple Watch Series 4 -
-                                        Space Gray</a></p>
-                                <p class="mt-1 font-semibold">$12.99</p>
-                            </figcaption>
-                        </figure>
-
-                        <figure class="flex flex-row mb-4">
-                            <div>
-                                <a href="#"
-                                    class="block w-20 h-20 rounded border border-gray-200 overflow-hidden">
-                                    <img src="images/items/10.jpg" alt="Title">
-                                </a>
-                            </div>
-                            <figcaption class="ml-3">
-                                <p><a href="#" class="text-gray-600 hover:text-blue-600">Apple Watch Series 4 -
-                                        Space Gray</a></p>
-                                <p class="mt-1 font-semibold">$12.99</p>
-                            </figcaption>
-                        </figure>
-
-                        <figure class="flex flex-row mb-4">
-                            <div>
-                                <a href="#"
-                                    class="block w-20 h-20 rounded border border-gray-200 overflow-hidden">
-                                    <img src="images/items/11.jpg" alt="Title">
-                                </a>
-                            </div>
-                            <figcaption class="ml-3">
-                                <p><a href="#" class="text-gray-600 hover:text-blue-600">Apple Watch Series 4 -
-                                        Space Gray</a></p>
-                                <p class="mt-1 font-semibold">$12.99</p>
-                            </figcaption>
-                        </figure>
-
+                        @foreach ($similarProducts as $product)
+                            <figure class="flex flex-row mb-4">
+                                <div>
+                                    <a href="#"
+                                        class="block w-20 h-20 rounded border border-gray-200 overflow-hidden">
+                                        <img src="{{ asset('images/items/8.jpg') }}" alt="Title">
+                                    </a>
+                                </div>
+                                <figcaption class="ml-3">
+                                    <p><a href="#" class="text-gray-600 hover:text-blue-600">{{ $product->name }}</a></p>
+                                    <p class="mt-1 font-semibold">{{ $product->price_vnd }}</p>
+                                </figcaption>
+                            </figure>
+                        @endforeach
                     </article>
 
                 </aside> <!-- col.// -->
@@ -288,7 +247,7 @@
                 Alpine.data('productVariantionApp', () => ({
                     // options: [],
                     options: @js($options),
-                    skus: @js((object)$skus),
+                    skus: @js((object) $skus),
                     selectedValueIds: [],
                     optionValueEnabled: [],
                     selectedSku: {},
@@ -296,16 +255,16 @@
                     mapVariantionCombinateToSku: {},
 
                     init() {
-                        
+
                         this.variantionValueIds = Object.values(this.skus).map(sku => sku
                             .variantionValueIds);
                         this.mapVariantionCombinateToSku = Object.keys(this.skus).reduce((result,
-                        skuKey) => {
+                            skuKey) => {
                             const stringCombinate = this.skus[skuKey].variantionValueIds.join('_');
                             result[stringCombinate] = skuKey;
                             return result;
                         }, {});
-                        if(this.options.length === 0){
+                        if (this.options.length === 0) {
                             this.selectedSku = this.skus[Object.keys(this.skus)[0]];
                             return;
                         }
