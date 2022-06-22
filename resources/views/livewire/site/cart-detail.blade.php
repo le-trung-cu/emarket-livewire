@@ -27,7 +27,8 @@
                                             </div>
                                         </div>
                                         <figcaption class="ml-3">
-                                            <p><a href="{{route('site.product.show', $item->sku->product)}}" class="hover:text-blue-600">{{$item->name}}</a></p>
+                                            <p><a href="{{ route('site.product.show', $item->sku->product) }}"
+                                                    class="hover:text-blue-600">{{ $item->name }}</a></p>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -35,11 +36,14 @@
                                     <!-- selection -->
                                     <div class="w-24 relative">
                                         <div class="flex justify-center items-center">
-                                            <button type="button" class="border border-gray-500 w-7 h-7 flex justify-center items-center"
-                                            wire:click="updateCart('{{$item->rowId}}', {{$item->qty - 1}})">-</button>
-                                            <input disabled value="{{$item->qty}}" class="w-12 h-7 border border-gray-500 text-center"/>
-                                            <button type="button" class="border border-gray-500 w-7 h-7 flex justify-center items-center"
-                                                wire:click="updateCart('{{$item->rowId}}', {{$item->qty + 1}})">+</button>
+                                            <button type="button"
+                                                class="border border-gray-500 w-7 h-7 flex justify-center items-center"
+                                                wire:click="updateCart('{{ $item->rowId }}', {{ $item->qty - 1 }})">-</button>
+                                            <input disabled value="{{ $item->qty }}"
+                                                class="w-12 h-7 border border-gray-500 text-center" />
+                                            <button type="button"
+                                                class="border border-gray-500 w-7 h-7 flex justify-center items-center"
+                                                wire:click="updateCart('{{ $item->rowId }}', {{ $item->qty + 1 }})">+</button>
                                         </div>
                                     </div>
                                     <!-- selection .//end -->
@@ -47,7 +51,7 @@
                                 <div>
                                     <div class="leading-5">
                                         <p class="font-semibold not-italic">{{ $item->price_total }}</p>
-                                        <small class="text-gray-400"> {{$item->price_unit}} / per item </small>
+                                        <small class="text-gray-400"> {{ $item->price_unit }} / per item </small>
                                     </div>
                                 </div>
                                 <div class="flex-auto">
@@ -65,10 +69,7 @@
                         @endforeach
 
                         <h6 class="font-bold">Free Delivery within 1-2 weeks</h6>
-                        <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi ut aliquip</p>
-
+                        <x-button flat green label="Choose shipping address" wire:click="$set('isShowSelectAddressModal', true)" />
                     </article> <!-- card end.// -->
 
                 </main>
@@ -149,8 +150,8 @@
                     <!-- COMPONENT: PRODUCT CARD -->
                     <article class="shadow-sm rounded bg-white border border-gray-200">
                         <a href="#" class="relative block p-1">
-                            <img src="images/items/9.jpg" class="mx-auto w-auto" style="height: 250px" height="250"
-                                alt="Product title here">
+                            <img src="images/items/9.jpg" class="mx-auto w-auto" style="height: 250px"
+                                height="250" alt="Product title here">
                         </a>
                         <div class="p-4 border-t border-t-gray-200">
                             <h6>
@@ -166,8 +167,8 @@
                     <!-- COMPONENT: PRODUCT CARD -->
                     <article class="shadow-sm rounded bg-white border border-gray-200">
                         <a href="#" class="relative block p-1">
-                            <img src="images/items/8.jpg" class="mx-auto w-auto" style="height: 250px" height="250"
-                                alt="Product title here">
+                            <img src="images/items/8.jpg" class="mx-auto w-auto" style="height: 250px"
+                                height="250" alt="Product title here">
                         </a>
                         <div class="p-4 border-t border-t-gray-200">
                             <h6>
@@ -183,4 +184,15 @@
         </div>
     </section>
     <!--  SECTION-RECOMMENDED  //END -->
+
+    <x-modal wire:model.defer="isShowSelectAddressModal">
+        <x-card title="Consent Terms">
+            <livewire:select-address />
+            <x-slot name="footer">
+                <div class="flex justify-end gap-x-4">
+                    <x-button flat label="Cancel" x-on:click="close" />
+                </div>
+            </x-slot>
+        </x-card>
+    </x-modal>
 </div>

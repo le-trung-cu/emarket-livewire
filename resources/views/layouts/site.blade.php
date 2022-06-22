@@ -18,6 +18,7 @@
     <link href="{{ asset('fonts/fontawesome/css/all.min.css') }}" type="text/css" rel="stylesheet" />
 
     <!-- Scripts -->
+    @wireUiScripts
     @livewireScripts
     <script src="{{ asset('site/js/app.js') }}" defer></script>
 </head>
@@ -40,7 +41,7 @@
                         class="flex-grow appearance-none border border-gray-200 bg-gray-100 rounded-md mr-2 py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400"
                         type="text" placeholder="Search">
                     <button type="button"
-                        class="px-4 py-2 inline-block text-white border border-transparent bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                        class="px-4 py-2 inline-block border border-transparent bg-blue-600 text-white rounded-md hover:bg-blue-700">
                         Search
                     </button>
                 </div>

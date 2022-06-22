@@ -8,6 +8,11 @@ use Livewire\Component;
 
 class CartDetail extends Component
 {
+    public bool $isShowSelectAddressModal = false;
+    public $shippingAddress = [];
+
+    protected $listeners = ['selectedAddress'];
+
     public function render()
     {
         return view('livewire.site.cart-detail', [
@@ -19,5 +24,10 @@ class CartDetail extends Component
     {
         FacadesCart::instance('cart')->update($rowId, $num);
         $this->emitTo('site.cart-icon', 'cartChanged');
+    }
+
+    public function selectedAddress($address)
+    {
+        session(['shipping_address' => $address ]);
     }
 }
