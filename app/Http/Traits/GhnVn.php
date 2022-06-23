@@ -39,11 +39,10 @@ trait GhnVn
             'token' => config('app.token_ghn'),
             "shop_id" => config('app.shop_id_ghn'),
             'Content-Type' => 'application/json',
-        ])->get('https://dev-online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/fee', $shipmentInfo);
-
-        $fee =    $fee->json()['data']['total'];
-
-        return $fee;
+        ])
+            ->get('https://dev-online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/fee', $shipmentInfo)
+            ->json();
+        return $fee['data']['total'];
     }
 
     public function getProvinces()

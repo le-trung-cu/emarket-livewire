@@ -16,68 +16,79 @@
                 <main class="md:w-3/4">
 
                     <article class="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
-                        @foreach ($cart->cartItems as $item)
-                            <!-- item-cart -->
-                            <div class="flex flex-wrap lg:flex-row gap-5  mb-4">
-                                <div class="w-full lg:w-2/5 xl:w-2/4">
-                                    <figure class="flex leading-5">
-                                        <div>
-                                            <div class="block w-16 h-16 rounded border border-gray-200 overflow-hidden">
-                                                <img src="images/items/1.jpg" alt="Title">
+                        @foreach ($cart->shippingOrders as $storeBranchId => $subOrder)
+                            @foreach ($subOrder as $item)
+                                <!-- item-cart -->
+                                <div class="flex flex-wrap lg:flex-row gap-5  mb-4">
+                                    <div class="w-full lg:w-2/5 xl:w-2/4">
+                                        <figure class="flex leading-5">
+                                            <div>
+                                                <div
+                                                    class="block w-16 h-16 rounded border border-gray-200 overflow-hidden">
+                                                    <img src="images/items/1.jpg" alt="Title">
+                                                </div>
+                                            </div>
+                                            <figcaption class="ml-3">
+                                                <p><a href="{{ route('site.product.show', $item->sku->product) }}"
+                                                        class="hover:text-blue-600">{{ $item->name }}</a></p>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="">
+                                        <!-- selection -->
+                                        <div class="w-24 relative">
+                                            <div class="flex justify-center items-center">
+                                                <button type="button"
+                                                    class="border border-gray-500 w-7 h-7 flex justify-center items-center"
+                                                    wire:click="updateCart('{{ $item->rowId }}', {{ $item->qty - 1 }})">-</button>
+                                                <input disabled value="{{ $item->qty }}"
+                                                    class="w-12 h-7 border border-gray-500 text-center" />
+                                                <button type="button"
+                                                    class="border border-gray-500 w-7 h-7 flex justify-center items-center"
+                                                    wire:click="updateCart('{{ $item->rowId }}', {{ $item->qty + 1 }})">+</button>
                                             </div>
                                         </div>
-                                        <figcaption class="ml-3">
-                                            <p><a href="{{ route('site.product.show', $item->sku->product) }}"
-                                                    class="hover:text-blue-600">{{ $item->name }}</a></p>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <div class="">
-                                    <!-- selection -->
-                                    <div class="w-24 relative">
-                                        <div class="flex justify-center items-center">
-                                            <button type="button"
-                                                class="border border-gray-500 w-7 h-7 flex justify-center items-center"
-                                                wire:click="updateCart('{{ $item->rowId }}', {{ $item->qty - 1 }})">-</button>
-                                            <input disabled value="{{ $item->qty }}"
-                                                class="w-12 h-7 border border-gray-500 text-center" />
-                                            <button type="button"
-                                                class="border border-gray-500 w-7 h-7 flex justify-center items-center"
-                                                wire:click="updateCart('{{ $item->rowId }}', {{ $item->qty + 1 }})">+</button>
+                                        <!-- selection .//end -->
+                                    </div>
+                                    <div>
+                                        <div class="leading-5">
+                                            <p class="font-semibold not-italic">{{ $item->price_total }}</p>
+                                            <small class="text-gray-400"> {{ $item->price_unit }} / per item </small>
                                         </div>
                                     </div>
-                                    <!-- selection .//end -->
-                                </div>
-                                <div>
-                                    <div class="leading-5">
-                                        <p class="font-semibold not-italic">{{ $item->price_total }}</p>
-                                        <small class="text-gray-400"> {{ $item->price_unit }} / per item </small>
+                                    <div class="flex-auto">
+                                        <div class="float-right">
+                                            <a href="#"
+                                                class="px-3 py-2 inline-block text-blue-600 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200">
+                                                <i class="fa fa-heart"></i> </a>
+                                            <button
+                                                class="px-4 py-2 inline-block text-red-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100"
+                                                wire:click="updateCart('{{ $item->rowId }}', -1)"> Remove </button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="flex-auto">
-                                    <div class="float-right">
-                                        <a href="#"
-                                            class="px-3 py-2 inline-block text-blue-600 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200">
-                                            <i class="fa fa-heart"></i> </a>
-                                        <button
-                                            class="px-4 py-2 inline-block text-red-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100"
-                                            wire:click="updateCart('{{ $item->rowId }}', -1)"> Remove </button>
-                                    </div>
-                                </div>
-                            </div> <!-- item-cart end// -->
-
+                                </div> <!-- item-cart end// -->
+                            @endforeach
+                            @if (array_key_exists($storeBranchId, $cart->shippingFee))
+                                <p class="p-2 bg-green-100 my-5 rounded-md text-green-600">
+                                    <span class="font-semibold"> Shipping Fee:
+                                        {{ $cart->shippingFeeFormat($storeBranchId) }}</span>
+                                </p>
+                            @endif
                             <hr class="my-4">
                         @endforeach
-
                         <h6 class="font-bold">Free Delivery within 1-2 weeks</h6>
                         @if (session('shipping_address'))
                             <div class="p-2 bg-green-100 my-5 rounded-md">
+                                @if (count($cart->shippingFee) > 1)
+                                    <p class="font-semibold text-sm">Because your cart contains products from diference place so your order will
+                                        deliver in multiple times!</p>
+                                @endif
                                 <p>
                                     <span class="font-semibold text-sm">shipping address:</span> <span
                                         class=" text-green-600 ">{{ session('shipping_address.addressLine') }}</span>
                                 </p>
                                 <p class="text-sm">
-                                    {{$services['message']}}
+                                    {{ $services['message'] }}
                                 </p>
                                 <div>
 
@@ -120,7 +131,7 @@
                             href="#"> Checkout </a>
 
                         <a class="px-4 py-3 inline-block text-lg w-full text-center font-medium text-green-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100"
-                            href="{{route('site.home') }}"> Back to shop </a>
+                            href="{{ route('site.home') }}"> Back to shop </a>
 
                     </article> <!-- card end.// -->
 

@@ -12,7 +12,7 @@ class Home extends Component
     {
         return view('livewire.site.home', [
             'categories' => Category::where('parent_id', null)->get(),
-            'newProducts' => Product::query()->latest()->take(8)->get(),
+            'newProducts' => Product::query()->orderBy('id')->take(8)->get(),
         ])->layout('layouts.site');
     }
 }

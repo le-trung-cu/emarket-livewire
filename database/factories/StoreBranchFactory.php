@@ -20,7 +20,7 @@ class StoreBranchFactory extends Factory
             'name' => $this->faker->name,
             'phone' => $this->faker->phoneNumber,
             'address' => $this->faker->address,
-            'district_id' => 22,
+            'district_id' => $this->faker->randomElement([2090, 1528]),
             'ward_code' => '23444',
         ];
     }

@@ -15,6 +15,14 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
+        Product::factory()->create([
+            'store_branch_id' => 5,
+        ]);
+
+        Product::factory()->create([
+            'store_branch_id' => 7,
+        ]);
+
         Product::factory(20)->create();
     }
 }
