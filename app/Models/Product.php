@@ -111,6 +111,11 @@ class Product extends Model implements HasMedia
 
     public function similarProducts(int $count = 4)
     {
-        return Product::where('category_id', $this->category_id)->latest()->limit($count)->get();
+        return Product::query()
+            ->has('skus')
+            ->where('category_id', $this->category_id)
+            ->whereNot('id', $this->id)
+            ->limit($count)
+            ->get();
     }
 }
