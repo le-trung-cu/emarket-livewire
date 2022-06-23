@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AddressController;
 use App\Http\Livewire\Site\CartDetail;
+use App\Http\Livewire\Site\Checkout;
 use App\Http\Livewire\Site\Home;
 use App\Http\Livewire\Site\ProductDetail;
 use App\Models\Product;
@@ -29,6 +30,7 @@ Route::group(['as' => 'site.'], function () {
     Route::get('/', Home::class)->name('home');
     Route::get('products/{product}', ProductDetail::class)->name('product.show');
     Route::get('/cart', CartDetail::class)->name('cart.show');
+    Route::get('checkout', Checkout::class)->name('cart.checkout');
 });
 
 Route::controller(AddressController::class)->prefix('/address')->as('address.')->group(function () {
