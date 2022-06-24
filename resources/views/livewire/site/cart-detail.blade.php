@@ -30,7 +30,7 @@
                                             </div>
                                             <figcaption class="ml-3">
                                                 <p><a href="{{ route('site.product.show', $item->sku->product) }}"
-                                                        class="hover:text-blue-600">{{ $item->name }}</a></p>
+                                                        class="hover:text-blue-600">{{ $item->product_name }}</a></p>
                                             </figcaption>
                                         </figure>
                                     </div>
@@ -52,8 +52,12 @@
                                     </div>
                                     <div>
                                         <div class="leading-5">
-                                            <p class="font-semibold not-italic">{{ $item->price_total }}</p>
-                                            <small class="text-gray-400"> {{ $item->price_unit }} / per item </small>
+                                            <p class="font-semibold not-italic">
+                                                {{ $item->amount }}
+                                            </p>
+                                            <small class="text-gray-400">
+                                                {{ $item->price_unit}} / per
+                                                item </small>
                                         </div>
                                     </div>
                                     <div class="flex-auto">
@@ -63,7 +67,8 @@
                                                 <i class="fa fa-heart"></i> </a>
                                             <button
                                                 class="px-4 py-2 inline-block text-red-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100"
-                                                wire:click="updateCart('{{ $item->rowId }}', -1)"> Remove </button>
+                                                wire:click="updateCart('{{ $item->rowId }}', -1)"> Remove
+                                            </button>
                                         </div>
                                     </div>
                                 </div> <!-- item-cart end// -->
@@ -71,7 +76,7 @@
                             @if (array_key_exists($storeBranchId, $cart->shippingFee))
                                 <p class="p-2 bg-green-100 my-5 rounded-md text-green-600">
                                     <span class="font-semibold"> Shipping Fee:
-                                        {{ $cart->shippingFeeFormat($storeBranchId) }}</span>
+                                        {{ $cart->shippingFee[$storeBranchId] }}</span>
                                 </p>
                             @endif
                             <hr class="my-4">
@@ -80,7 +85,8 @@
                         @if (session('shipping_address'))
                             <div class="p-2 bg-green-100 my-5 rounded-md">
                                 @if (count($cart->shippingFee) > 1)
-                                    <p class="font-semibold text-sm">Because your cart contains products from diference place so your order will
+                                    <p class="font-semibold text-sm">Because your cart contains products from
+                                        diference place so your order will
                                         deliver in multiple times!</p>
                                 @endif
                                 <p>
@@ -107,7 +113,7 @@
                         <ul class="mb-5">
                             <li class="flex justify-between text-gray-600  mb-1">
                                 <span>Total price:</span>
-                                <span>{{ $cart->priceTotalFormat() }}</span>
+                                <span>{{ $cart->amount }}</span>
                             </li>
                             <li class="flex justify-between text-gray-600  mb-1">
                                 <span>Discount:</span>
@@ -119,11 +125,11 @@
                             </li>
                             <li class="flex justify-between text-gray-600  mb-1">
                                 <span>Shipping fee:</span>
-                                <span class="text-green-500">{{ $cart->shippingFeeFormat() }}</span>
+                                <span class="text-green-500">{{ $cart->shippingFeeTotal() }}</span>
                             </li>
                             <li class="text-lg font-bold border-t flex justify-between mt-3 pt-3">
                                 <span>Total price:</span>
-                                <span>{{ $cart->totalFormat() }}</span>
+                                <span>{{ $cart->amountIncludeShippingFee() }}</span>
                             </li>
                         </ul>
 
@@ -156,7 +162,8 @@
                         </a>
                         <div class="p-4 border-t border-t-gray-200">
                             <h6>
-                                <a href="#" class="text-gray-600 hover:text-blue-500">Product name goes here</a>
+                                <a href="#" class="text-gray-600 hover:text-blue-500">Product name goes
+                                    here</a>
                             </h6>
                             <p class="text-sm text-gray-400">Sizes: S, M, XL</p>
                             <span class="font-semibold">$76.00</span>
@@ -173,7 +180,8 @@
                         </a>
                         <div class="p-4 border-t border-t-gray-200">
                             <h6>
-                                <a href="#" class="text-gray-600 hover:text-blue-500">Product name goes here</a>
+                                <a href="#" class="text-gray-600 hover:text-blue-500">Product name goes
+                                    here</a>
                             </h6>
                             <p class="text-sm text-gray-400">Sizes: S, M, XL</p>
                             <span class="font-semibold">$76.00</span>
@@ -190,7 +198,8 @@
                         </a>
                         <div class="p-4 border-t border-t-gray-200">
                             <h6>
-                                <a href="#" class="text-gray-600 hover:text-blue-500">Product name goes here</a>
+                                <a href="#" class="text-gray-600 hover:text-blue-500">Product name goes
+                                    here</a>
                             </h6>
                             <p class="text-sm text-gray-400">Sizes: S, M, XL</p>
                             <span class="font-semibold">$76.00</span>
@@ -207,7 +216,8 @@
                         </a>
                         <div class="p-4 border-t border-t-gray-200">
                             <h6>
-                                <a href="#" class="text-gray-600 hover:text-blue-500">Product name goes here</a>
+                                <a href="#" class="text-gray-600 hover:text-blue-500">Product name goes
+                                    here</a>
                             </h6>
                             <p class="text-sm text-gray-400">Sizes: S, M, XL</p>
                             <span class="font-semibold">$76.00</span>

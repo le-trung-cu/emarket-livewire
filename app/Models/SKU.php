@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Brick\Money\Money;
+use App\Casts\MoneyCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,7 +24,7 @@ class SKU extends Model
     protected $casts = [
         'activity' => 'boolean',
         'weight' => 'integer',
-        // 'price' => 'decimal',
+        'price' => MoneyCast::class,
         'stock' => 'integer',
     ];
 
@@ -38,8 +38,8 @@ class SKU extends Model
         return $this->belongsToMany(VariationValue::class, 'product_variations', 'sku_id');
     }
 
-    public function getPriceVndAttribute()
+    public function getPriceValueAttribute()
     {
-        return Money::of($this->attributes['price'], 'VND')->formatTo('vn_VN');
+        return $this->attributes['price'];
     }
 }

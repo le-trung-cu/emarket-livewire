@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Casts\MoneyCast;
 use App\Enums\ProductStatus;
 use Brick\Money\Money;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Casts\AsCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
@@ -26,7 +28,7 @@ class Product extends Model implements HasMedia
     ];
 
     protected $casts = [
-        // 'regular_price' => 'decimal',
+        'regular_price' => MoneyCast::class,
         // 'status' => ProductStatus::class,
     ];
 

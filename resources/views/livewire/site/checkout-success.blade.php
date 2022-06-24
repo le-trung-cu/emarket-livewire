@@ -45,7 +45,7 @@
                                     </div>
                                     <div>
                                         <div class="leading-5">
-                                            <p class="font-semibold not-italic">{{ $item->price * $item->qty }}</p>
+                                            <p class="font-semibold not-italic">{{ $item->amount }}</p>
                                             <small class="text-gray-400"> {{ $item->price }} / per item </small>
                                         </div>
                                     </div>

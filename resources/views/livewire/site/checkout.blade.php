@@ -20,33 +20,31 @@
                             @foreach ($subOrder as $item)
                                 <!-- item-cart -->
                                 <div class="flex flex-wrap lg:flex-row gap-5  mb-4">
-                                    <div class="w-full lg:w-2/5 xl:w-2/4">
+                                    <div class="lg:w-2/5 xl:w-2/4 flex-grow">
                                         <figure class="flex leading-5">
                                             <div>
                                                 <div
                                                     class="block w-16 h-16 rounded border border-gray-200 overflow-hidden">
-                                                    <img src="{{ $item->sku->product->thumbnail }}" alt="{{$item->product_name}}">
+                                                    <img src="{{ $item->sku->product->thumbnail }}"
+                                                        alt="{{ $item->product_name }}">
                                                 </div>
                                             </div>
                                             <figcaption class="ml-3">
                                                 <p><a href="{{ route('site.product.show', $item->sku->product) }}"
-                                                        class="hover:text-blue-600">{{ $item->name }}</a></p>
+                                                        class="hover:text-blue-600">{{ $item->product_name }}</a></p>
                                             </figcaption>
                                         </figure>
                                     </div>
                                     <div class="">
                                         <!-- selection -->
-                                        <div class="w-24 relative">
-                                            <div class="flex justify-center items-center">
-                                                <input disabled value="{{ $item->qty }}"
-                                                    class="w-12 h-7 border border-gray-500 text-center" />
-                                            </div>
+                                        <div class="relative">
+                                            <p class="flex justify-center items-center">x {{ $item->qty }}</p>
                                         </div>
                                         <!-- selection .//end -->
                                     </div>
                                     <div>
                                         <div class="leading-5">
-                                            <p class="font-semibold not-italic">{{ $item->price_total }}</p>
+                                            <p class="font-semibold not-italic">{{ $item->amount }}</p>
                                             <small class="text-gray-400"> {{ $item->price_unit }} / per item </small>
                                         </div>
                                     </div>
@@ -55,7 +53,7 @@
                             @if (array_key_exists($storeBranchId, $cart->shippingFee))
                                 <p class="p-2 bg-green-100 my-5 rounded-md text-green-600">
                                     <span class="font-semibold"> Shipping Fee:
-                                        {{ $cart->shippingFeeFormat($storeBranchId) }}</span>
+                                        {{ $cart->shippingFee[$storeBranchId] }}</span>
                                 </p>
                             @endif
                             <hr class="my-4">
@@ -86,7 +84,7 @@
                         <div class="h-5"></div>
                         <x-input label="Phone" placeholder="your phone" wire:model.defer="recipientPhone" />
                     </article>
-                    
+
                     <aside class="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
 
                         <article>
@@ -94,7 +92,7 @@
                             <ul class="mb-5">
                                 <li class="flex justify-between text-gray-600  mb-1">
                                     <span>Total price:</span>
-                                    <span>{{ $cart->priceTotalFormat() }}</span>
+                                    <span>{{ $cart->amount }}</span>
                                 </li>
                                 <li class="flex justify-between text-gray-600  mb-1">
                                     <span>Discount:</span>
@@ -106,11 +104,11 @@
                                 </li>
                                 <li class="flex justify-between text-gray-600  mb-1">
                                     <span>Shipping fee:</span>
-                                    <span class="text-green-500">{{ $cart->shippingFeeFormat() }}</span>
+                                    <span class="text-green-500">{{ $cart->shippingFeeTotal() }}</span>
                                 </li>
                                 <li class="text-lg font-bold border-t flex justify-between mt-3 pt-3">
                                     <span>Total price:</span>
-                                    <span>{{ $cart->totalFormat() }}</span>
+                                    <span>{{ $cart->amountIncludeShippingFee() }}</span>
                                 </li>
                             </ul>
 
@@ -119,7 +117,8 @@
                                 <div class="p-2">
                                     <label class="relative w-32 h-16 inline-block border-gray-300 border-2"
                                         style="background-size: contain; background-repeat: no-repeat; background-image: url('{{ asset('images/misc/cash.jpg') }}');">
-                                        <input class="hidden" type="radio" name="paymentTypeId" wire:model="paymentTypeId" value="1">
+                                        <input class="hidden" type="radio" name="paymentTypeId"
+                                            wire:model="paymentTypeId" value="1">
                                         @if ($paymentTypeId == 1)
                                             <div class="absolute -top-3 -right-3 text-blue-500">
                                                 <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +134,8 @@
                                 <div class="p-2">
                                     <label class="relative w-32 h-16 inline-block border-gray-300 border-2"
                                         style="background-size: contain; background-repeat: no-repeat; background-image: url('{{ asset('images/misc/payment-card.png') }}');">
-                                        <input class="hidden" type="radio" name="paymentTypeId"  wire:model="paymentTypeId" value="2">
+                                        <input class="hidden" type="radio" name="paymentTypeId"
+                                            wire:model="paymentTypeId" value="2">
                                         @if ($paymentTypeId == 2)
                                             <div class="absolute -top-3 -right-3 text-blue-500">
                                                 <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +151,8 @@
                                 <div class="p-2">
                                     <label class="relative w-32 h-16 inline-block border-gray-300 border-2"
                                         style="background-size: contain; background-repeat: no-repeat; background-image: url('{{ asset('images/misc/payment-paypal.png') }}');">
-                                        <input class="hidden" type="radio" name="paymentTypeId"  wire:model="paymentTypeId" value="3">
+                                        <input class="hidden" type="radio" name="paymentTypeId"
+                                            wire:model="paymentTypeId" value="3">
                                         @if ($paymentTypeId == 3)
                                             <div class="absolute -top-3 -right-3 text-blue-500">
                                                 <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg"
@@ -165,8 +166,10 @@
                                     </label>
                                 </div>
                             </div>
-                            <x-errors class="my-5"/>
-                            <x-button wire:click="checkout" spinner class="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" label="Checkout" />
+                            <x-errors class="my-5" />
+                            <x-button wire:click="checkout" spinner
+                                class="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700"
+                                label="Checkout" />
                             <a class="px-4 py-3 inline-block text-lg w-full text-center font-medium text-green-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100"
                                 href="{{ route('site.home') }}"> Back to shop </a>
 
@@ -186,7 +189,8 @@
             <x-slot name="footer">
                 <div class="flex justify-end gap-x-4">
                     <x-button flat label="Cancel" x-on:click="close" />
-                    <x-button primary label="Save Address" wire:click="$emitTo('select-address', 'pickAddressEvent')" />
+                    <x-button primary label="Save Address"
+                        wire:click="$emitTo('select-address', 'pickAddressEvent')" />
                 </div>
             </x-slot>
         </x-card>

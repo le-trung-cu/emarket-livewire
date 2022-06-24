@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\MoneyCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,6 +26,11 @@ class Order extends Model
         'district_id',
         'print_token_ghn',
         'status',
+    ];
+
+    protected $cats = [
+        'amount' => MoneyCast::class,
+        'shipping_fee' => MoneyCast::class,
     ];
 
     public function orderItems()

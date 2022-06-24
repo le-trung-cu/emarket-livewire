@@ -75,7 +75,7 @@
                             </p>
                         @empty
                         @endforelse
-                        <span class="font-semibold">{{ $product->price_vnd }}</span>
+                        <span class="font-semibold">{{ $product->regular_price }}</span>
                     </div>
                 </article>
                 <!-- COMPONENT: PRODUCT CARD //END -->

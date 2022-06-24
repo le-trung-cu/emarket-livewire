@@ -4,7 +4,6 @@ namespace App\ValueObjects;
 
 use App\Http\Traits\GhnVn;
 use App\Models\Order;
-use App\Models\OrderItem;
 use App\Models\SKU;
 use App\Models\StoreBranch;
 use Brick\Money\Money;
@@ -21,8 +20,14 @@ class Cart
     public $shippingOrders;
     public $cartItems;
 
+    // The amount can be used to get the total price of all items in the cart before applying discount and taxes.
+    public $amount;
+
     public function __construct()
     {
+        FacadesCart::instance('cart');
+        $this->amount = Money::of(FacadesCart::priceTotal(), 'VND');
+
         $this->cart = FacadesCart::instance('cart');
         $cartContent = $this->cart->content();
 
@@ -42,26 +47,16 @@ class Cart
         );
     }
 
-    // The priceTotal() method can be used to get the total price of all items in the cart before
-    // applying discount and taxes. The priceTotal() method can be used to get the total price of
-    // all items in the cart before applying discount and taxes.
-    public function priceTotalFormat()
-    {
-        return Money::of(FacadesCart::priceTotal(), 'VND')->formatTo('vn_VN');
-    }
-
     // include priceTotal and shipping fee
-    public function totalFormat()
+    public function amountIncludeShippingFee()
     {
         if ($this->shippingFee != null) {
-            return Money::of(FacadesCart::priceTotal(), 'VND')
-                ->plus(collect($this->shippingFee)->sum())
-                ->formatTo('vn_VN');
+            return $this->amount
+                ->plus(collect($this->shippingFee)->reduce(fn ($result, $item) => $result->plus($item), Money::of(0, 'VND')));
         } else {
-            return Money::of(FacadesCart::priceTotal(), 'VND')->formatTo('vn_VN');
+            return $this->amount;
         }
     }
-
 
     public function calculateShippingFee(int $serviceTypeId)
     {
@@ -75,23 +70,19 @@ class Cart
         foreach ($this->shippingOrders as $storeBranchId => $cartItems) {
             $weight = $cartItems->reduce(fn ($result, $item) => $result + $item->qty * $item->sku->weight, 0);
             $district_id = StoreBranch::find($storeBranchId)->district_id;
-            $this->shippingFee[$storeBranchId] = $this->calculateFeeGhn([
+            $this->shippingFee[$storeBranchId] = Money::of($this->calculateFeeGhn([
                 'weight' => $weight,
                 'from_district_id' => $district_id,
                 'to_district_id' => $address['district']['districtId'],
                 'to_ward_code' => $address['ward']['wardCode'],
                 'service_type_id' => $serviceTypeId,
-            ]);
+            ]), 'VND');
         }
     }
 
-    public function shippingFeeFormat(int $storeBranchId = null)
+    public function shippingFeeTotal()
     {
-        if ($storeBranchId === null) {
-            return Money::of(collect($this->shippingFee)->sum(), 'VND')->formatTo('vn_VN');
-        } else {
-            return Money::of($this->shippingFee[$storeBranchId], 'VND')->formatTo('vn_VN');
-        }
+        return collect($this->shippingFee)->reduce(fn ($result, $item) => $result->plus($item), Money::of(0, 'VND'));
     }
 
     public function weight()
@@ -120,8 +111,8 @@ class Cart
                 $order = Order::create([
                     'store_branch_id' => $storeBranchId,
                     'group_id' => $firstOrder?->id,
-                    'amount' => collect($cartItems)->sum(fn ($item) => $item->amount()),
-                    'shipping_fee' => $this->shippingFee[$storeBranchId],
+                    'amount' =>  collect($cartItems)->reduce(fn ($result, $item) => $result->plus($item->amount), Money::of(0, 'VND'))->getAmount(),
+                    'shipping_fee' => $this->shippingFee[$storeBranchId]->getAmount(),
                     'shipping_payment_type' => $shippingPaymentTypeId,
                     'payment_type' => $paymentTypeId,
                     'discount' => 0,
@@ -138,9 +129,9 @@ class Cart
 
                 foreach ($cartItems as $key => $cartItem) {
                     $order->orderItems()->create([
-                        'price' => $cartItem->price_unit,
+                        'price' => $cartItem->price_unit->getAmount(),
                         'qty' => $cartItem->qty,
-                        'product_name' => $cartItem->name,
+                        'product_name' => $cartItem->product_name,
                         'variation_string' => $cartItem->getVariantionString(),
                         'sku_id' => $cartItem->id,
                     ]);

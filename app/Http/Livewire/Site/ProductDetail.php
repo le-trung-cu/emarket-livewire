@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Models\SKU;
 use Brick\Money\Money;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Js;
 use Livewire\Component;
 
 class ProductDetail extends Component
@@ -38,10 +40,16 @@ class ProductDetail extends Component
                     'values' => $option->values->map(fn ($value) => ['id' => $value->id, 'value' => $value->value])
                 ]
             );
-        // (object) Product::find(1)->skus()->with('variationValues')->get()->mapWithKeys(function($item, $key) {return [$item['id'] => ['barcode' => $item->barcode, 'id' => $item->id, 'price' => $item->price_vnd, 'variantionValueIds' => $item->variationValues->map(fn($value) => $value->id)]];});
 
         $this->skus = (object) $product->skus()->with('variationValues')->get()->mapWithKeys(function ($item, $key) {
-            return [$item['id'] => ['barcode' => $item->barcode, 'id' => $item->id, 'price' => $item->price_vnd, 'variantionValueIds' => $item->variationValues->map(fn ($value) => $value->id)]];
+            return [
+                $item['id'] => [
+                    'barcode' => $item->barcode,
+                    'id' => $item->id,
+                    'price' => Blade::render('{{$price}}', ['price' => $item->price]),
+                    'variantionValueIds' => $item->variationValues->map(fn ($value) => $value->id),
+                ]
+            ];
         });
     }
 
@@ -51,7 +59,7 @@ class ProductDetail extends Component
             'id' => $sku->id,
             'name' => $sku->product->name,
             'qty' => 1,
-            'price' => $sku->price,
+            'price' => $sku->price_value,
             'weight' => $sku->weight,
         ]);
 
