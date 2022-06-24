@@ -115,11 +115,11 @@ class Cart
         $this->calculateShippingFee($serviceTypeId);
         try {
             DB::beginTransaction();
-            $firstOrderId = null;
+            $firstOrder = null;
             foreach ($this->shippingOrders as $storeBranchId => $cartItems) {
                 $order = Order::create([
                     'store_branch_id' => $storeBranchId,
-                    'group_id' => $firstOrderId,
+                    'group_id' => $firstOrder?->id,
                     'amount' => collect($cartItems)->sum(fn ($item) => $item->amount()),
                     'shipping_fee' => $this->shippingFee[$storeBranchId],
                     'shipping_payment_type' => $shippingPaymentTypeId,
@@ -132,8 +132,8 @@ class Cart
                     'ward_code' => $recipient['ward_code'],
                     'district_id' => $recipient['district_id'],
                 ]);
-                if ($firstOrderId === null) {
-                    $firstOrderId = $order->id;
+                if ($firstOrder === null) {
+                    $firstOrder = $order;
                 }
 
                 foreach ($cartItems as $key => $cartItem) {
@@ -147,6 +147,7 @@ class Cart
                 }
             }
             DB::commit();
+            return $firstOrder;
         } catch (\Throwable $th) {
             DB::rollBack();
             throw $th;

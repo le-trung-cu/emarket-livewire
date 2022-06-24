@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Site;
 
 use App\ValueObjects\Cart;
+use Illuminate\Support\Facades\URL;
 use Livewire\Component;
 
 class Checkout extends Component
@@ -87,7 +88,9 @@ class Checkout extends Component
         $cart = new Cart();
         if ($this->paymentTypeId == 1) {
             // cash payment process
-            $cart->createOrder($recipient, $this->shippingPaymentTypeId, $this->paymentTypeId, $this->serviceTypeId);
+            $order = $cart->createOrder($recipient, $this->shippingPaymentTypeId, $this->paymentTypeId, $this->serviceTypeId);
+            $orderUrl = URL::signedRoute('site.checkout-success', ['order' => $order]);
+            return redirect($orderUrl);
         }
     }
 }

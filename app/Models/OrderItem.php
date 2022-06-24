@@ -17,8 +17,8 @@ class OrderItem extends Model
         'sku_id',
     ];
 
-    public function children()
+    public function sku()
     {
-        return $this->hasMany(Order::class, 'group_id', 'id');
+        return $this->belongsTo(SKU::class, 'sku_id', 'id');
     }
 }
