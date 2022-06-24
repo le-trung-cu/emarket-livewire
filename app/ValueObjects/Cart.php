@@ -3,10 +3,13 @@
 namespace App\ValueObjects;
 
 use App\Http\Traits\GhnVn;
+use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\SKU;
 use App\Models\StoreBranch;
 use Brick\Money\Money;
 use Gloudemans\Shoppingcart\Facades\Cart as FacadesCart;
+use Illuminate\Support\Facades\DB;
 
 class Cart
 {
@@ -103,5 +106,50 @@ class Cart
             return [];
         }
         return $this->getServicesGhn(config('app.shop_district_id_ghn'), $address['district']['districtId']);
+    }
+
+    # shipping_payment_type: 1 or 2
+    # payment_type 1 or 2
+    public function createOrder(array $recipient, int $shippingPaymentTypeId, int $paymentTypeId, int $serviceTypeId)
+    {
+        $this->calculateShippingFee($serviceTypeId);
+        try {
+            DB::beginTransaction();
+            $firstOrderId = null;
+            foreach ($this->shippingOrders as $storeBranchId => $cartItems) {
+                $order = Order::create([
+                    'store_branch_id' => $storeBranchId,
+                    'group_id' => $firstOrderId,
+                    'amount' => collect($cartItems)->sum(fn ($item) => $item->amount()),
+                    'shipping_fee' => $this->shippingFee[$storeBranchId],
+                    'shipping_payment_type' => $shippingPaymentTypeId,
+                    'payment_type' => $paymentTypeId,
+                    'discount' => 0,
+                    'service_type_id_ghn' => $serviceTypeId,
+                    'recipient_name' => $recipient['name'],
+                    'recipient_phone' => $recipient['phone'],
+                    'shipping_address' => $recipient['address'],
+                    'ward_code' => $recipient['ward_code'],
+                    'district_id' => $recipient['district_id'],
+                ]);
+                if ($firstOrderId === null) {
+                    $firstOrderId = $order->id;
+                }
+
+                foreach ($cartItems as $key => $cartItem) {
+                    $order->orderItems()->create([
+                        'price' => $cartItem->price_unit,
+                        'qty' => $cartItem->qty,
+                        'product_name' => $cartItem->name,
+                        'variation_string' => $cartItem->getVariantionString(),
+                        'sku_id' => $cartItem->id,
+                    ]);
+                }
+            }
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
+        }
     }
 }

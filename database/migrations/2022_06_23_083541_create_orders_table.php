@@ -1,0 +1,69 @@
+<?php
+
+use App\Models\Order;
+use App\Models\StoreBranch;
+use App\Models\User;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(StoreBranch::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignIdFor(User::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignIdFor(Order::class, 'group_id')->nullable()->constrained('orders')->cascadeOnDelete();
+            // tiền phải thanh toán
+            $table->unsignedInteger('amount')->default(0);
+            $table->unsignedInteger('shipping_fee')->default(0);
+
+            # shipping_payment_type: Choose who pay shipping fee.
+            # 1: Shop/Seller.
+            # 2: Buyer/Consignee.
+            $table->enum('shipping_payment_type', [1, 2])->default(2);
+
+            # payment_type
+            # 1. cash;
+            # 2. online payment;
+            # 3. not implement yet
+            $table->enum('payment_type', [1, 2, 3])->default(1);
+            $table->unsignedInteger('discount')->default(0);
+
+            $table->integer('service_type_id_ghn')->default(1);
+            $table->string('recipient_name');
+            $table->string('recipient_phone');
+            $table->string('shipping_address');
+            $table->string('ward_code');
+            $table->unsignedInteger('district_id');
+            $table->string('order_code_ghn')->nullable();
+            $table->string('print_token_ghn')->nullable();
+
+            $table->enum('status', ['pending', 'confirm', 'ready_to_deliver', 'delivery_in_progress', 'success', 'return', 'fail', 'cancel',]);
+
+            # status_payment
+            # 0. chưa thanh toán
+            # 1. thanh toán thành công
+            # 2. thanh toán thất bại
+            $table->enum('status_payment', [0, 1, 2])->default(0);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('orders');
+    }
+};

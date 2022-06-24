@@ -8,13 +8,21 @@ use Livewire\Component;
 class Checkout extends Component
 {
     public bool $isShowPickAddressModal = false;
-    public $shippingAddress = [];
-    public $serviceTypeId = 1;
-    public $paymentTypeId = 1;
+    public array $shippingAddress = [];
+    public int $serviceTypeId = 1;
+    public int $shippingPaymentTypeId = 1;
+    public int $paymentTypeId = 1;
+    public string $recipientName = '';
+    public string $recipientPhone = '';
+
+    protected $listeners = ['pickAddressEvent'];
+
 
     protected $rules = [
         'serviceTypeId' => 'required',
         'paymentTypeId' => 'required',
+        'recipientName' => 'required',
+        'recipientPhone' => 'required',
     ];
 
     public function render()
@@ -56,6 +64,8 @@ class Checkout extends Component
                 'shippingAddress.district' => 'required',
                 'shippingAddress.ward' => 'required',
                 'shippingAddress.homeAddress' => 'required',
+                'recipientName' => 'required',
+                'recipientPhone' => 'required',
             ],
             [],
             [
@@ -66,8 +76,18 @@ class Checkout extends Component
             ]
         );
 
-        if($this->paymentTypeId == 1) {
+        $recipient = [
+            'name' => $this->recipientName,
+            'phone' => $this->recipientPhone,
+            'address' => $this->shippingAddress['addressLine'],
+            'ward_code' => $this->shippingAddress['ward']['wardCode'],
+            'district_id' => $this->shippingAddress['district']['districtId'],
+        ];
+
+        $cart = new Cart();
+        if ($this->paymentTypeId == 1) {
             // cash payment process
+            $cart->createOrder($recipient, $this->shippingPaymentTypeId, $this->paymentTypeId, $this->serviceTypeId);
         }
     }
 }

@@ -77,9 +77,15 @@
                                 </p>
                             </div>
                         @endif
-                        <x-button flat green label="Choose shipping address"
+                        <x-button outline flat green label="Choose shipping address"
                             wire:click="$set('isShowPickAddressModal', true)" />
                     </article> <!-- card end.// -->
+
+                    <article class="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
+                        <x-input label="Name" placeholder="your name" wire:model.defer="recipientName" />
+                        <div class="h-5"></div>
+                        <x-input label="Phone" placeholder="your phone" wire:model.defer="recipientPhone" />
+                    </article>
                     
                     <aside class="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
 
