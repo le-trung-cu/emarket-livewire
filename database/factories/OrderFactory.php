@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\PaymentType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,9 +21,9 @@ class OrderFactory extends Factory
             'store_branch_id' => 1,
             // 'buyer_id',
             // 'group_id',
-            'amount' => 300_000,
-            'shipping_fee' => 40_000,
-            'payment_type' => 1,
+            'amount' =>  $this->faker->randomElement([50_000, 60_000, 150_000]),
+            'shipping_fee' => $this->faker->randomElement([15_000, 20_000, 40_000, 98_000]),
+            'payment_type' => PaymentType::CASH,
             'discount' => 0,
             'service_type_id_ghn' => 1,
             'recipient_name' => $this->faker->name,

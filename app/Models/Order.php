@@ -32,9 +32,10 @@ class Order extends Model
         'payment_status',
     ];
 
-    protected $cats = [
+    protected $casts = [
         'amount' => MoneyCast::class,
         'shipping_fee' => MoneyCast::class,
+        'discount' => MoneyCast::class,
         'payment_type' => PaymentType::class,
         'status' => OrderStatus::class,
     ];

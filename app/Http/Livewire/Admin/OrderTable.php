@@ -6,9 +6,10 @@ use App\Enums\OrderStatus;
 use App\Models\Order;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Blade;
 use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
-use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
+use PowerComponents\LivewirePowerGrid\{Button, Column, Detail, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
 
 final class OrderTable extends PowerGridComponent
 {
@@ -35,6 +36,9 @@ final class OrderTable extends PowerGridComponent
             Footer::make()
                 ->showPerPage()
                 ->showRecordCount(),
+            // Detail::make()
+            //     ->view('components.admin.powergrid.order-table-row-detail')
+            //     ->showCollapseIcon(),
         ];
     }
 
@@ -93,11 +97,11 @@ final class OrderTable extends PowerGridComponent
                 return $order->buyer?->name;
             })
             ->addColumn('group_id')
-            ->addColumn('amount')
-            ->addColumn('shipping_fee')
+            ->addColumn('amount_format', fn (Order $order) => Blade::render('{{$money}}', ['money' => $order->amount], true))
+            ->addColumn('shipping_fee_format', fn (Order $order) => Blade::render('{{$money}}', ['money' => $order->shipping_fee], true))
+            ->addColumn('discount_format', fn (Order $order) => Blade::render('{{$money}}', ['money' => $order->discount], true))
             ->addColumn('shipping_payment_type')
-            ->addColumn('payment_type')
-            ->addColumn('discount')
+            // ->addColumn('payment_type')
             ->addColumn('service_type_id_ghn')
             ->addColumn('recipient_name')
             ->addColumn('recipient_phone')
@@ -105,7 +109,7 @@ final class OrderTable extends PowerGridComponent
             ->addColumn('ward_code')
             ->addColumn('district_id')
             ->addColumn('print_token_ghn')
-            ->addColumn('status')
+            ->addColumn('status_label', fn (Order $order) =>  $order->status->labels())
             ->addColumn('payment_status')
             ->addColumn('created_at_formatted', fn (Order $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
             ->addColumn('updated_at_formatted', fn (Order $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
@@ -131,26 +135,28 @@ final class OrderTable extends PowerGridComponent
             Column::make('ID', 'id')
                 ->hidden(true, false),
 
-            Column::make('STORE BRANCH ID', 'store_branch_id'),
+            Column::make('STORE BRANCH ID', 'store_branch_id')
+                ->hidden(true, false),
 
             Column::make('BUYER NAME', 'buyer_name'),
 
             Column::make('GROUP ID', 'group_id')
                 ->hidden(true, false),
 
-            Column::make('AMOUNT', 'amount'),
+            Column::make('AMOUNT', 'amount_format', 'amount')
+                ->sortable(),
 
-            Column::make('SHIPPING FEE', 'shipping_fee')
+            Column::make('SHIPPING FEE', 'shipping_fee_format', 'shipping_fee')
                 ->sortable(),
 
             Column::make('SHIPPING PAYMENT TYPE', 'shipping_payment_type')
                 ->hidden(true, false),
 
-            Column::make('PAYMENT TYPE', 'payment_type')
-                ->sortable()
-                ->hidden(true, false),
+            // Column::make('PAYMENT TYPE', 'payment_type')
+            //     ->sortable()
+            //     ->hidden(true, false),
 
-            Column::make('DISCOUNT', 'discount')
+            Column::make('DISCOUNT', 'discount_format', 'discount')
                 ->sortable()
                 ->hidden(true, false),
 
@@ -182,7 +188,7 @@ final class OrderTable extends PowerGridComponent
             Column::make('PRINT TOKEN GHN', 'print_token_ghn')
                 ->hidden(true, false),
 
-            Column::make('STATUS', 'status')
+            Column::make('STATUS', 'status_label')
                 ->sortable(),
 
             Column::make('PAYMENT STATUS', 'payment_status'),
