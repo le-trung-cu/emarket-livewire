@@ -16,7 +16,7 @@ class OrderSeeder extends Seeder
      */
     public function run(User $buyer)
     {
-        Order::factory(10)->create([
+        Order::factory(30)->create([
             'buyer_id' => $buyer->id,
         ]);
     }

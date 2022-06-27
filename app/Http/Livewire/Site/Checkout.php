@@ -2,7 +2,10 @@
 
 namespace App\Http\Livewire\Site;
 
+use App\Enums\PaymentType;
+use App\Enums\ShippingPaymentType;
 use App\ValueObjects\Cart;
+use Gloudemans\Shoppingcart\Facades\Cart as FacadesCart;
 use Illuminate\Support\Facades\URL;
 use Livewire\Component;
 
@@ -11,8 +14,7 @@ class Checkout extends Component
     public bool $isShowPickAddressModal = false;
     public array $shippingAddress = [];
     public int $serviceTypeId = 1;
-    public int $shippingPaymentTypeId = 1;
-    public int $paymentTypeId = 1;
+    public string $paymentType = 'cash';
     public string $recipientName = '';
     public string $recipientPhone = '';
 
@@ -21,7 +23,7 @@ class Checkout extends Component
 
     protected $rules = [
         'serviceTypeId' => 'required',
-        'paymentTypeId' => 'required',
+        'paymentType' => 'required',
         'recipientName' => 'required',
         'recipientPhone' => 'required',
     ];
@@ -59,7 +61,7 @@ class Checkout extends Component
         $this->shippingAddress = session('shipping_address', []);
         $this->validate(
             [
-                'paymentTypeId' => 'required',
+                'paymentType' => 'required',
                 'serviceTypeId' => 'required',
                 'shippingAddress.province' => 'required',
                 'shippingAddress.district' => 'required',
@@ -86,9 +88,10 @@ class Checkout extends Component
         ];
 
         $cart = new Cart();
-        if ($this->paymentTypeId == 1) {
+        if ($this->paymentType == 'cash') {
             // cash payment process
-            $order = $cart->createOrder($recipient, $this->shippingPaymentTypeId, $this->paymentTypeId, $this->serviceTypeId);
+            $order = $cart->createOrder($recipient, ShippingPaymentType::BUYER_PAY, PaymentType::CASH, $this->serviceTypeId);
+            $cart->destroy();
             $orderUrl = URL::signedRoute('site.checkout-success', ['order' => $order]);
             return redirect($orderUrl);
         }

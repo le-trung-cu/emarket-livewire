@@ -2,6 +2,8 @@
 
 namespace App\ValueObjects;
 
+use App\Enums\PaymentType;
+use App\Enums\ShippingPaymentType;
 use App\Http\Traits\GhnVn;
 use App\Models\Order;
 use App\Models\SKU;
@@ -98,7 +100,7 @@ class Cart
 
     # shipping_payment_type: 1 or 2
     # payment_type 1 or 2
-    public function createOrder(array $recipient, int $shippingPaymentTypeId, int $paymentTypeId, int $serviceTypeId)
+    public function createOrder(array $recipient, ShippingPaymentType $shippingPaymentType, PaymentType $paymentType, int $serviceTypeId)
     {
         $this->calculateShippingFee($serviceTypeId);
         try {
@@ -110,8 +112,8 @@ class Cart
                     'group_id' => $firstOrder?->id,
                     'amount' =>  collect($cartItems)->reduce(fn ($result, $item) => $result->plus($item->amount), Money::of(0, 'VND'))->getAmount(),
                     'shipping_fee' => $this->shippingFee[$storeBranchId]->getAmount(),
-                    'shipping_payment_type' => $shippingPaymentTypeId,
-                    'payment_type' => $paymentTypeId,
+                    'shipping_payment_type' => $shippingPaymentType,
+                    'payment_type' => $paymentType,
                     'discount' => 0,
                     'service_type_id_ghn' => $serviceTypeId,
                     'recipient_name' => $recipient['name'],
@@ -140,5 +142,11 @@ class Cart
             DB::rollBack();
             throw $th;
         }
+    }
+
+    public function destroy()
+    {
+        FacadesCart::instance('cart');
+        FacadesCart::destroy();
     }
 }

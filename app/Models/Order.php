@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Casts\MoneyCast;
+use App\Enums\OrderStatus;
+use App\Enums\PaymentType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,11 +29,14 @@ class Order extends Model
         'district_id',
         'print_token_ghn',
         'status',
+        'payment_status',
     ];
 
     protected $cats = [
         'amount' => MoneyCast::class,
         'shipping_fee' => MoneyCast::class,
+        'payment_type' => PaymentType::class,
+        'status' => OrderStatus::class,
     ];
 
     public function orderItems()
@@ -42,5 +47,10 @@ class Order extends Model
     public function children()
     {
         return $this->hasMany(Order::class, 'group_id', '1');
+    }
+
+    public function buyer()
+    {
+        return $this->belongsTo(User::class, 'buyer_id');
     }
 }

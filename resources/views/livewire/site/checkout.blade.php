@@ -117,9 +117,9 @@
                                 <div class="p-2">
                                     <label class="relative w-32 h-16 inline-block border-gray-300 border-2"
                                         style="background-size: contain; background-repeat: no-repeat; background-image: url('{{ asset('images/misc/cash.jpg') }}');">
-                                        <input class="hidden" type="radio" name="paymentTypeId"
-                                            wire:model="paymentTypeId" value="1">
-                                        @if ($paymentTypeId == 1)
+                                        <input class="hidden" type="radio" name="paymentType"
+                                            wire:model="paymentType" value="cash">
+                                        @if ($paymentType == 'cash')
                                             <div class="absolute -top-3 -right-3 text-blue-500">
                                                 <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg"
                                                     fill="currentColor" viewBox="0 0 24 24">
@@ -134,9 +134,9 @@
                                 <div class="p-2">
                                     <label class="relative w-32 h-16 inline-block border-gray-300 border-2"
                                         style="background-size: contain; background-repeat: no-repeat; background-image: url('{{ asset('images/misc/payment-card.png') }}');">
-                                        <input class="hidden" type="radio" name="paymentTypeId"
-                                            wire:model="paymentTypeId" value="2">
-                                        @if ($paymentTypeId == 2)
+                                        <input class="hidden" type="radio" name="paymentType"
+                                            wire:model="paymentType" value="bank_transfer">
+                                        @if ($paymentType == 'bank_transfer')
                                             <div class="absolute -top-3 -right-3 text-blue-500">
                                                 <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg"
                                                     fill="currentColor" viewBox="0 0 24 24">
@@ -151,9 +151,9 @@
                                 <div class="p-2">
                                     <label class="relative w-32 h-16 inline-block border-gray-300 border-2"
                                         style="background-size: contain; background-repeat: no-repeat; background-image: url('{{ asset('images/misc/payment-paypal.png') }}');">
-                                        <input class="hidden" type="radio" name="paymentTypeId"
-                                            wire:model="paymentTypeId" value="3">
-                                        @if ($paymentTypeId == 3)
+                                        <input class="hidden" type="radio" name="paymentType"
+                                            wire:model="paymentType" value="paypal">
+                                        @if ($paymentType == 'paypal')
                                             <div class="absolute -top-3 -right-3 text-blue-500">
                                                 <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg"
                                                     fill="currentColor" viewBox="0 0 24 24">

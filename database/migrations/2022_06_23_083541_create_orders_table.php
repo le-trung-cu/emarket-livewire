@@ -25,16 +25,6 @@ return new class extends Migration
             $table->unsignedInteger('amount')->default(0);
             $table->unsignedInteger('shipping_fee')->default(0);
 
-            # shipping_payment_type: Choose who pay shipping fee.
-            # 1: Shop/Seller.
-            # 2: Buyer/Consignee.
-            $table->enum('shipping_payment_type', [1, 2])->default(2);
-
-            # payment_type
-            # 1. cash;
-            # 2. online payment;
-            # 3. not implement yet
-            $table->enum('payment_type', [1, 2, 3])->default(1);
             $table->unsignedInteger('discount')->default(0);
 
             $table->integer('service_type_id_ghn')->default(1);
@@ -46,13 +36,10 @@ return new class extends Migration
             $table->string('order_code_ghn')->nullable();
             $table->string('print_token_ghn')->nullable();
 
-            $table->enum('status', ['pending', 'confirm', 'ready_to_deliver', 'delivery_in_progress', 'success', 'return', 'fail', 'cancel',]);
-
-            # status_payment
-            # 0. chưa thanh toán
-            # 1. thanh toán thành công
-            # 2. thanh toán thất bại
-            $table->enum('status_payment', [0, 1, 2])->default(0);
+            $table->enum('shipping_payment_type', ['shop_pay', 'buyer_pay'])->default('buyer_pay');
+            $table->enum('payment_type', ['cash', 'credit_card', 'bank_transfer', 'paypal'])->default('cash');
+            $table->enum('status', ['pending', 'registered', 'packing', 'sent', 'complated', 'canceled'])->default('pending');
+            $table->enum('payment_status', ['unpaid', 'success', 'fail'])->default('unpaid');
             $table->timestamps();
         });
     }

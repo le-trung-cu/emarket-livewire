@@ -31,7 +31,7 @@ class OrderFactory extends Factory
             'ward_code' => '12345',
             'district_id' => 1234,
             // 'print_token_ghn',
-            'status' => 'pending',
+            'status' => $this->faker->randomElement(['pending', 'registered', 'packing', 'sent', 'complated', 'canceled']),
         ];
     }
 }
