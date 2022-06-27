@@ -19,16 +19,18 @@ class Cart
     public array $shippingFee = [];
     public $shippingOrders;
     public $cartItems;
+    public $weight;
 
     // The amount can be used to get the total price of all items in the cart before applying discount and taxes.
     public $amount;
 
     public function __construct()
     {
-        FacadesCart::instance('cart');
-        $this->amount = Money::of(FacadesCart::priceTotal(), 'VND');
-
         $this->cart = FacadesCart::instance('cart');
+
+        $this->amount = Money::of($this->cart->priceTotal(), 'VND');
+        $this->weight = $this->cart->weight();
+
         $cartContent = $this->cart->content();
 
         $skuIds = $cartContent->map(fn ($item) => $item->id);
@@ -83,11 +85,6 @@ class Cart
     public function shippingFeeTotal()
     {
         return collect($this->shippingFee)->reduce(fn ($result, $item) => $result->plus($item), Money::of(0, 'VND'));
-    }
-
-    public function weight()
-    {
-        return $this->cart->weight();
     }
 
     public function getServices()

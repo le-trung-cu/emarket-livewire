@@ -12,6 +12,7 @@ class Order extends Model
 
     protected $fillable = [
         'store_branch_id',
+        'buyer_id',
         'group_id',
         'amount',
         'shipping_fee',

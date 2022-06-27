@@ -121,7 +121,7 @@
                             </li>
                             <li class="flex justify-between text-gray-600  mb-1">
                                 <span>Weight:</span>
-                                <span>{{ $cart->weight() }}</span>
+                                <span>{{ $cart->weight }}</span>
                             </li>
                             <li class="flex justify-between text-gray-600  mb-1">
                                 <span>Shipping fee:</span>

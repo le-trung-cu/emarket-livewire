@@ -19,7 +19,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(StoreBranch::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(User::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignIdFor(User::class, 'buyer_id')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignIdFor(Order::class, 'group_id')->nullable()->constrained('orders')->cascadeOnDelete();
             // tiền phải thanh toán
             $table->unsignedInteger('amount')->default(0);

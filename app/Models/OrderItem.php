@@ -16,6 +16,7 @@ class OrderItem extends Model
         'qty',
         'product_name',
         'variation_string',
+        'order_id',
         'sku_id',
     ];
 
