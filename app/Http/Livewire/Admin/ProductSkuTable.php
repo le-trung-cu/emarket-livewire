@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Product;
 use App\Models\SKU;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Blade;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\Detail;
@@ -52,11 +53,11 @@ final class ProductSkuTable extends PowerGridComponent
         $this->showCheckBox();
 
         return [
-            
+
             Header::make()
                 ->showSearchInput()
                 ->showToggleColumns(),
-           
+
             Detail::make()
                 ->view('components.admin.sku-variation-value-detail')
                 ->options($this->options)
@@ -98,7 +99,7 @@ final class ProductSkuTable extends PowerGridComponent
             })
             ->addColumn('activity')
             ->addColumn('weight')
-            ->addColumn('price')
+            ->addColumn('price_format', fn (SKU $sku) => Blade::render('{{$money}}', ['money' => $sku->price]))
             ->addColumn('stock');
     }
 
@@ -147,17 +148,17 @@ final class ProductSkuTable extends PowerGridComponent
 
     public function actions(): array
     {
-       return [
-           Button::make('destroy', 'Delete')
-               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-               ->emitTo('admin.sku-manager', 'showConfirmDeleteSkuModalEvent', ['sku' => 'id'])
+        return [
+            Button::make('destroy', 'Delete')
+                ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
+                ->emitTo('admin.sku-manager', 'showConfirmDeleteSkuModalEvent', ['sku' => 'id'])
         ];
     }
 
     public function onUpdatedEditable(string $id, string $field, string $value): void
     {
         $this->validate([
-            'barcode.*' => 'string|unique:skus,barcode,'.$id.',id',
+            'barcode.*' => 'string|unique:skus,barcode,' . $id . ',id',
             'weight.*' => 'integer|between:0,5000',
             'price.*' => 'numeric|min:0',
             'stock.*' => 'integer|min:0'
@@ -192,6 +193,4 @@ final class ProductSkuTable extends PowerGridComponent
 
         $this->dispatchBrowserEvent('showAlert', ['message' => 'You have selected IDs: ' . $ids]);
     }
-
-
 }

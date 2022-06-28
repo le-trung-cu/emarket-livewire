@@ -8,6 +8,7 @@ use App\Models\StoreBranch;
 use Brick\Money\Money;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Blade;
 use PowerComponents\LivewirePowerGrid\Rules\{Rule, RuleActions};
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 use PowerComponents\LivewirePowerGrid\{Button, Column, Exportable, Footer, Header, PowerGrid, PowerGridComponent, PowerGridEloquent};
@@ -102,8 +103,8 @@ final class ProductTable extends PowerGridComponent
             })
             ->addColumn('storeBranch.name')
             ->addColumn('category.name')
-            ->addColumn('regular_price', function (Product $product) {
-                return Money::of($product->regular_price, 'VND');
+            ->addColumn('regular_price_format', function (Product $product) {
+                return Blade::render('{{$money}}', ['money' => $product->regular_price]);
             })
             ->addColumn('status', function (Product $product) {
                 return view('components.admin.powergrid.product-table-status', [
@@ -141,7 +142,7 @@ final class ProductTable extends PowerGridComponent
 
             Column::make('CATEGORY', 'category.name'),
 
-            Column::make('PRICE', 'regular_price')
+            Column::make('PRICE', 'regular_price_format', 'regular_price')
                 ->sortable()
                 ->searchable(),
 
