@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Casts\MoneyCast;
 use App\Enums\OrderStatus;
 use App\Enums\PaymentType;
+use App\Enums\ShippingPaymentType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,6 +38,7 @@ class Order extends Model
         'shipping_fee' => MoneyCast::class,
         'discount' => MoneyCast::class,
         'payment_type' => PaymentType::class,
+        'shipping_payment_type' => ShippingPaymentType::class,
         'status' => OrderStatus::class,
     ];
 
@@ -53,5 +55,10 @@ class Order extends Model
     public function buyer()
     {
         return $this->belongsTo(User::class, 'buyer_id');
+    }
+
+    public function storeBranch()
+    {
+        return $this->belongsTo(StoreBranch::class);
     }
 }

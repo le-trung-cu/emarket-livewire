@@ -14,6 +14,10 @@ class StoreBranchSeeder extends Seeder
      */
     public function run()
     {
-        StoreBranch::factory(10)->create();
+        StoreBranch::factory(5)->create();
+        StoreBranch::factory(10)->create([
+            'district_id' => 1456,
+            'ward_code' => '21511',
+        ]);
     }
 }

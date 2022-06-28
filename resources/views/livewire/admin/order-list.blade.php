@@ -106,4 +106,23 @@
     </div>
 
     <livewire:admin.order-table :orderStatus="$orderStatus" wire:key="table-{{ $orderStatus }}" />
+
+    <x-modal wire:model.defer="isShowPrintOrderModal">
+        <x-card title="Please choose size to print ">
+            <div class="flex space-x-3">
+                <x-button href="https://dev-online-gateway.ghn.vn/a5/public-api/printA5?token={{ $printOrderToken }}"
+                    target="_blank" rounded secondary label="print A5" />
+                <x-button href="https://dev-online-gateway.ghn.vn/a5/public-api/print80x80?token={{ $printOrderToken }}"
+                    target="_blank" rounded secondary label="print 80x80" />
+                <x-button href="https://dev-online-gateway.ghn.vn/a5/public-api/print52x70?token={{ $printOrderToken }}"
+                    target="_blank" rounded secondary label="print 53x70" />
+            </div>
+
+            <x-slot name="footer">
+                <div class="flex justify-end gap-x-4">
+                    <x-button flat label="Cancel" x-on:click="close" />
+                </div>
+            </x-slot>
+        </x-card>
+    </x-modal>
 </div>

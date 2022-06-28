@@ -27,12 +27,12 @@ class OrderFactory extends Factory
             'discount' => 0,
             'service_type_id_ghn' => 1,
             'recipient_name' => $this->faker->name,
-            'recipient_phone' => $this->faker->phoneNumber,
+            'recipient_phone' => $this->faker->randomElement(['077 436 2625', '077 436 2626', '077 436 2627']),
             'shipping_address' => $this->faker->address(),
-            'ward_code' => '12345',
-            'district_id' => 1234,
+            'ward_code' => '340411',
+            'district_id' => 1736,
             // 'print_token_ghn',
-            'status' => $this->faker->randomElement(['pending', 'registered', 'packing', 'sent', 'complated', 'canceled']),
+            'status' => 'pending', //$this->faker->randomElement(['pending', 'registered', 'packing', 'sent', 'complated', 'canceled']),
         ];
     }
 }

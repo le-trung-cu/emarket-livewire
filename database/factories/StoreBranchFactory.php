@@ -18,10 +18,10 @@ class StoreBranchFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'phone' => $this->faker->phoneNumber,
+            'phone' => $this->faker->randomElement(['077 436 2611', '077 436 2612', '077 436 2613']),
             'address' => $this->faker->address,
-            'district_id' => $this->faker->randomElement([2090, 1528]),
-            'ward_code' => '23444',
+            'district_id' => 1528,
+            'ward_code' => '40307',
         ];
     }
 }

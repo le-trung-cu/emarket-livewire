@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('address');
             $table->integer('district_id');
             $table->string('ward_code');
+            $table->unsignedBigInteger('shop_id')->default(113851);
             $table->timestamps();
         });
     }

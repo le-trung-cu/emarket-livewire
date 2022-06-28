@@ -18,8 +18,8 @@ enum OrderStatus: string
             self::REGISTERED      => 'Registered',
             self::PACKING         => 'Packing',
             self::SENT            => 'Sent',
-            self::COMPLATED       => 'complated',
-            self::CANCELED        => 'canceled',
+            self::COMPLATED       => 'Complated',
+            self::CANCELED        => 'Canceled',
         };
     }
 

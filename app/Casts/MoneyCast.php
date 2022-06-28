@@ -34,7 +34,7 @@ class MoneyCast implements CastsAttributes
     {
         if($value instanceof Money)
         {
-            return (string) $value;
+            return (int)(string) $value->getAmount();
         }
         return $value;
     }

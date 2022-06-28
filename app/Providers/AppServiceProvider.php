@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Enums\ShippingPaymentType;
 use Brick\Money\Money;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
@@ -28,5 +29,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::stringable(function (Money $money) {
             return $money->formatTo('vn_VN');
         });
+
+        Blade::stringable(fn(ShippingPaymentType $type) => $type->labels());
     }
 }

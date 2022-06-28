@@ -27,7 +27,10 @@ return new class extends Migration
 
             $table->unsignedInteger('discount')->default(0);
 
-            $table->integer('service_type_id_ghn')->default(1);
+            # service_type_id_ghn
+            # 1. Express
+            # 2. Standard
+            $table->integer('service_type_id_ghn')->default(2);
             $table->string('recipient_name');
             $table->string('recipient_phone');
             $table->string('shipping_address');

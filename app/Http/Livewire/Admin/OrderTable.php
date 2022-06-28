@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Enums\OrderStatus;
+use App\Http\Traits\GhnVn;
 use App\Models\Order;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
@@ -13,8 +14,20 @@ use PowerComponents\LivewirePowerGrid\{Button, Column, Detail, Exportable, Foote
 
 final class OrderTable extends PowerGridComponent
 {
-    use ActionButton;
+    use ActionButton, GhnVn;
     public string $orderStatus = 'all';
+
+    protected function getListeners(): array
+    {
+        return array_merge(
+            parent::getListeners(),
+            [
+                'confirmOrder',
+                'delete-dish' => 'deleteDish'
+            ]
+        );
+    }
+
     /*
     |--------------------------------------------------------------------------
     |  Features Setup
@@ -36,9 +49,9 @@ final class OrderTable extends PowerGridComponent
             Footer::make()
                 ->showPerPage()
                 ->showRecordCount(),
-            // Detail::make()
-            //     ->view('components.admin.powergrid.order-table-row-detail')
-            //     ->showCollapseIcon(),
+            Detail::make()
+                ->view('components.admin.powergrid.order-table-row-detail')
+                ->showCollapseIcon(),
         ];
     }
 
@@ -100,7 +113,7 @@ final class OrderTable extends PowerGridComponent
             ->addColumn('amount_format', fn (Order $order) => Blade::render('{{$money}}', ['money' => $order->amount], true))
             ->addColumn('shipping_fee_format', fn (Order $order) => Blade::render('{{$money}}', ['money' => $order->shipping_fee], true))
             ->addColumn('discount_format', fn (Order $order) => Blade::render('{{$money}}', ['money' => $order->discount], true))
-            ->addColumn('shipping_payment_type')
+            ->addColumn('shipping_payment_type_labels', fn (Order $order) => Blade::render('{{$label}}', ['label' => $order->shipping_payment_type], true))
             // ->addColumn('payment_type')
             ->addColumn('service_type_id_ghn')
             ->addColumn('recipient_name')
@@ -109,7 +122,7 @@ final class OrderTable extends PowerGridComponent
             ->addColumn('ward_code')
             ->addColumn('district_id')
             ->addColumn('print_token_ghn')
-            ->addColumn('status_label', fn (Order $order) =>  $order->status->labels())
+            ->addColumn('status_label', fn (Order $order) => view('components.admin.powergrid.order-table-status', ['status' => $order->status->labels()]))
             ->addColumn('payment_status')
             ->addColumn('created_at_formatted', fn (Order $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
             ->addColumn('updated_at_formatted', fn (Order $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
@@ -149,7 +162,7 @@ final class OrderTable extends PowerGridComponent
             Column::make('SHIPPING FEE', 'shipping_fee_format', 'shipping_fee')
                 ->sortable(),
 
-            Column::make('SHIPPING PAYMENT TYPE', 'shipping_payment_type')
+            Column::make('SHIPPING PAYMENT TYPE', 'shipping_payment_type_labels', 'shipping_payment_type')
                 ->hidden(true, false),
 
             // Column::make('PAYMENT TYPE', 'payment_type')
@@ -166,7 +179,8 @@ final class OrderTable extends PowerGridComponent
 
             Column::make('RECIPIENT NAME', 'recipient_name')
                 ->sortable()
-                ->searchable(),
+                ->searchable()
+                ->hidden(true, false),
 
             Column::make('RECIPIENT PHONE', 'recipient_phone')
                 ->sortable()
@@ -188,7 +202,7 @@ final class OrderTable extends PowerGridComponent
             Column::make('PRINT TOKEN GHN', 'print_token_ghn')
                 ->hidden(true, false),
 
-            Column::make('STATUS', 'status_label')
+            Column::make('STATUS', 'status_label', 'status')
                 ->sortable(),
 
             Column::make('PAYMENT STATUS', 'payment_status'),
@@ -258,4 +272,16 @@ final class OrderTable extends PowerGridComponent
         ];
     }
     */
+
+    public function confirmOrder(Order $order)
+    {
+        try {
+            if ($this->createOrderGhn($order)) {
+                $order->status = OrderStatus::REGISTERED;
+                $order->save();
+            }
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
 }

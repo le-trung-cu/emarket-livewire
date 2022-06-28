@@ -21,6 +21,7 @@ class SKUFactory extends Factory
             'weight' => 120,
             'price' =>  $this->faker->randomElement([150_000.00, 120_000.00, 60_000.00]),
             'stock' => 12,
+            'barcode' => \Illuminate\Support\Str::random(8),
         ];
     }
 }

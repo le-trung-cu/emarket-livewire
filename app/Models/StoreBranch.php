@@ -9,7 +9,7 @@ class StoreBranch extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'phone', 'address', 'district_id', 'ward_code'];
+    protected $fillable = ['name', 'phone', 'address', 'district_id', 'ward_code', 'shop_id'];
 
     public function products()
     {
