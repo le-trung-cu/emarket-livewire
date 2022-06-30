@@ -4,13 +4,15 @@ namespace App\Http\Livewire\Site;
 
 use App\Enums\PaymentType;
 use App\Enums\ShippingPaymentType;
+use App\Http\Traits\VNPay;
 use App\ValueObjects\Cart;
-use Gloudemans\Shoppingcart\Facades\Cart as FacadesCart;
 use Illuminate\Support\Facades\URL;
 use Livewire\Component;
 
 class Checkout extends Component
 {
+    use VNPay;
+
     public bool $isShowPickAddressModal = false;
     public array $shippingAddress = [];
     public int $serviceTypeId = 1;
@@ -88,6 +90,13 @@ class Checkout extends Component
         ];
 
         $cart = new Cart();
+        if ($this->paymentType == 'bank_transfer') {
+            // cash payment process
+            $order = $cart->createOrder($recipient, ShippingPaymentType::BUYER_PAY, PaymentType::BANK_TRANSFER, $this->serviceTypeId);
+            $this->paymentVnp($order);
+            // $cart->destroy();
+            return;
+        }
         if ($this->paymentType == 'cash') {
             // cash payment process
             $order = $cart->createOrder($recipient, ShippingPaymentType::BUYER_PAY, PaymentType::CASH, $this->serviceTypeId);
@@ -95,5 +104,6 @@ class Checkout extends Component
             $orderUrl = URL::signedRoute('site.checkout-success', ['order' => $order]);
             return redirect($orderUrl);
         }
+
     }
 }

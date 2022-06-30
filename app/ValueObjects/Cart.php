@@ -110,8 +110,8 @@ class Cart
                 $order = Order::create([
                     'store_branch_id' => $storeBranchId,
                     'group_id' => $firstOrder?->id,
-                    'amount' =>  collect($cartItems)->reduce(fn ($result, $item) => $result->plus($item->amount), Money::of(0, 'VND'))->getAmount(),
-                    'shipping_fee' => $this->shippingFee[$storeBranchId]->getAmount(),
+                    'amount' =>  collect($cartItems)->reduce(fn ($result, $item) => $result->plus($item->amount), Money::of(0, 'VND')),
+                    'shipping_fee' => $this->shippingFee[$storeBranchId],
                     'shipping_payment_type' => $shippingPaymentType,
                     'payment_type' => $paymentType,
                     'discount' => 0,
@@ -128,7 +128,7 @@ class Cart
 
                 foreach ($cartItems as $key => $cartItem) {
                     $order->orderItems()->create([
-                        'price' => $cartItem->price_unit->getAmount(),
+                        'price' => $cartItem->price_unit,
                         'qty' => $cartItem->qty,
                         'product_name' => $cartItem->product_name,
                         'variation_string' => $cartItem->getVariantionString(),

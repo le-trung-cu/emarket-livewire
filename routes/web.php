@@ -6,6 +6,7 @@ use App\Http\Livewire\Site\Checkout;
 use App\Http\Livewire\Site\CheckoutSuccess;
 use App\Http\Livewire\Site\Home;
 use App\Http\Livewire\Site\ProductDetail;
+use App\Http\Livewire\Site\VNPaymentSuccess;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,8 @@ Route::group(['as' => 'site.'], function () {
     Route::get('/cart', CartDetail::class)->name('cart.show');
     Route::get('checkout', Checkout::class)->name('checkout');
     Route::middleware('signed')->get('checkout-success/{order}', CheckoutSuccess::class)->name('checkout-success');
+
+    Route::get('vnpayment-success', VNPaymentSuccess::class)->name('vnpayment-success');
 });
 
 Route::controller(AddressController::class)->prefix('/address')->as('address.')->group(function () {

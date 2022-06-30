@@ -13,10 +13,10 @@ class CheckoutSuccess extends Component
     public function render()
     {
         $children = $this->order->children()->with('orderItems.sku.product')->get();
-        $amountTotal = Money::of($this->order->amount, 'VND')
+        $amountTotal = $this->order->amount
             ->plus(collect($children)->sum(fn($order) => $order->amount));
 
-        $shippingFeeTotal = Money::of($this->order->shipping_fee, 'VND')
+        $shippingFeeTotal = $this->order->shipping_fee
             ->plus(collect($children)->sum(fn($order) => $order->shipping_fee));
 
         $orderGroup = collect([$this->order])->concat($children);

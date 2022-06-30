@@ -146,6 +146,11 @@ return [
     'shop_id_ghn' => env('SHOP_ID_GHN'),
     'token_ghn' => env('TOKEN_GHN'),
     'shop_district_id_ghn' => env('SHOP_DISTRICT_ID_GHN'),
+    'vnp_TmnCode' => env('vnp_TmnCode'),
+    'vnp_HashSecret' => env('vnp_HashSecret'),
+    'vnp_Url' => env('vnp_Url'),
+    'vnp_Returnurl' => env('vnp_Returnurl'),
+    'language' => env('LANGUAGE'),
 
     /*
     |--------------------------------------------------------------------------

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Casts\MoneyCast;
 use App\Enums\OrderStatus;
+use App\Enums\PaymentStatus;
 use App\Enums\PaymentType;
 use App\Enums\ShippingPaymentType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -40,6 +41,7 @@ class Order extends Model
         'payment_type' => PaymentType::class,
         'shipping_payment_type' => ShippingPaymentType::class,
         'status' => OrderStatus::class,
+        'payment_status' => PaymentStatus::class,
     ];
 
     public function orderItems()
@@ -61,4 +63,10 @@ class Order extends Model
     {
         return $this->belongsTo(StoreBranch::class);
     }
+
+    public function getTotalAttribute()
+    {
+        return $this->amount->plus($this->shipping_fee);
+    }
+
 }
