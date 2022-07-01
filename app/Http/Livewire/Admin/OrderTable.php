@@ -123,7 +123,7 @@ final class OrderTable extends PowerGridComponent
             ->addColumn('district_id')
             ->addColumn('print_token_ghn')
             ->addColumn('status_label', fn (Order $order) => view('components.admin.powergrid.order-table-status', ['status' => $order->status->labels()]))
-            ->addColumn('payment_status')
+            ->addColumn('payment_status_label', fn(Order $order) => $order->payment_status->labels())
             ->addColumn('created_at_formatted', fn (Order $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
             ->addColumn('updated_at_formatted', fn (Order $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
     }
@@ -205,7 +205,7 @@ final class OrderTable extends PowerGridComponent
             Column::make('STATUS', 'status_label', 'status')
                 ->sortable(),
 
-            Column::make('PAYMENT STATUS', 'payment_status'),
+            Column::make('PAYMENT STATUS', 'payment_status_label'),
 
             Column::make('CREATED AT', 'created_at_formatted', 'created_at')
                 ->sortable(),

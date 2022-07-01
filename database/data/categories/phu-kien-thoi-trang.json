@@ -1,0 +1,331 @@
+{
+    "name": "Phụ kiện",
+    "href": "https://tiki.vn/phu-kien-thoi-trang/c27498",
+    "slug": "phu-kien-thoi-trang",
+    "children": [
+        {
+            "name": "Mắt kính",
+            "href": "https://tiki.vn/mat-kinh/c8370",
+            "slug": "mat-kinh",
+            "children": [
+                {
+                    "name": "Kính mát",
+                    "href": "https://tiki.vn/kinh-mat/c978",
+                    "slug": "kinh-mat",
+                    "children": [
+                        {
+                            "name": "Kính mát nữ",
+                            "href": "https://tiki.vn/kinh-mat-nu/c5394",
+                            "slug": "kinh-mat-nu",
+                            "children": []
+                        },
+                        {
+                            "name": "Kính mát nam",
+                            "href": "https://tiki.vn/kinh-mat-nam/c5410",
+                            "slug": "kinh-mat-nam",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Gọng kính",
+                    "href": "https://tiki.vn/gong-kinh/c1017",
+                    "slug": "gong-kinh",
+                    "children": [
+                        {
+                            "name": "Gọng kính nam",
+                            "href": "https://tiki.vn/gong-kinh-nam/c8382",
+                            "slug": "gong-kinh-nam",
+                            "children": []
+                        },
+                        {
+                            "name": "Gọng kính nữ",
+                            "href": "https://tiki.vn/gong-kinh-nu/c8384",
+                            "slug": "gong-kinh-nu",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Kính áp tròng",
+                    "href": "https://tiki.vn/kinh-ap-trong/c11839",
+                    "slug": "kinh-ap-trong",
+                    "children": []
+                },
+                {
+                    "name": "Mắt kính trẻ em",
+                    "href": "https://tiki.vn/mat-kinh-tre-em/c11374",
+                    "slug": "mat-kinh-tre-em",
+                    "children": []
+                },
+                {
+                    "name": "Phụ kiện kính",
+                    "href": "https://tiki.vn/phu-kien-kinh/c11843",
+                    "slug": "phu-kien-kinh",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "Phụ kiện thời trang nữ",
+            "href": "https://tiki.vn/phu-kien-thoi-trang-nu/c975",
+            "slug": "phu-kien-thoi-trang-nu",
+            "children": [
+                {
+                    "name": "Nón nữ",
+                    "href": "https://tiki.vn/non-nu/c5401",
+                    "slug": "non-nu",
+                    "children": [
+                        {
+                            "name": "Nón tai bèo nữ",
+                            "href": "https://tiki.vn/non-tai-beo-nu/c49662",
+                            "slug": "non-tai-beo-nu",
+                            "children": []
+                        },
+                        {
+                            "name": "Nón nửa đầu nữ",
+                            "href": "https://tiki.vn/non-nua-dau-nu/c49664",
+                            "slug": "non-nua-dau-nu",
+                            "children": []
+                        },
+                        {
+                            "name": "Nón lưỡi trai nữ",
+                            "href": "https://tiki.vn/non-luoi-trai-nu/c49666",
+                            "slug": "non-luoi-trai-nu",
+                            "children": []
+                        },
+                        {
+                            "name": "Nón rộng vành nữ",
+                            "href": "https://tiki.vn/non-rong-vanh-nu/c49668",
+                            "slug": "non-rong-vanh-nu",
+                            "children": []
+                        },
+                        {
+                            "name": "Nón chống nắng nữ",
+                            "href": "https://tiki.vn/non-chong-nang-nu/c49670",
+                            "slug": "non-chong-nang-nu",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Khăn - Tất - Vớ nữ",
+                    "href": "https://tiki.vn/khan-tat-vo-nu/c5403",
+                    "slug": "khan-tat-vo-nu",
+                    "children": [
+                        {
+                            "name": "Vớ ngắn nữ",
+                            "href": "https://tiki.vn/vo-ngan-nu/c49672",
+                            "slug": "vo-ngan-nu",
+                            "children": []
+                        },
+                        {
+                            "name": "Vớ dài nữ",
+                            "href": "https://tiki.vn/vo-dai-nu/c49674",
+                            "slug": "vo-dai-nu",
+                            "children": []
+                        },
+                        {
+                            "name": "Khẩu trang nữ",
+                            "href": "https://tiki.vn/khau-trang-nu/c49676",
+                            "slug": "khau-trang-nu",
+                            "children": []
+                        },
+                        {
+                            "name": "Khăn choàng - Khăn tay nữ",
+                            "href": "https://tiki.vn/khan-choang-khan-tay-nu/c5402",
+                            "slug": "khan-choang-khan-tay-nu",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Phụ kiện tóc nữ",
+                    "href": "https://tiki.vn/phu-kien-toc-nu/c8361",
+                    "slug": "phu-kien-toc-nu",
+                    "children": [
+                        {
+                            "name": "Cột tóc",
+                            "href": "https://tiki.vn/cot-toc/c49678",
+                            "slug": "cot-toc",
+                            "children": []
+                        },
+                        {
+                            "name": "Cài tóc",
+                            "href": "https://tiki.vn/cai-toc/c49680",
+                            "slug": "cai-toc",
+                            "children": []
+                        },
+                        {
+                            "name": "Băng đô",
+                            "href": "https://tiki.vn/bang-do/c49682",
+                            "slug": "bang-do",
+                            "children": []
+                        },
+                        {
+                            "name": "Lược",
+                            "href": "https://tiki.vn/luoc/c49684",
+                            "slug": "luoc",
+                            "children": []
+                        },
+                        {
+                            "name": "Dụng cụ uốn tóc và tạo kiểu",
+                            "href": "https://tiki.vn/dung-cu-uon-toc-va-tao-kieu/c49686",
+                            "slug": "dung-cu-uon-toc-va-tao-kieu",
+                            "children": []
+                        },
+                        {
+                            "name": "Phụ kiện tóc khác",
+                            "href": "https://tiki.vn/phu-kien-toc-khac/c49688",
+                            "slug": "phu-kien-toc-khac",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Thắt lưng - Dây nịt nữ và phụ kiện",
+                    "href": "https://tiki.vn/that-lung-day-nit-nu-va-phu-kien/c5387",
+                    "slug": "that-lung-day-nit-nu-va-phu-kien",
+                    "children": [
+                        {
+                            "name": "Thắt lưng nữ bản to",
+                            "href": "https://tiki.vn/that-lung-nu-ban-to/c49690",
+                            "slug": "that-lung-nu-ban-to",
+                            "children": []
+                        },
+                        {
+                            "name": "Thắt lưng nữ bản nhỏ",
+                            "href": "https://tiki.vn/that-lung-nu-ban-nho/c49692",
+                            "slug": "that-lung-nu-ban-nho",
+                            "children": []
+                        },
+                        {
+                            "name": "Mặt thắt lưng",
+                            "href": "https://tiki.vn/mat-that-lung/c49694",
+                            "slug": "mat-that-lung",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Phụ kiện cưới",
+                    "href": "https://tiki.vn/phu-kien-cuoi/c5400",
+                    "slug": "phu-kien-cuoi",
+                    "children": []
+                },
+                {
+                    "name": "Cài Áo",
+                    "href": "https://tiki.vn/cai-ao/c15118",
+                    "slug": "cai-ao",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "Phụ kiện thời trang nam",
+            "href": "https://tiki.vn/phu-kien-thoi-trang-nam/c27550",
+            "slug": "phu-kien-thoi-trang-nam",
+            "children": [
+                {
+                    "name": "Nón nam",
+                    "href": "https://tiki.vn/non-nam/c8341",
+                    "slug": "non-nam",
+                    "children": [
+                        {
+                            "name": "Nón lưỡi trai nam",
+                            "href": "https://tiki.vn/non-luoi-trai-nam/c49704",
+                            "slug": "non-luoi-trai-nam",
+                            "children": []
+                        },
+                        {
+                            "name": "Nón rộng vành nam",
+                            "href": "https://tiki.vn/non-rong-vanh-nam/c49706",
+                            "slug": "non-rong-vanh-nam",
+                            "children": []
+                        },
+                        {
+                            "name": "Nón len nam",
+                            "href": "https://tiki.vn/non-len-nam/c49708",
+                            "slug": "non-len-nam",
+                            "children": []
+                        },
+                        {
+                            "name": "Nón phớt cao bồi nam",
+                            "href": "https://tiki.vn/non-phot-cao-boi-nam/c49710",
+                            "slug": "non-phot-cao-boi-nam",
+                            "children": []
+                        },
+                        {
+                            "name": "Nón snapback nam",
+                            "href": "https://tiki.vn/non-snapback-nam/c49712",
+                            "slug": "non-snapback-nam",
+                            "children": []
+                        },
+                        {
+                            "name": "Nón tai bèo nam - bucket nam",
+                            "href": "https://tiki.vn/non-tai-beo-nam-bucket-nam/c49714",
+                            "slug": "non-tai-beo-nam-bucket-nam",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Khăn - Găng tay nam",
+                    "href": "https://tiki.vn/khan-gang-tay-nam/c8343",
+                    "slug": "khan-gang-tay-nam",
+                    "children": []
+                },
+                {
+                    "name": "Tất, vớ nam",
+                    "href": "https://tiki.vn/vo-nam/c5343",
+                    "slug": "vo-nam",
+                    "children": [
+                        {
+                            "name": "Vớ cổ ngắn nam",
+                            "href": "https://tiki.vn/vo-co-ngan-nam/c49716",
+                            "slug": "vo-co-ngan-nam",
+                            "children": []
+                        },
+                        {
+                            "name": "Vớ cổ cao nam",
+                            "href": "https://tiki.vn/vo-co-cao-nam/c49718",
+                            "slug": "vo-co-cao-nam",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Thắt lưng, dây nịt nam",
+                    "href": "https://tiki.vn/that-lung-day-nit-nam/c968",
+                    "slug": "that-lung-day-nit-nam",
+                    "children": [
+                        {
+                            "name": "Dây thắt lưng - Dây nịt",
+                            "href": "https://tiki.vn/day-that-lung-day-nit/c5339",
+                            "slug": "day-that-lung-day-nit",
+                            "children": []
+                        },
+                        {
+                            "name": "Mặt thắt lưng",
+                            "href": "https://tiki.vn/mat-that-lung/c5338",
+                            "slug": "mat-that-lung",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Hình xăm",
+                    "href": "https://tiki.vn/hinh-xam/c49720",
+                    "slug": "hinh-xam",
+                    "children": []
+                },
+                {
+                    "name": "Găng tay nam",
+                    "href": "https://tiki.vn/gang-tay-nam/c8342",
+                    "slug": "gang-tay-nam",
+                    "children": []
+                }
+            ]
+        }
+    ]
+}

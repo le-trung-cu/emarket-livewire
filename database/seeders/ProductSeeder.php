@@ -25,8 +25,8 @@ class ProductSeeder extends Seeder
 
         Product::factory(20)->create();
 
-        $product1 = Product::find(1);
-        $product1 = new Product();
-        $product1->addMediaFromUrl('https://salt.tikicdn.com/cache/400x400/ts/product/da/16/ae/603e0e41bfd0428e3bf9f0137efd2d08.jpg')->toMediaCollection('product-thumbnail');
+        // $product1 = Product::find(1);
+        // $product1 = new Product();
+        // $product1->addMediaFromUrl('https://salt.tikicdn.com/cache/400x400/ts/product/da/16/ae/603e0e41bfd0428e3bf9f0137efd2d08.jpg')->toMediaCollection('product-thumbnail');
     }
 }

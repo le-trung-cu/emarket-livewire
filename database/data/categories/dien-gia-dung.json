@@ -1,0 +1,734 @@
+{
+    "name": "Gia Dụng",
+    "href": "https://tiki.vn/dien-gia-dung/c1882",
+    "slug": "dien-gia-dung",
+    "children": [
+        {
+            "name": "Đồ dùng nhà bếp",
+            "href": "https://tiki.vn/do-dung-nha-bep/c1884",
+            "slug": "do-dung-nha-bep",
+            "children": [
+                {
+                    "name": "Nồi điện các loại",
+                    "href": "https://tiki.vn/noi-dien-cac-loai/c1892",
+                    "slug": "noi-dien-cac-loai",
+                    "children": [
+                        {
+                            "name": "Nồi cơm điện",
+                            "href": "https://tiki.vn/noi-com-dien/c1893",
+                            "slug": "noi-com-dien",
+                            "children": [
+                                {
+                                    "name": "Nồi cơm điện tử",
+                                    "href": "https://tiki.vn/noi-com-dien-tu/c1918",
+                                    "slug": "noi-com-dien-tu",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Nồi cơm nắp gài",
+                                    "href": "https://tiki.vn/noi-com-nap-gai/c1919",
+                                    "slug": "noi-com-nap-gai",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Nồi cơm nắp rời",
+                                    "href": "https://tiki.vn/noi-com-nap-roi/c1920",
+                                    "slug": "noi-com-nap-roi",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Nồi cơm dung tích lớn",
+                                    "href": "https://tiki.vn/noi-com-dung-tich-lon/c2271",
+                                    "slug": "noi-com-dung-tich-lon",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Nồi áp suất",
+                            "href": "https://tiki.vn/noi-ap-suat/c1894",
+                            "slug": "noi-ap-suat",
+                            "children": []
+                        },
+                        {
+                            "name": "Nồi lẩu điện",
+                            "href": "https://tiki.vn/noi-lau-dien/c1895",
+                            "slug": "noi-lau-dien",
+                            "children": []
+                        },
+                        {
+                            "name": "Nồi tiềm, nồi nấu cháo",
+                            "href": "https://tiki.vn/noi-tiem-noi-nau-chao/c1896",
+                            "slug": "noi-tiem-noi-nau-chao",
+                            "children": []
+                        },
+                        {
+                            "name": "Nồi hấp",
+                            "href": "https://tiki.vn/noi-hap/c1897",
+                            "slug": "noi-hap",
+                            "children": []
+                        },
+                        {
+                            "name": "Nồi đa năng",
+                            "href": "https://tiki.vn/noi-da-nang/c5313",
+                            "slug": "noi-da-nang",
+                            "children": []
+                        },
+                        {
+                            "name": "Nồi chiên",
+                            "href": "https://tiki.vn/noi-chien/c8123",
+                            "slug": "noi-chien",
+                            "children": []
+                        },
+                        {
+                            "name": "Nồi tiềm",
+                            "href": "https://tiki.vn/noi-tiem/c24072",
+                            "slug": "noi-tiem",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Bếp các loại",
+                    "href": "https://tiki.vn/bep-cac-loai/c1885",
+                    "slug": "bep-cac-loai",
+                    "children": [
+                        {
+                            "name": "Bếp hồng ngoại",
+                            "href": "https://tiki.vn/bep-hong-ngoai/c1886",
+                            "slug": "bep-hong-ngoai",
+                            "children": [
+                                {
+                                    "name": "Bếp hồng ngoại đơn",
+                                    "href": "https://tiki.vn/bep-hong-ngoai-don/c23814",
+                                    "slug": "bep-hong-ngoai-don",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Bếp hồng ngoại đôi",
+                                    "href": "https://tiki.vn/bep-hong-ngoai-doi/c23816",
+                                    "slug": "bep-hong-ngoai-doi",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Bếp điện từ",
+                            "href": "https://tiki.vn/bep-dien-tu/c1887",
+                            "slug": "bep-dien-tu",
+                            "children": [
+                                {
+                                    "name": "Bếp điện từ đơn",
+                                    "href": "https://tiki.vn/bep-dien-tu-don/c23808",
+                                    "slug": "bep-dien-tu-don",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Bếp điện từ đôi",
+                                    "href": "https://tiki.vn/bep-dien-tu-doi/c23810",
+                                    "slug": "bep-dien-tu-doi",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Bếp điện quang",
+                            "href": "https://tiki.vn/bep-dien-quang/c2145",
+                            "slug": "bep-dien-quang",
+                            "children": []
+                        },
+                        {
+                            "name": "Bếp điện kết hợp",
+                            "href": "https://tiki.vn/bep-dien-ket-hop/c1927",
+                            "slug": "bep-dien-ket-hop",
+                            "children": []
+                        },
+                        {
+                            "name": "Bếp lẩu, nướng",
+                            "href": "https://tiki.vn/bep-lau-nuong/c1928",
+                            "slug": "bep-lau-nuong",
+                            "children": []
+                        },
+                        {
+                            "name": "Bếp gas",
+                            "href": "https://tiki.vn/bep-gas/c1888",
+                            "slug": "bep-gas",
+                            "children": [
+                                {
+                                    "name": "Bếp gas dương",
+                                    "href": "https://tiki.vn/bep-gas-duong/c1889",
+                                    "slug": "bep-gas-duong",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Bếp gas âm",
+                                    "href": "https://tiki.vn/bep-gas-am/c1890",
+                                    "slug": "bep-gas-am",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Bếp gas du lịch - bếp gas đơn",
+                                    "href": "https://tiki.vn/bep-gas-du-lich-bep-gas-don/c5449",
+                                    "slug": "bep-gas-du-lich-bep-gas-don",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Phụ kiện bếp gas",
+                                    "href": "https://tiki.vn/phu-kien-bep-gas/c23812",
+                                    "slug": "phu-kien-bep-gas",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Máy hút khói, khử mùi",
+                    "href": "https://tiki.vn/may-hut-khoi-khu-mui/c4875",
+                    "slug": "may-hut-khoi-khu-mui",
+                    "children": []
+                },
+                {
+                    "name": "Lò vi sóng",
+                    "href": "https://tiki.vn/lo-vi-song/c2022",
+                    "slug": "lo-vi-song",
+                    "children": [
+                        {
+                            "name": "Lò vi sóng điện tử",
+                            "href": "https://tiki.vn/lo-vi-song-dien-tu/c2035",
+                            "slug": "lo-vi-song-dien-tu",
+                            "children": []
+                        },
+                        {
+                            "name": "Lò vi sóng cơ",
+                            "href": "https://tiki.vn/lo-vi-song/c2036",
+                            "slug": "lo-vi-song",
+                            "children": []
+                        },
+                        {
+                            "name": "Lò vi sóng có nướng",
+                            "href": "https://tiki.vn/lo-vi-song-co-nuong/c2037",
+                            "slug": "lo-vi-song-co-nuong",
+                            "children": []
+                        },
+                        {
+                            "name": "Lò vi sóng âm",
+                            "href": "https://tiki.vn/lo-vi-song/c4746",
+                            "slug": "lo-vi-song",
+                            "children": []
+                        },
+                        {
+                            "name": "Lò vi sóng hơi nước",
+                            "href": "https://tiki.vn/lo-vi-song-hoi-nuoc/c23828",
+                            "slug": "lo-vi-song-hoi-nuoc",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Lò nướng điện",
+                    "href": "https://tiki.vn/lo-nuong-dien/c2023",
+                    "slug": "lo-nuong-dien",
+                    "children": [
+                        {
+                            "name": "Lò nướng thùng",
+                            "href": "https://tiki.vn/lo-nuong-thung/c2040",
+                            "slug": "lo-nuong-thung",
+                            "children": []
+                        },
+                        {
+                            "name": "Lò nướng âm tủ",
+                            "href": "https://tiki.vn/lo-nuong-am-tu/c4747",
+                            "slug": "lo-nuong-am-tu",
+                            "children": []
+                        },
+                        {
+                            "name": "Lò nướng thủy tinh",
+                            "href": "https://tiki.vn/lo-nuong-thuy-tinh/c2041",
+                            "slug": "lo-nuong-thuy-tinh",
+                            "children": []
+                        },
+                        {
+                            "name": "Lò nướng bánh mì sandwich",
+                            "href": "https://tiki.vn/lo-nuong-banh-mi-sandwich/c2042",
+                            "slug": "lo-nuong-banh-mi-sandwich",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Vỉ nướng điện",
+                    "href": "https://tiki.vn/vi-nuong/c2044",
+                    "slug": "vi-nuong",
+                    "children": []
+                },
+                {
+                    "name": "Máy xay, máy ép",
+                    "href": "https://tiki.vn/may-xay-may-ep/c2024",
+                    "slug": "may-xay-may-ep",
+                    "children": [
+                        {
+                            "name": "Máy xay sinh tố",
+                            "href": "https://tiki.vn/may-xay-sinh-to/c2105",
+                            "slug": "may-xay-sinh-to",
+                            "children": [
+                                {
+                                    "name": "Máy xay sinh tố gia đình",
+                                    "href": "https://tiki.vn/may-xay-sinh-to-gia-dinh/c24062",
+                                    "slug": "may-xay-sinh-to-gia-dinh",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Máy xay sinh tố công nghiệp",
+                                    "href": "https://tiki.vn/may-xay-sinh-to-cong-nghiep/c24066",
+                                    "slug": "may-xay-sinh-to-cong-nghiep",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Máy xay cầm tay",
+                            "href": "https://tiki.vn/may-xay-cam-tay/c2850",
+                            "slug": "may-xay-cam-tay",
+                            "children": []
+                        },
+                        {
+                            "name": "Máy ép trái cây",
+                            "href": "https://tiki.vn/may-ep-trai-cay/c2106",
+                            "slug": "may-ep-trai-cay",
+                            "children": []
+                        },
+                        {
+                            "name": "Máy xay ép đa năng",
+                            "href": "https://tiki.vn/may-xay-ep-da-nang/c2107",
+                            "slug": "may-xay-ep-da-nang",
+                            "children": []
+                        },
+                        {
+                            "name": "Máy xay cắt đa năng",
+                            "href": "https://tiki.vn/may-xay-cat-da-nang/c2111",
+                            "slug": "may-xay-cat-da-nang",
+                            "children": []
+                        },
+                        {
+                            "name": "Máy xay thịt",
+                            "href": "https://tiki.vn/may-xay-thit/c2110",
+                            "slug": "may-xay-thit",
+                            "children": []
+                        },
+                        {
+                            "name": "Máy vắt cam",
+                            "href": "https://tiki.vn/may-vat-cam/c2109",
+                            "slug": "may-vat-cam",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Bình đun siêu tốc",
+                    "href": "https://tiki.vn/binh-dun-sieu-toc/c1931",
+                    "slug": "binh-dun-sieu-toc",
+                    "children": []
+                },
+                {
+                    "name": "Bình thủy điện",
+                    "href": "https://tiki.vn/binh-thuy-dien/c1932",
+                    "slug": "binh-thuy-dien",
+                    "children": []
+                },
+                {
+                    "name": "Máy pha cà phê",
+                    "href": "https://tiki.vn/may-pha-ca-phe/c1939",
+                    "slug": "may-pha-ca-phe",
+                    "children": [
+                        {
+                            "name": "Máy pha cà phê gia đình",
+                            "href": "https://tiki.vn/may-pha-ca-phe-gia-dinh/c24040",
+                            "slug": "may-pha-ca-phe-gia-dinh",
+                            "children": []
+                        },
+                        {
+                            "name": "Máy pha cà phê chuyên dụng",
+                            "href": "https://tiki.vn/may-pha-ca-phe-chuyen-dung/c24048",
+                            "slug": "may-pha-ca-phe-chuyen-dung",
+                            "children": []
+                        },
+                        {
+                            "name": "Máy xay cà phê ",
+                            "href": "https://tiki.vn/may-xay-ca-phe/c24050",
+                            "slug": "may-xay-ca-phe",
+                            "children": []
+                        },
+                        {
+                            "name": "Phụ kiện máy pha cà phê",
+                            "href": "https://tiki.vn/phu-kien-may-pha-ca-phe/c24054",
+                            "slug": "phu-kien-may-pha-ca-phe",
+                            "children": []
+                        },
+                        {
+                            "name": "Viên nén cà phê",
+                            "href": "https://tiki.vn/vien-nen-ca-phe/c26486",
+                            "slug": "vien-nen-ca-phe",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Máy làm kem",
+                    "href": "https://tiki.vn/may-lam-kem/c8082",
+                    "slug": "may-lam-kem",
+                    "children": []
+                },
+                {
+                    "name": "Máy làm sữa đậu nành",
+                    "href": "https://tiki.vn/may-lam-sua-dau-nanh/c2025",
+                    "slug": "may-lam-sua-dau-nanh",
+                    "children": []
+                },
+                {
+                    "name": "Máy làm sữa chua",
+                    "href": "https://tiki.vn/may-lam-sua-chua/c2026",
+                    "slug": "may-lam-sua-chua",
+                    "children": []
+                },
+                {
+                    "name": "Máy làm mì sợi",
+                    "href": "https://tiki.vn/may-lam-mi-soi/c5363",
+                    "slug": "may-lam-mi-soi",
+                    "children": []
+                },
+                {
+                    "name": "Máy làm bánh",
+                    "href": "https://tiki.vn/may-lam-banh/c2315",
+                    "slug": "may-lam-banh",
+                    "children": []
+                },
+                {
+                    "name": "Siêu sắc thuốc",
+                    "href": "https://tiki.vn/sieu-sac-thuoc/c1942",
+                    "slug": "sieu-sac-thuoc",
+                    "children": []
+                },
+                {
+                    "name": "Máy làm tỏi đen",
+                    "href": "https://tiki.vn/may-lam-toi-den/c7239",
+                    "slug": "may-lam-toi-den",
+                    "children": []
+                },
+                {
+                    "name": "Máy sấy chén",
+                    "href": "https://tiki.vn/may-say-chen/c23818",
+                    "slug": "may-say-chen",
+                    "children": []
+                },
+                {
+                    "name": "Máy sấy thực phẩm",
+                    "href": "https://tiki.vn/may-say-thuc-pham/c23820",
+                    "slug": "may-say-thuc-pham",
+                    "children": []
+                },
+                {
+                    "name": "Máy hút chân không",
+                    "href": "https://tiki.vn/may-hut-chan-khong/c23822",
+                    "slug": "may-hut-chan-khong",
+                    "children": []
+                },
+                {
+                    "name": "Máy hàn miệng túi",
+                    "href": "https://tiki.vn/may-han-mieng-tui/c23824",
+                    "slug": "may-han-mieng-tui",
+                    "children": []
+                },
+                {
+                    "name": "Máy cắt thịt đông lạnh",
+                    "href": "https://tiki.vn/may-cat-thit-dong-lanh/c23826",
+                    "slug": "may-cat-thit-dong-lanh",
+                    "children": []
+                },
+                {
+                    "name": "Đồ dùng nhà bếp khác",
+                    "href": "https://tiki.vn/do-dung-nha-bep-khac/c8728",
+                    "slug": "do-dung-nha-bep-khac",
+                    "children": []
+                },
+                {
+                    "name": "Máy đánh trứng",
+                    "href": "https://tiki.vn/may-danh-trung/c2108",
+                    "slug": "may-danh-trung",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "Thiết bị gia đình",
+            "href": "https://tiki.vn/thiet-bi-gia-dinh/c1946",
+            "slug": "thiet-bi-gia-dinh",
+            "children": [
+                {
+                    "name": "Bàn ủi, bàn là",
+                    "href": "https://tiki.vn/ban-ui-ban-la/c1993",
+                    "slug": "ban-ui-ban-la",
+                    "children": [
+                        {
+                            "name": "Bàn ủi hơi nước",
+                            "href": "https://tiki.vn/ban-ui-hoi-nuoc/c1994",
+                            "slug": "ban-ui-hoi-nuoc",
+                            "children": []
+                        },
+                        {
+                            "name": "Bàn ủi hơi nước đứng",
+                            "href": "https://tiki.vn/ban-ui-hoi-nuoc-dung/c1996",
+                            "slug": "ban-ui-hoi-nuoc-dung",
+                            "children": []
+                        },
+                        {
+                            "name": "Bàn ủi khô",
+                            "href": "https://tiki.vn/ban-ui-kho/c1995",
+                            "slug": "ban-ui-kho",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Máy may, thêu, vắt sổ",
+                    "href": "https://tiki.vn/may-may-theu-vat-so/c1997",
+                    "slug": "may-may-theu-vat-so",
+                    "children": [
+                        {
+                            "name": "Máy may điện tử",
+                            "href": "https://tiki.vn/may-may-dien-tu/c1998",
+                            "slug": "may-may-dien-tu",
+                            "children": []
+                        },
+                        {
+                            "name": "Máy may cơ",
+                            "href": "https://tiki.vn/may-may-co/c1999",
+                            "slug": "may-may-co",
+                            "children": []
+                        },
+                        {
+                            "name": "Máy thêu",
+                            "href": "https://tiki.vn/may-theu/c2000",
+                            "slug": "may-theu",
+                            "children": []
+                        },
+                        {
+                            "name": "Máy vắt sổ",
+                            "href": "https://tiki.vn/may-vat-so/c8083",
+                            "slug": "may-vat-so",
+                            "children": []
+                        },
+                        {
+                            "name": "Phụ kiện máy may, thêu, vắt sổ",
+                            "href": "https://tiki.vn/phu-kien-may-may-theu-vat-so/c11530",
+                            "slug": "phu-kien-may-may-theu-vat-so",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Quạt điện",
+                    "href": "https://tiki.vn/quat-dien/c2001",
+                    "slug": "quat-dien",
+                    "children": [
+                        {
+                            "name": "Quạt Đứng",
+                            "href": "https://tiki.vn/quat-dung/c8084",
+                            "slug": "quat-dung",
+                            "children": []
+                        },
+                        {
+                            "name": "Quạt lửng",
+                            "href": "https://tiki.vn/quat-lung/c2002",
+                            "slug": "quat-lung",
+                            "children": []
+                        },
+                        {
+                            "name": "Quạt hơi nước, phun sương",
+                            "href": "https://tiki.vn/quat-hoi-nuoc-phun-suong/c2004",
+                            "slug": "quat-hoi-nuoc-phun-suong",
+                            "children": []
+                        },
+                        {
+                            "name": "Quạt treo tường",
+                            "href": "https://tiki.vn/quat-treo-tuong/c2003",
+                            "slug": "quat-treo-tuong",
+                            "children": []
+                        },
+                        {
+                            "name": "Quạt trần",
+                            "href": "https://tiki.vn/quat-tran/c5134",
+                            "slug": "quat-tran",
+                            "children": []
+                        },
+                        {
+                            "name": "Quạt tháp",
+                            "href": "https://tiki.vn/quat-thap/c2005",
+                            "slug": "quat-thap",
+                            "children": []
+                        },
+                        {
+                            "name": "Quạt bàn",
+                            "href": "https://tiki.vn/quat-ban/c2006",
+                            "slug": "quat-ban",
+                            "children": []
+                        },
+                        {
+                            "name": "Quạt hộp",
+                            "href": "https://tiki.vn/quat-hop/c2007",
+                            "slug": "quat-hop",
+                            "children": []
+                        },
+                        {
+                            "name": "Quạt sạc",
+                            "href": "https://tiki.vn/quat-sac/c2008",
+                            "slug": "quat-sac",
+                            "children": []
+                        },
+                        {
+                            "name": "Quạt hút, quạt thông gió",
+                            "href": "https://tiki.vn/qut-hut-quat-thong-gio/c6818",
+                            "slug": "qut-hut-quat-thong-gio",
+                            "children": []
+                        },
+                        {
+                            "name": "Quạt mini",
+                            "href": "https://tiki.vn/quat-mini/c24076",
+                            "slug": "quat-mini",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Máy hút bụi",
+                    "href": "https://tiki.vn/may-hut-bui/c2009",
+                    "slug": "may-hut-bui",
+                    "children": [
+                        {
+                            "name": "Hút bụi gia đình",
+                            "href": "https://tiki.vn/hut-bui-gia-dinh/c2038",
+                            "slug": "hut-bui-gia-dinh",
+                            "children": []
+                        },
+                        {
+                            "name": "Hút bụi cầm tay",
+                            "href": "https://tiki.vn/hut-bui-cam-tay/c2039",
+                            "slug": "hut-bui-cam-tay",
+                            "children": []
+                        },
+                        {
+                            "name": "Phụ kiện máy hút bụi",
+                            "href": "https://tiki.vn/phu-kien-may-hut-bui/c13224",
+                            "slug": "phu-kien-may-hut-bui",
+                            "children": []
+                        },
+                        {
+                            "name": "Hút bụi công nghiệp",
+                            "href": "https://tiki.vn/hut-bui-cong-nghiep/c2161",
+                            "slug": "hut-bui-cong-nghiep",
+                            "children": []
+                        },
+                        {
+                            "name": "Robot hút bụi",
+                            "href": "https://tiki.vn/robot-hut-bui/c11860",
+                            "slug": "robot-hut-bui",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Cây Nước Nóng Lạnh",
+                    "href": "https://tiki.vn/cay-nuoc-nong-lanh/c4876",
+                    "slug": "cay-nuoc-nong-lanh",
+                    "children": []
+                },
+                {
+                    "name": "Máy lọc không khí",
+                    "href": "https://tiki.vn/may-loc-khong-khi/c2010",
+                    "slug": "may-loc-khong-khi",
+                    "children": []
+                },
+                {
+                    "name": "Máy tạo ẩm",
+                    "href": "https://tiki.vn/may-tao-am/c5614",
+                    "slug": "may-tao-am",
+                    "children": []
+                },
+                {
+                    "name": "Máy hút ẩm",
+                    "href": "https://tiki.vn/may-hut-am/c5585",
+                    "slug": "may-hut-am",
+                    "children": []
+                },
+                {
+                    "name": "Máy lọc nước",
+                    "href": "https://tiki.vn/may-loc-nuoc/c5010",
+                    "slug": "may-loc-nuoc",
+                    "children": [
+                        {
+                            "name": "Máy lọc nước có điện ",
+                            "href": "https://tiki.vn/may-loc-nuoc-co-dien/c26488",
+                            "slug": "may-loc-nuoc-co-dien",
+                            "children": []
+                        },
+                        {
+                            "name": "Máy lọc nước không điện",
+                            "href": "https://tiki.vn/may-loc-nuoc-khong-dien/c26490",
+                            "slug": "may-loc-nuoc-khong-dien",
+                            "children": []
+                        },
+                        {
+                            "name": "Phụ kiện máy lọc nước",
+                            "href": "https://tiki.vn/phu-kien-may-loc-nuoc/c26492",
+                            "slug": "phu-kien-may-loc-nuoc",
+                            "children": []
+                        },
+                        {
+                            "name": "Đầu lọc nước tại vòi",
+                            "href": "https://tiki.vn/dau-loc-nuoc-tai-voi/c26494",
+                            "slug": "dau-loc-nuoc-tai-voi",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Máy sấy quần áo",
+                    "href": "https://tiki.vn/may-say-quan-ao/c5976",
+                    "slug": "may-say-quan-ao",
+                    "children": []
+                },
+                {
+                    "name": "Máy sấy tay",
+                    "href": "https://tiki.vn/may-say-tay/c5977",
+                    "slug": "may-say-tay",
+                    "children": []
+                },
+                {
+                    "name": "Thiết bị sưởi ấm",
+                    "href": "https://tiki.vn/thiet-bi-suoi-am/c6510",
+                    "slug": "thiet-bi-suoi-am",
+                    "children": [
+                        {
+                            "name": "Quạt sưởi",
+                            "href": "https://tiki.vn/quat-suoi/c24084",
+                            "slug": "quat-suoi",
+                            "children": []
+                        },
+                        {
+                            "name": "Đèn sưởi",
+                            "href": "https://tiki.vn/den-suoi/c24088",
+                            "slug": "den-suoi",
+                            "children": []
+                        },
+                        {
+                            "name": "Máy sưởi",
+                            "href": "https://tiki.vn/may-suoi/c24090",
+                            "slug": "may-suoi",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

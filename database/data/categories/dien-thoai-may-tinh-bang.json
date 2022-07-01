@@ -1,0 +1,37 @@
+{
+    "name": "Điện Thoại",
+    "href": "https://tiki.vn/dien-thoai-may-tinh-bang/c1789",
+    "slug": "dien-thoai-may-tinh-bang",
+    "children": [
+        {
+            "name": "Điện thoại Smartphone",
+            "href": "https://tiki.vn/dien-thoai-smartphone/c1795",
+            "slug": "dien-thoai-smartphone",
+            "children": []
+        },
+        {
+            "name": "Máy tính bảng",
+            "href": "https://tiki.vn/may-tinh-bang/c1794",
+            "slug": "may-tinh-bang",
+            "children": []
+        },
+        {
+            "name": "Máy đọc sách",
+            "href": "https://tiki.vn/may-doc-sach/c28856",
+            "slug": "may-doc-sach",
+            "children": []
+        },
+        {
+            "name": "Điện thoại phổ thông",
+            "href": "https://tiki.vn/dien-thoai-pho-thong/c1796",
+            "slug": "dien-thoai-pho-thong",
+            "children": []
+        },
+        {
+            "name": "Điện thoại bàn",
+            "href": "https://tiki.vn/dien-thoai-ban/c8061",
+            "slug": "dien-thoai-ban",
+            "children": []
+        }
+    ]
+}

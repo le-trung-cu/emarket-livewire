@@ -1,0 +1,345 @@
+{
+    "name": "Điện Tử",
+    "href": "https://tiki.vn/dien-tu-dien-lanh/c4221",
+    "slug": "dien-tu-dien-lanh",
+    "children": [
+        {
+            "name": "Tivi",
+            "href": "https://tiki.vn/tivi/c5015",
+            "slug": "tivi",
+            "children": [
+                {
+                    "name": "Tivi cao cấp",
+                    "href": "https://tiki.vn/tivi-cao-cap/c12900",
+                    "slug": "tivi-cao-cap",
+                    "children": []
+                },
+                {
+                    "name": "Smart Tivi - Android Tivi",
+                    "href": "https://tiki.vn/smart-tivi-android-tivi/c4239",
+                    "slug": "smart-tivi-android-tivi",
+                    "children": []
+                },
+                {
+                    "name": "Internet Tivi",
+                    "href": "https://tiki.vn/internet-tivi/c11524",
+                    "slug": "internet-tivi",
+                    "children": []
+                },
+                {
+                    "name": "Tivi 4K",
+                    "href": "https://tiki.vn/tivi-4k/c6280",
+                    "slug": "tivi-4k",
+                    "children": []
+                },
+                {
+                    "name": "Tivi thường (LED)",
+                    "href": "https://tiki.vn/tivi-thuong-led/c4236",
+                    "slug": "tivi-thuong-led",
+                    "children": []
+                },
+                {
+                    "name": "Tivi QLED",
+                    "href": "https://tiki.vn/tivi-qled/c8950",
+                    "slug": "tivi-qled",
+                    "children": []
+                },
+                {
+                    "name": "Tivi OLED",
+                    "href": "https://tiki.vn/tivi-oled/c7603",
+                    "slug": "tivi-oled",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "Âm thanh & Phụ kiện Tivi",
+            "href": "https://tiki.vn/am-thanh-phu-kien-tivi/c26568",
+            "slug": "am-thanh-phu-kien-tivi",
+            "children": [
+                {
+                    "name": "Android TV Box, Smart Box",
+                    "href": "https://tiki.vn/android-tv-box-smart-box/c7074",
+                    "slug": "android-tv-box-smart-box",
+                    "children": []
+                },
+                {
+                    "name": "Thiết bị phát Streaming",
+                    "href": "https://tiki.vn/thiet-bi-phat-streaming/c28858",
+                    "slug": "thiet-bi-phat-streaming",
+                    "children": []
+                },
+                {
+                    "name": "Loa",
+                    "href": "https://tiki.vn/loa/c7075",
+                    "slug": "loa",
+                    "children": [
+                        {
+                            "name": "Loa thùng, loa vệ tinh",
+                            "href": "https://tiki.vn/loa-thung-loa-ve-tinh/c8064",
+                            "slug": "loa-thung-loa-ve-tinh",
+                            "children": []
+                        },
+                        {
+                            "name": "Loa karaoke",
+                            "href": "https://tiki.vn/loa-karaoke/c11516",
+                            "slug": "loa-karaoke",
+                            "children": []
+                        },
+                        {
+                            "name": "Loa thanh, Soundbar",
+                            "href": "https://tiki.vn/loa-thanh-soundbar/c8067",
+                            "slug": "loa-thanh-soundbar",
+                            "children": []
+                        },
+                        {
+                            "name": "Loa Bookshelf",
+                            "href": "https://tiki.vn/loa-bookshelf/c11518",
+                            "slug": "loa-bookshelf",
+                            "children": []
+                        },
+                        {
+                            "name": "Loa Sub, siêu trầm",
+                            "href": "https://tiki.vn/loa-sub-sieu-tram/c28860",
+                            "slug": "loa-sub-sieu-tram",
+                            "children": []
+                        },
+                        {
+                            "name": "Loa sân khấu, ngoài trời",
+                            "href": "https://tiki.vn/loa-san-khau-ngoai-troi/c28862",
+                            "slug": "loa-san-khau-ngoai-troi",
+                            "children": []
+                        },
+                        {
+                            "name": "Loa âm trần - âm tường",
+                            "href": "https://tiki.vn/loa-am-tran-am-tuong/c28866",
+                            "slug": "loa-am-tran-am-tuong",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Dàn âm thanh ",
+                    "href": "https://tiki.vn/dan-am-thanh/c4966",
+                    "slug": "dan-am-thanh",
+                    "children": [
+                        {
+                            "name": "Dàn âm thanh giải trí tại gia",
+                            "href": "https://tiki.vn/dan-am-thanh-giai-tri-tai-gia/c28868",
+                            "slug": "dan-am-thanh-giai-tri-tai-gia",
+                            "children": []
+                        },
+                        {
+                            "name": "Dàn Karaoke",
+                            "href": "https://tiki.vn/dan-karaoke/c28870",
+                            "slug": "dan-karaoke",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Receivers, Amplifier, Mixer",
+                    "href": "https://tiki.vn/receivers-amplifier-mixer/c7079",
+                    "slug": "receivers-amplifier-mixer",
+                    "children": []
+                },
+                {
+                    "name": "Bộ giải mã âm thanh DAC",
+                    "href": "https://tiki.vn/bo-giai-ma-am-thanh-dac/c28872",
+                    "slug": "bo-giai-ma-am-thanh-dac",
+                    "children": []
+                },
+                {
+                    "name": "Micro Karaoke - sân khấu",
+                    "href": "https://tiki.vn/micro-karaoke-san-khau/c26652",
+                    "slug": "micro-karaoke-san-khau",
+                    "children": []
+                },
+                {
+                    "name": "Đầu CD, DVD, karaoke, Blu-ray",
+                    "href": "https://tiki.vn/dau-cd-dvd-karaoke-blu-ray/c7077",
+                    "slug": "dau-cd-dvd-karaoke-blu-ray",
+                    "children": [
+                        {
+                            "name": "Đầu ghi phát CD",
+                            "href": "https://tiki.vn/dau-ghi-phat-cd/c28874",
+                            "slug": "dau-ghi-phat-cd",
+                            "children": []
+                        },
+                        {
+                            "name": "Đầu ghi phát DVD, Blu-ray",
+                            "href": "https://tiki.vn/dau-ghi-phat-dvd-blu-ray/c28876",
+                            "slug": "dau-ghi-phat-dvd-blu-ray",
+                            "children": []
+                        },
+                        {
+                            "name": "Đầu phát karaoke",
+                            "href": "https://tiki.vn/dau-phat-karaoke/c28878",
+                            "slug": "dau-phat-karaoke",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Máy radio cassette",
+                    "href": "https://tiki.vn/may-radio-cassette/c7078",
+                    "slug": "may-radio-cassette",
+                    "children": []
+                },
+                {
+                    "name": "Phụ kiện Tivi",
+                    "href": "https://tiki.vn/phu-kien-tivi/c7082",
+                    "slug": "phu-kien-tivi",
+                    "children": [
+                        {
+                            "name": "Điều khiển từ xa Tivi",
+                            "href": "https://tiki.vn/dieu-khien-tu-xa-tivi/c7083",
+                            "slug": "dieu-khien-tu-xa-tivi",
+                            "children": []
+                        },
+                        {
+                            "name": "Đầu thu kỹ thuật số",
+                            "href": "https://tiki.vn/dau-thu-ky-thuat-so/c26640",
+                            "slug": "dau-thu-ky-thuat-so",
+                            "children": []
+                        },
+                        {
+                            "name": "Anten Tivi",
+                            "href": "https://tiki.vn/anten-tivi/c26642",
+                            "slug": "anten-tivi",
+                            "children": []
+                        },
+                        {
+                            "name": "Giá treo Tivi",
+                            "href": "https://tiki.vn/gia-treo-tivi/c7084",
+                            "slug": "gia-treo-tivi",
+                            "children": []
+                        },
+                        {
+                            "name": "Cáp Tivi",
+                            "href": "https://tiki.vn/cap-tivi/c26638",
+                            "slug": "cap-tivi",
+                            "children": []
+                        },
+                        {
+                            "name": "Bộ vệ sinh, bảo vệ Tivi",
+                            "href": "https://tiki.vn/bo-ve-sinh-bao-ve-tivi/c28880",
+                            "slug": "bo-ve-sinh-bao-ve-tivi",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Phụ kiện âm thanh",
+                    "href": "https://tiki.vn/phu-kien-am-thanh/c8068",
+                    "slug": "phu-kien-am-thanh",
+                    "children": [
+                        {
+                            "name": "Giá treo loa",
+                            "href": "https://tiki.vn/gia-treo-loa/c8070",
+                            "slug": "gia-treo-loa",
+                            "children": []
+                        },
+                        {
+                            "name": "Cáp loa, đầu chuyển",
+                            "href": "https://tiki.vn/cap-loa-dau-chuyen/c26658",
+                            "slug": "cap-loa-dau-chuyen",
+                            "children": []
+                        },
+                        {
+                            "name": "Phụ kiện âm thanh khác",
+                            "href": "https://tiki.vn/phu-kien-am-thanh-khac/c8073",
+                            "slug": "phu-kien-am-thanh-khac",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Máy giặt",
+            "href": "https://tiki.vn/may-giat/c3862",
+            "slug": "may-giat",
+            "children": []
+        },
+        {
+            "name": "Máy sấy quần áo",
+            "href": "https://tiki.vn/may-say-quan-ao/c3863",
+            "slug": "may-say-quan-ao",
+            "children": []
+        },
+        {
+            "name": "Máy rửa chén",
+            "href": "https://tiki.vn/may-rua-chen/c3864",
+            "slug": "may-rua-chen",
+            "children": []
+        },
+        {
+            "name": "Máy lạnh - Máy điều hòa",
+            "href": "https://tiki.vn/may-lanh-may-dieu-hoa/c3865",
+            "slug": "may-lanh-may-dieu-hoa",
+            "children": []
+        },
+        {
+            "name": "Máy nước nóng",
+            "href": "https://tiki.vn/may-nuoc-nong/c3866",
+            "slug": "may-nuoc-nong",
+            "children": []
+        },
+        {
+            "name": "Tủ lạnh",
+            "href": "https://tiki.vn/tu-lanh/c2328",
+            "slug": "tu-lanh",
+            "children": []
+        },
+        {
+            "name": "Tủ đông - Tủ mát",
+            "href": "https://tiki.vn/tu-dong-tu-mat/c3868",
+            "slug": "tu-dong-tu-mat",
+            "children": []
+        },
+        {
+            "name": "Tủ ướp rượu",
+            "href": "https://tiki.vn/tu-uop-ruou/c3869",
+            "slug": "tu-uop-ruou",
+            "children": []
+        },
+        {
+            "name": "Phụ kiện điện lạnh",
+            "href": "https://tiki.vn/phu-kien-dien-lanh/c8074",
+            "slug": "phu-kien-dien-lanh",
+            "children": [
+                {
+                    "name": "Phụ kiện, linh kiện tủ lạnh",
+                    "href": "https://tiki.vn/phu-kien-linh-kien-tu-lanh/c28884",
+                    "slug": "phu-kien-linh-kien-tu-lanh",
+                    "children": []
+                },
+                {
+                    "name": "Phụ kiện, linh kiện máy lạnh",
+                    "href": "https://tiki.vn/phu-kien-linh-kien-may-lanh/c28886",
+                    "slug": "phu-kien-linh-kien-may-lanh",
+                    "children": []
+                },
+                {
+                    "name": "Phụ kiện, linh kiện máy nước nóng",
+                    "href": "https://tiki.vn/phu-kien-linh-kien-may-nuoc-nong/c28888",
+                    "slug": "phu-kien-linh-kien-may-nuoc-nong",
+                    "children": []
+                },
+                {
+                    "name": "Phụ kiện, linh kiện máy giặt",
+                    "href": "https://tiki.vn/phu-kien-linh-kien-may-giat/c28890",
+                    "slug": "phu-kien-linh-kien-may-giat",
+                    "children": []
+                },
+                {
+                    "name": "Phụ kiện, linh kiện điện lạnh khác",
+                    "href": "https://tiki.vn/phu-kien-linh-kien-dien-lanh-khac/c28892",
+                    "slug": "phu-kien-linh-kien-dien-lanh-khac",
+                    "children": []
+                }
+            ]
+        }
+    ]
+}

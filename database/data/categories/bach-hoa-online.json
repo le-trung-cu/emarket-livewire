@@ -1,0 +1,803 @@
+{
+    "name": "Bách Hóa",
+    "href": "https://tiki.vn/bach-hoa-online/c4384",
+    "slug": "bach-hoa-online",
+    "children": [
+        {
+            "name": "Đồ Ăn Vặt",
+            "href": "https://tiki.vn/do-an-vat/c4421",
+            "slug": "do-an-vat",
+            "children": [
+                {
+                    "name": "Bánh",
+                    "href": "https://tiki.vn/banh/c8275",
+                    "slug": "banh",
+                    "children": []
+                },
+                {
+                    "name": "Kẹo",
+                    "href": "https://tiki.vn/keo/c8276",
+                    "slug": "keo",
+                    "children": []
+                },
+                {
+                    "name": "Chocolate",
+                    "href": "https://tiki.vn/chocolate/c8277",
+                    "slug": "chocolate",
+                    "children": []
+                },
+                {
+                    "name": "Snack",
+                    "href": "https://tiki.vn/snack/c8278",
+                    "slug": "snack",
+                    "children": []
+                },
+                {
+                    "name": "Bánh kẹo khác",
+                    "href": "https://tiki.vn/banh-keo-khac/c10222",
+                    "slug": "banh-keo-khac",
+                    "children": []
+                },
+                {
+                    "name": "Khô các loại",
+                    "href": "https://tiki.vn/kho-cac-loai/c53526",
+                    "slug": "kho-cac-loai",
+                    "children": []
+                },
+                {
+                    "name": "Các Loại Đồ Ăn Vặt Khác",
+                    "href": "https://tiki.vn/cac-loai-do-an-vat-khac/c53528",
+                    "slug": "cac-loai-do-an-vat-khac",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "Thực phẩm Đóng hộp và Khô",
+            "href": "https://tiki.vn/thuc-pham-dong-hop-va-kho/c15074",
+            "slug": "thuc-pham-dong-hop-va-kho",
+            "children": [
+                {
+                    "name": "Thực phẩm khô",
+                    "href": "https://tiki.vn/thuc-pham-kho/c4393",
+                    "slug": "thuc-pham-kho",
+                    "children": [
+                        {
+                            "name": "Thực phẩm ăn liền",
+                            "href": "https://tiki.vn/thuc-pham-an-lien/c4420",
+                            "slug": "thuc-pham-an-lien",
+                            "children": []
+                        },
+                        {
+                            "name": "Gạo, nếp",
+                            "href": "https://tiki.vn/gao-nep/c8292",
+                            "slug": "gao-nep",
+                            "children": []
+                        },
+                        {
+                            "name": "Thực phẩm khô khác",
+                            "href": "https://tiki.vn/thuc-pham-kho-khac/c8294",
+                            "slug": "thuc-pham-kho-khac",
+                            "children": []
+                        },
+                        {
+                            "name": "Bánh tráng, bánh phở",
+                            "href": "https://tiki.vn/banh-trang-banh-pho/c10223",
+                            "slug": "banh-trang-banh-pho",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Đặc sản Việt Nam",
+                    "href": "https://tiki.vn/dac-san-viet-nam/c11304",
+                    "slug": "dac-san-viet-nam",
+                    "children": []
+                },
+                {
+                    "name": "Đồ hộp",
+                    "href": "https://tiki.vn/do-hop/c4419",
+                    "slug": "do-hop",
+                    "children": [
+                        {
+                            "name": "Cá hộp",
+                            "href": "https://tiki.vn/ca-hop/c8279",
+                            "slug": "ca-hop",
+                            "children": []
+                        },
+                        {
+                            "name": "Thịt hộp",
+                            "href": "https://tiki.vn/thit-hop/c8280",
+                            "slug": "thit-hop",
+                            "children": []
+                        },
+                        {
+                            "name": "Rau củ, trái cây đóng hộp",
+                            "href": "https://tiki.vn/rau-cu-trai-cay-dong-hop/c8281",
+                            "slug": "rau-cu-trai-cay-dong-hop",
+                            "children": []
+                        },
+                        {
+                            "name": "Mứt trái cây",
+                            "href": "https://tiki.vn/mut-trai-cay/c53556",
+                            "slug": "mut-trai-cay",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Thực phẩm khác",
+                    "href": "https://tiki.vn/thuc-pham-khac/c53558",
+                    "slug": "thuc-pham-khac",
+                    "children": [
+                        {
+                            "name": "Thực phẩm cho trẻ em",
+                            "href": "https://tiki.vn/thuc-pham-cho-tre-em/c11252",
+                            "slug": "thuc-pham-cho-tre-em",
+                            "children": []
+                        },
+                        {
+                            "name": "Thực phẩm bảo vệ sức khỏe",
+                            "href": "https://tiki.vn/thuc-pham-bao-ve-suc-khoe/c11251",
+                            "slug": "thuc-pham-bao-ve-suc-khoe",
+                            "children": []
+                        },
+                        {
+                            "name": "Thực phẩm bổ dưỡng",
+                            "href": "https://tiki.vn/thuc-pham-bo-duong/c8240",
+                            "slug": "thuc-pham-bo-duong",
+                            "children": []
+                        },
+                        {
+                            "name": "Thực phẩm cao cấp",
+                            "href": "https://tiki.vn/thuc-pham-cao-cap/c11346",
+                            "slug": "thuc-pham-cao-cap",
+                            "children": []
+                        },
+                        {
+                            "name": "Thực phẩm chay",
+                            "href": "https://tiki.vn/thuc-pham-chay/c5479",
+                            "slug": "thuc-pham-chay",
+                            "children": []
+                        },
+                        {
+                            "name": "Thực phẩm hữu cơ",
+                            "href": "https://tiki.vn/thuc-pham-huu-co/c11660",
+                            "slug": "thuc-pham-huu-co",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Đồ Uống Không Cồn",
+            "href": "https://tiki.vn/do-uong-khong-con/c24024",
+            "slug": "do-uong-khong-con",
+            "children": [
+                {
+                    "name": "Đồ uống có gas",
+                    "href": "https://tiki.vn/do-uong-co-gas/c4426",
+                    "slug": "do-uong-co-gas",
+                    "children": [
+                        {
+                            "name": "Nước Ngọt",
+                            "href": "https://tiki.vn/nuoc-ngot/c53606",
+                            "slug": "nuoc-ngot",
+                            "children": []
+                        },
+                        {
+                            "name": "Các loại nước có gas khác",
+                            "href": "https://tiki.vn/cac-loai-nuoc-co-gas-khac/c53608",
+                            "slug": "cac-loai-nuoc-co-gas-khac",
+                            "children": []
+                        },
+                        {
+                            "name": "Nước Tăng Lực",
+                            "href": "https://tiki.vn/nuoc-tang-luc/c53610",
+                            "slug": "nuoc-tang-luc",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Đồ uống không gas",
+                    "href": "https://tiki.vn/do-uong-khong-gas/c15076",
+                    "slug": "do-uong-khong-gas",
+                    "children": [
+                        {
+                            "name": "Đồ uống không gas khác",
+                            "href": "https://tiki.vn/do-uong-khong-gas-khac/c4425",
+                            "slug": "do-uong-khong-gas-khac",
+                            "children": []
+                        },
+                        {
+                            "name": "Nước lọc đóng chai",
+                            "href": "https://tiki.vn/nuoc-loc-dong-chai/c53612",
+                            "slug": "nuoc-loc-dong-chai",
+                            "children": []
+                        },
+                        {
+                            "name": "Nước Trái Cây",
+                            "href": "https://tiki.vn/nuoc-trai-cay/c53614",
+                            "slug": "nuoc-trai-cay",
+                            "children": []
+                        },
+                        {
+                            "name": "Trà Uống Liền",
+                            "href": "https://tiki.vn/tra-uong-lien/c53616",
+                            "slug": "tra-uong-lien",
+                            "children": []
+                        },
+                        {
+                            "name": "Cafe Uống Liền",
+                            "href": "https://tiki.vn/cafe-uong-lien/c53618",
+                            "slug": "cafe-uong-lien",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Gia Vị và Chế Biến",
+            "href": "https://tiki.vn/gia-vi-va-che-bien/c4422",
+            "slug": "gia-vi-va-che-bien",
+            "children": [
+                {
+                    "name": "Gia vị dạng bột",
+                    "href": "https://tiki.vn/gia-vi-dang-bot/c8282",
+                    "slug": "gia-vi-dang-bot",
+                    "children": [
+                        {
+                            "name": "Bột Ngọt, Bột Nêm",
+                            "href": "https://tiki.vn/bot-ngot-bot-nem/c53552",
+                            "slug": "bot-ngot-bot-nem",
+                            "children": []
+                        },
+                        {
+                            "name": "Gia vị dạng bột khác",
+                            "href": "https://tiki.vn/gia-vi-dang-bot-khac/c53554",
+                            "slug": "gia-vi-dang-bot-khac",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Gia vị dạng nước",
+                    "href": "https://tiki.vn/gia-vi-dang-nuoc/c8283",
+                    "slug": "gia-vi-dang-nuoc",
+                    "children": [
+                        {
+                            "name": "Nước mắm",
+                            "href": "https://tiki.vn/nuoc-mam/c53546",
+                            "slug": "nuoc-mam",
+                            "children": []
+                        },
+                        {
+                            "name": "Nước tương",
+                            "href": "https://tiki.vn/nuoc-tuong/c53548",
+                            "slug": "nuoc-tuong",
+                            "children": []
+                        },
+                        {
+                            "name": "Các loại gia vị dạng nước khác",
+                            "href": "https://tiki.vn/cac-loai-gia-vi-dang-nuoc-khac/c53550",
+                            "slug": "cac-loai-gia-vi-dang-nuoc-khac",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Dầu ăn",
+                    "href": "https://tiki.vn/dau-an/c5477",
+                    "slug": "dau-an",
+                    "children": [
+                        {
+                            "name": "Dầu thực vật",
+                            "href": "https://tiki.vn/dau-thuc-vat/c8284",
+                            "slug": "dau-thuc-vat",
+                            "children": []
+                        },
+                        {
+                            "name": "Dầu olive",
+                            "href": "https://tiki.vn/dau-olive/c8285",
+                            "slug": "dau-olive",
+                            "children": []
+                        },
+                        {
+                            "name": "Các loại dầu khác",
+                            "href": "https://tiki.vn/cac-loai-dau-khac/c8286",
+                            "slug": "cac-loai-dau-khac",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Nấu ăn và làm bánh",
+                    "href": "https://tiki.vn/nau-an-va-lam-banh/c11256",
+                    "slug": "nau-an-va-lam-banh",
+                    "children": [
+                        {
+                            "name": "Chocolate và cacao nướng bánh",
+                            "href": "https://tiki.vn/chocolate-va-cacao-nuong-banh/c11257",
+                            "slug": "chocolate-va-cacao-nuong-banh",
+                            "children": []
+                        },
+                        {
+                            "name": "Sữa đặc và sữa bột",
+                            "href": "https://tiki.vn/sua-dac-va-sua-bot/c11336",
+                            "slug": "sua-dac-va-sua-bot",
+                            "children": []
+                        },
+                        {
+                            "name": "Kem béo và sốt ngọt",
+                            "href": "https://tiki.vn/kem-beo-va-sot-ngot/c11337",
+                            "slug": "kem-beo-va-sot-ngot",
+                            "children": []
+                        },
+                        {
+                            "name": "Trái cây khô",
+                            "href": "https://tiki.vn/trai-cay-kho/c11338",
+                            "slug": "trai-cay-kho",
+                            "children": []
+                        },
+                        {
+                            "name": "Chiết xuất và hương liệu",
+                            "href": "https://tiki.vn/chiet-xuat-va-huong-lieu/c11339",
+                            "slug": "chiet-xuat-va-huong-lieu",
+                            "children": []
+                        },
+                        {
+                            "name": "Các loại bột",
+                            "href": "https://tiki.vn/cac-loai-bot/c11340",
+                            "slug": "cac-loai-bot",
+                            "children": []
+                        },
+                        {
+                            "name": "Pudding và gelatin",
+                            "href": "https://tiki.vn/pudding-va-gelatin/c11341",
+                            "slug": "pudding-va-gelatin",
+                            "children": []
+                        },
+                        {
+                            "name": "Sirô, đường và chất tạo ngọt",
+                            "href": "https://tiki.vn/siro-duong-va-chat-tao-ngot/c11342",
+                            "slug": "siro-duong-va-chat-tao-ngot",
+                            "children": []
+                        },
+                        {
+                            "name": "Nguyên liệu làm bánh",
+                            "href": "https://tiki.vn/nguyen-lieu-lam-banh/c8293",
+                            "slug": "nguyen-lieu-lam-banh",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Chăm sóc thú cưng",
+            "href": "https://tiki.vn/thu-cung/c5451",
+            "slug": "thu-cung",
+            "children": [
+                {
+                    "name": "Thức ăn thú cưng",
+                    "href": "https://tiki.vn/thuc-an-thu-cung/c53530",
+                    "slug": "thuc-an-thu-cung",
+                    "children": [
+                        {
+                            "name": "Thức ăn cho chim",
+                            "href": "https://tiki.vn/thuc-an-cho-chim/c53532",
+                            "slug": "thuc-an-cho-chim",
+                            "children": []
+                        },
+                        {
+                            "name": "Thức ăn cho cá",
+                            "href": "https://tiki.vn/thuc-an-cho-ca/c53534",
+                            "slug": "thuc-an-cho-ca",
+                            "children": []
+                        },
+                        {
+                            "name": "Thức ăn cho chuột",
+                            "href": "https://tiki.vn/thuc-an-cho-chuot/c53536",
+                            "slug": "thuc-an-cho-chuot",
+                            "children": []
+                        },
+                        {
+                            "name": "Thức ăn thú cưng khác",
+                            "href": "https://tiki.vn/thuc-an-thu-cung-khac/c53538",
+                            "slug": "thuc-an-thu-cung-khac",
+                            "children": []
+                        },
+                        {
+                            "name": "Thức ăn cho chó",
+                            "href": "https://tiki.vn/thuc-an-cho-cho/c5456",
+                            "slug": "thuc-an-cho-cho",
+                            "children": []
+                        },
+                        {
+                            "name": "Thức ăn cho mèo",
+                            "href": "https://tiki.vn/thuc-an-cho-meo/c5461",
+                            "slug": "thuc-an-cho-meo",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Phụ kiện thú cưng",
+                    "href": "https://tiki.vn/phu-kien-thu-cung/c53540",
+                    "slug": "phu-kien-thu-cung",
+                    "children": [
+                        {
+                            "name": "Dành Cho Chuột",
+                            "href": "https://tiki.vn/danh-cho-chuot/c53542",
+                            "slug": "danh-cho-chuot",
+                            "children": []
+                        },
+                        {
+                            "name": "Các Loại Thú Nuôi Khác",
+                            "href": "https://tiki.vn/cac-loai-thu-nuoi-khac/c53544",
+                            "slug": "cac-loai-thu-nuoi-khac",
+                            "children": []
+                        },
+                        {
+                            "name": "Dành cho chó",
+                            "href": "https://tiki.vn/danh-cho-cho/c5452",
+                            "slug": "danh-cho-cho",
+                            "children": [
+                                {
+                                    "name": "Phụ kiện cho chó",
+                                    "href": "https://tiki.vn/phu-kien-cho-cho/c5460",
+                                    "slug": "phu-kien-cho-cho",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Vòng cổ cho chó",
+                                    "href": "https://tiki.vn/vong-co-cho-cho/c5553",
+                                    "slug": "vong-co-cho-cho",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Chuồng chó",
+                                    "href": "https://tiki.vn/chuong-cho/c5552",
+                                    "slug": "chuong-cho",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Đồ chơi cho chó",
+                                    "href": "https://tiki.vn/do-choi-cho-cho/c8407",
+                                    "slug": "do-choi-cho-cho",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Dụng cụ chăm sóc",
+                                    "href": "https://tiki.vn/dung-cu-cham-soc/c5472",
+                                    "slug": "dung-cu-cham-soc",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Dụng cụ ăn uống",
+                                    "href": "https://tiki.vn/dung-cu-an-uong/c5554",
+                                    "slug": "dung-cu-an-uong",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Đồ dùng vệ sinh cho chó",
+                                    "href": "https://tiki.vn/do-dung-ve-sinh-cho-cho/c8402",
+                                    "slug": "do-dung-ve-sinh-cho-cho",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Dành cho mèo",
+                            "href": "https://tiki.vn/danh-cho-meo/c5453",
+                            "slug": "danh-cho-meo",
+                            "children": [
+                                {
+                                    "name": "Phụ kiện cho mèo",
+                                    "href": "https://tiki.vn/quan-ao-va-phu-kien/c5463",
+                                    "slug": "quan-ao-va-phu-kien",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Chuồng mèo",
+                                    "href": "https://tiki.vn/o-nem-giuong/c5555",
+                                    "slug": "o-nem-giuong",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Vòng cổ cho mèo",
+                                    "href": "https://tiki.vn/vong-co-cho-meo/c5556",
+                                    "slug": "vong-co-cho-meo",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Đồ chơi cho mèo",
+                                    "href": "https://tiki.vn/do-choi-cho-meo/c8334",
+                                    "slug": "do-choi-cho-meo",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Dụng cụ chăm sóc",
+                                    "href": "https://tiki.vn/dung-cu-cham-soc/c5473",
+                                    "slug": "dung-cu-cham-soc",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Dụng cụ ăn uống",
+                                    "href": "https://tiki.vn/dung-cu-an-uong/c5557",
+                                    "slug": "dung-cu-an-uong",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Bồn, cát, đồ dùng vệ sinh cho mèo",
+                                    "href": "https://tiki.vn/bon-cat-do-dung-ve-sinh-cho-meo/c8399",
+                                    "slug": "bon-cat-do-dung-ve-sinh-cho-meo",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Dành cho Cá",
+                            "href": "https://tiki.vn/danh-cho-ca/c8326",
+                            "slug": "danh-cho-ca",
+                            "children": [
+                                {
+                                    "name": "Bể cá & Phụ kiện",
+                                    "href": "https://tiki.vn/be-ca-phu-kien/c8327",
+                                    "slug": "be-ca-phu-kien",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Dành cho chim",
+                            "href": "https://tiki.vn/danh-cho-chim/c11253",
+                            "slug": "danh-cho-chim",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Bộ quà tặng",
+            "href": "https://tiki.vn/bo-qua-tang/c11347",
+            "slug": "bo-qua-tang",
+            "children": [
+                {
+                    "name": "Hộp Quà Tết",
+                    "href": "https://tiki.vn/hop-qua-tet/c53576",
+                    "slug": "hop-qua-tet",
+                    "children": []
+                },
+                {
+                    "name": "Hộp Quà Tặng",
+                    "href": "https://tiki.vn/hop-qua-tang/c53578",
+                    "slug": "hop-qua-tang",
+                    "children": []
+                },
+                {
+                    "name": "Hàng Mùa Vụ Khác",
+                    "href": "https://tiki.vn/hang-mua-vu-khac/c53580",
+                    "slug": "hang-mua-vu-khac",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "Đồ uống - Pha chế dạng bột",
+            "href": "https://tiki.vn/do-uong-pha-che-dang-bot/c22998",
+            "slug": "do-uong-pha-che-dang-bot",
+            "children": [
+                {
+                    "name": "Trà",
+                    "href": "https://tiki.vn/tra/c8274",
+                    "slug": "tra",
+                    "children": []
+                },
+                {
+                    "name": "Cà phê",
+                    "href": "https://tiki.vn/ca-phe-tra/c4423",
+                    "slug": "ca-phe-tra",
+                    "children": []
+                },
+                {
+                    "name": "Ngũ cốc, bột",
+                    "href": "https://tiki.vn/bot/c5478",
+                    "slug": "bot",
+                    "children": []
+                },
+                {
+                    "name": "Các Loại Đồ Uống Dạng Bột Khác",
+                    "href": "https://tiki.vn/cac-loai-do-uong-dang-bot-khac/c53560",
+                    "slug": "cac-loai-do-uong-dang-bot-khac",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "Sữa và các Sản phẩm từ sữa",
+            "href": "https://tiki.vn/sua-va-cac-san-pham-tu-sua/c53562",
+            "slug": "sua-va-cac-san-pham-tu-sua",
+            "children": [
+                {
+                    "name": "Sữa nước",
+                    "href": "https://tiki.vn/sua-nuoc/c8273",
+                    "slug": "sua-nuoc",
+                    "children": [
+                        {
+                            "name": "Sữa tiệt trùng (UHT)",
+                            "href": "https://tiki.vn/sua-tiet-trung-uht/c53564",
+                            "slug": "sua-tiet-trung-uht",
+                            "children": []
+                        },
+                        {
+                            "name": "Sữa Chua Uống & Ăn",
+                            "href": "https://tiki.vn/sua-chua-uong-an/c53566",
+                            "slug": "sua-chua-uong-an",
+                            "children": []
+                        },
+                        {
+                            "name": "Sữa Thực Vật",
+                            "href": "https://tiki.vn/sua-thuc-vat/c53568",
+                            "slug": "sua-thuc-vat",
+                            "children": []
+                        },
+                        {
+                            "name": "Sữa Chức Năng Uống Liền",
+                            "href": "https://tiki.vn/sua-chuc-nang-uong-lien/c53570",
+                            "slug": "sua-chuc-nang-uong-lien",
+                            "children": []
+                        },
+                        {
+                            "name": "Các Sản Phẩm Từ Sữa Khác",
+                            "href": "https://tiki.vn/cac-san-pham-tu-sua-khac/c53572",
+                            "slug": "cac-san-pham-tu-sua-khac",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Sữa Chức Năng Dạng Bột",
+                    "href": "https://tiki.vn/sua-chuc-nang-dang-bot/c4427",
+                    "slug": "sua-chuc-nang-dang-bot",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "Đồ uống có cồn",
+            "href": "https://tiki.vn/do-uong-co-con/c53582",
+            "slug": "do-uong-co-con",
+            "children": [
+                {
+                    "name": "Đồ uống có cồn khác",
+                    "href": "https://tiki.vn/do-uong-co-con-khac/c11345",
+                    "slug": "do-uong-co-con-khac",
+                    "children": []
+                },
+                {
+                    "name": "Bia và Nước hoa quả lên men",
+                    "href": "https://tiki.vn/bia-va-nuoc-hoa-qua-len-men/c5483",
+                    "slug": "bia-va-nuoc-hoa-qua-len-men",
+                    "children": [
+                        {
+                            "name": "Bia Nội Địa",
+                            "href": "https://tiki.vn/bia-noi-dia/c53584",
+                            "slug": "bia-noi-dia",
+                            "children": []
+                        },
+                        {
+                            "name": "Bia Nhập Khẩu",
+                            "href": "https://tiki.vn/bia-nhap-khau/c53586",
+                            "slug": "bia-nhap-khau",
+                            "children": []
+                        },
+                        {
+                            "name": "Bia Thủ Công",
+                            "href": "https://tiki.vn/bia-thu-cong/c53588",
+                            "slug": "bia-thu-cong",
+                            "children": []
+                        },
+                        {
+                            "name": "Nước hoa quả lên men",
+                            "href": "https://tiki.vn/nuoc-hoa-qua-len-men/c11344",
+                            "slug": "nuoc-hoa-qua-len-men",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Rượu",
+                    "href": "https://tiki.vn/ruou/c11343",
+                    "slug": "ruou",
+                    "children": [
+                        {
+                            "name": "Rượu vang",
+                            "href": "https://tiki.vn/ruou-vang/c48030",
+                            "slug": "ruou-vang",
+                            "children": []
+                        },
+                        {
+                            "name": "Rượu mạnh",
+                            "href": "https://tiki.vn/ruou-manh/c48032",
+                            "slug": "ruou-manh",
+                            "children": [
+                                {
+                                    "name": "Brandy",
+                                    "href": "https://tiki.vn/brandy/c53590",
+                                    "slug": "brandy",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Whisky",
+                                    "href": "https://tiki.vn/whisky/c53592",
+                                    "slug": "whisky",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Gin",
+                                    "href": "https://tiki.vn/gin/c53594",
+                                    "slug": "gin",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Vodka",
+                                    "href": "https://tiki.vn/vodka/c53598",
+                                    "slug": "vodka",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Rum",
+                                    "href": "https://tiki.vn/rum/c53600",
+                                    "slug": "rum",
+                                    "children": []
+                                },
+                                {
+                                    "name": "Các loại rượu mạnh khác",
+                                    "href": "https://tiki.vn/cac-loai-ruou-manh-khac/c53602",
+                                    "slug": "cac-loai-ruou-manh-khac",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Rượu mùi",
+                            "href": "https://tiki.vn/ruou-mui/c48034",
+                            "slug": "ruou-mui",
+                            "children": []
+                        },
+                        {
+                            "name": "Rượu gạo - Soju - Sake",
+                            "href": "https://tiki.vn/ruou-gao-soju-sake/c48036",
+                            "slug": "ruou-gao-soju-sake",
+                            "children": []
+                        },
+                        {
+                            "name": "Các loại rượu khác",
+                            "href": "https://tiki.vn/cac-loai-ruou-khac/c53604",
+                            "slug": "cac-loai-ruou-khac",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Đậu & Hạt Các Loại",
+            "href": "https://tiki.vn/dau-hat-cac-loai/c53620",
+            "slug": "dau-hat-cac-loai",
+            "children": [
+                {
+                    "name": "Hạt, củ, quả khô",
+                    "href": "https://tiki.vn/cac-loai-hat/c6548",
+                    "slug": "cac-loai-hat",
+                    "children": []
+                }
+            ]
+        }
+    ]
+}
