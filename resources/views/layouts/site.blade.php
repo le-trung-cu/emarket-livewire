@@ -24,6 +24,7 @@
 </head>
 
 <body>
+    <x-notifications z-index="z-50" />
     <!--  COMPONENT: HEADER -->
     <header class="bg-white py-3 border-b">
         <div class="container max-w-screen-xl mx-auto px-4">

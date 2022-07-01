@@ -9,9 +9,12 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Js;
 use Livewire\Component;
+use WireUi\Traits\Actions;
 
 class ProductDetail extends Component
 {
+    use Actions;
+
     public Product $product;
 
     public SKU $sku;
@@ -62,6 +65,11 @@ class ProductDetail extends Component
             'price' => $sku->price_value,
             'weight' => $sku->weight,
         ]);
+
+        $this->notification()->success(
+            $title = 'Added to cart',
+            $description = 'You have added '.$sku->product->name. ' to your shopping cart!',
+        );
 
         $this->emitTo('site.cart-icon', 'cartChanged');
     }
