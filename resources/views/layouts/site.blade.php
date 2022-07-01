@@ -16,11 +16,20 @@
     <link href="{{ asset('site/css/app.css') }}" rel="stylesheet" />
     <!-- Font awesome 5 -->
     <link href="{{ asset('fonts/fontawesome/css/all.min.css') }}" type="text/css" rel="stylesheet" />
-
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
     <!-- Scripts -->
     @wireUiScripts
     @livewireScripts
     <script src="{{ asset('site/js/app.js') }}" defer></script>
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
@@ -198,7 +207,8 @@
             <div class="container max-w-screen-xl mx-auto px-4">
                 <div class="lg:flex justify-between">
                     <div class="mb-3">
-                        <img src="{{asset('images/misc/payments.png')}}" height="24" class="h-6" alt="Payment methods">
+                        <img src="{{ asset('images/misc/payments.png') }}" height="24" class="h-6"
+                            alt="Payment methods">
                     </div> <!-- col .// -->
                     <div class="space-x-6">
                         <nav class="text-sm space-x-4">
