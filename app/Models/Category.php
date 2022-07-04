@@ -2,14 +2,20 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Builder;
+use Kalnoy\Nestedset\NodeTrait;
 
 class Category extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory;
+    use Sluggable, NodeTrait {
+        Sluggable::replicate as slugReplicate;
+        NodeTrait::replicate as nodeReplicate;
+    }
 
     protected $fillable = ['name', 'slug', 'description', 'parent_id'];
 
@@ -47,5 +53,23 @@ class Category extends Model
                 'source' => 'name'
             ]
         ];
+    }
+
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function replicate(array $except = null)
+    {
+        $instance = $this->nodeReplicate($except);
+
+        (new SlugService())->slug($instance, true);
+
+        return $instance;
     }
 }

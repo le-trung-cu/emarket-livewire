@@ -2,20 +2,33 @@
 
 namespace App\View\Components;
 
+use App\Models\Category;
 use App\Models\Product;
+use Exception;
 use Illuminate\View\Component;
 
 class CategoryProductLink extends Component
 {
-    public Product $product;
+    public ?Product $product;
+    public ?Category $category;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(Product $product)
+    public function __construct($category = null, $product = null)
     {
-        $this->product = $product;
+        $this->product = null;
+
+        if($product != null){
+            $this->product = $product;
+            $this->category = $product->category()->with('ancestors')->first();
+        }else if($category != null) {
+            $this->category = $category;
+        }else {
+            throw new Exception('product or category is must not null');
+        }
     }
 
     /**

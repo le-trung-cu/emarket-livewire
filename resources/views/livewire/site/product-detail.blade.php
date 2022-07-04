@@ -1,25 +1,5 @@
 <div>
-    <section class="bg-blue-100 py-4">
-        <div class="container max-w-screen-xl mx-auto px-4">
-            <!-- breadcrumbs start -->
-            <ol class="inline-flex flex-wrap text-gray-600 space-x-1 md:space-x-3 items-center">
-                <li class="inline-flex items-center">
-                    <a class="text-gray-600 hover:text-blue-600" href="#">Home</a>
-                    <i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
-                </li>
-                <li class="inline-flex items-center" aria-current="page">
-                    <a class="text-gray-600 hover:text-blue-600" href="#"> Clothes </a>
-                    <i class="ml-3 text-gray-400  fa fa-chevron-right"></i>
-                </li>
-                <li class="inline-flex items-center" aria-current="page">
-                    <a class="text-gray-600 hover:text-blue-600" href="#"> Men's wear </a>
-                    <i class="ml-3 text-gray-400  fa fa-chevron-right"></i>
-                </li>
-                <li class="inline-flex items-center"> Detail </li>
-            </ol>
-            <!-- breadcrumbs end -->
-        </div> <!-- container .// -->
-    </section>
+    <x-category-product-link :product="$product"/>
     <section class="bg-white py-10">
         <div class="container max-w-screen-xl mx-auto px-4">
 

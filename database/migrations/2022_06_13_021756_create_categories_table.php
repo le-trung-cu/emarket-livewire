@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('slug');
             $table->string('description')->nullable();
             $table->unsignedInteger('order')->default(1);
-            $table->foreignIdFor(Category::class, 'parent_id')->nullable()->constrained('categories', 'id')->nullOnDelete();
+            // $table->foreignIdFor(Category::class, 'parent_id')->nullable()->constrained('categories', 'id')->nullOnDelete();
+            $table->nestedSet();
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('categories', fn(Blueprint $table) => $table->dropNestedSet());
     }
 };

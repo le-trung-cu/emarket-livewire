@@ -40,11 +40,11 @@ class CategorySeeder extends Seeder
                 $parent = array_shift($stack);
                 $parentEntity = Category::where('slug', $parent->slug)->firstOrFail();
                 foreach($parent->children as $categoryChild) {
-                    $categoryChildEntity = Category::create([
+                    $categoryChildEntity = Category::make([
                         'name' => $categoryChild->name,
                         'slug' => $categoryChild->slug,
-                        'parent_id' => $parentEntity->id,
                     ]);
+                    $parentEntity->appendNode($categoryChildEntity);
                     array_unshift($stack, $categoryChild);
                 }
             }

@@ -5,12 +5,12 @@ use App\Http\Livewire\Site\CartDetail;
 use App\Http\Livewire\Site\Checkout;
 use App\Http\Livewire\Site\CheckoutSuccess;
 use App\Http\Livewire\Site\Home;
+use App\Http\Livewire\Site\ProductByCategory;
 use App\Http\Livewire\Site\ProductDetail;
 use App\Http\Livewire\Site\VNPaymentSuccess;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,11 +31,16 @@ Route::get('/data', function () {
 Route::group(['as' => 'site.'], function () {
     Route::get('/', Home::class)->name('home');
     Route::get('products/{product}', ProductDetail::class)->name('product.show');
+
+
     Route::get('/cart', CartDetail::class)->name('cart.show');
     Route::get('checkout', Checkout::class)->name('checkout');
     Route::middleware('signed')->get('checkout-success/{order}', CheckoutSuccess::class)->name('checkout-success');
 
     Route::get('vnpayment-success', VNPaymentSuccess::class)->name('vnpayment-success');
+
+    Route::get('/categories/{category}', ProductByCategory::class)->name('categories.products');
+
 });
 
 Route::controller(AddressController::class)->prefix('/address')->as('address.')->group(function () {
@@ -44,12 +49,12 @@ Route::controller(AddressController::class)->prefix('/address')->as('address.')-
     Route::get('wards', 'wards')->name('wards');
 });
 
-Route::get('/test', function() {
+Route::get('/test', function () {
     $product = Product::find(4);
     // $product = new Product();
     $product->addMedia(storage_path('test-image/10.jpg'))
-    ->preservingOriginal()
-    ->toMediaCollection('product-thumbnail');
+        ->preservingOriginal()
+        ->toMediaCollection('product-thumbnail');
     // Product::find(5)->addMediaF($media)->toMediaCollection('preview');
 });
 
