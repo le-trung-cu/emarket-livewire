@@ -107,7 +107,14 @@
     </nav>
     <!--  COMPONENT: HEADER //END -->
 
-    {{ $slot }}
+    <div class="grid grid-cols-10">
+        <div class="col-span-2">
+            {{ $aside }}
+        </div>
+        <div class="col-span-8">
+            {{ $slot }}
+        </div>
+    </div>
 
     <footer class="bg-blue-600">
         <!-- section footer top -->

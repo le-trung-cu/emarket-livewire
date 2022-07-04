@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use App\Models\SKU;
 use App\Models\VariationOption;
 use App\Models\VariationValue;
@@ -17,6 +18,7 @@ class SKUSeeder extends Seeder
      */
     public function run()
     {
+        // skus for produc 1,2
         SKU::factory(3)->create(['product_id' => 1]);
         SKU::factory()->create(['product_id' => 2]);
         $variationOptions = collect(['color', 'size', 'gender'])->map(function($name) {
@@ -57,5 +59,13 @@ class SKUSeeder extends Seeder
         SKU::find(1)->variationValues()->sync([1, 4, 6]);
         SKU::find(2)->variationValues()->sync([1, 4, 7]);
         SKU::find(3)->variationValues()->sync([2, 5, 6]);
+
+        // end skus for product 1,2
+
+        $products = Product::where('id', '>', 2)->get();
+        $products->each(fn($product) => SKU::factory()->create([
+            'price' => $product->regular_price,
+            'product_id' => $product->id,
+        ]));
     }
 }

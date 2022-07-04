@@ -14,4 +14,9 @@ class VariationValue extends Model
         'label',
         'variation_option_id',
     ];
+
+    public function variationOption()
+    {
+        return $this->belongsTo(VariationOption::class);
+    }
 }

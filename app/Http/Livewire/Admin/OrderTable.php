@@ -146,6 +146,7 @@ final class OrderTable extends PowerGridComponent
     {
         return [
             Column::make('ID', 'id')
+                ->sortable()
                 ->hidden(true, false),
 
             Column::make('STORE BRANCH ID', 'store_branch_id')

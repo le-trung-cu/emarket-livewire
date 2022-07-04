@@ -94,7 +94,7 @@ final class SkuTable extends PowerGridComponent
             })
             ->addColumn('activity')
             ->addColumn('weight')
-            ->addColumn('price_format', fn($sku) => Blade::render('{{money}}', ['money' => $sku->price]))
+            ->addColumn('price_format',  fn($sku) => Blade::render('{{money}}', ['money' => $sku->price?? 'NULL']))
             ->addColumn('stock')
             ->addColumn('created_at_formatted', fn (SKU $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
             ->addColumn('updated_at_formatted', fn (SKU $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));

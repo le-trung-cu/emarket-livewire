@@ -1,18 +1,22 @@
+<x-slot name="aside">
+    <aside class="flex-auto mb-4 pr-4 md:mb-0 pl-10">
+        <h3 class="text-lg font-medium my-2 text-gray-600">Categories</h3>
+        <ul>
+            @foreach ($categories as $category)
+                <li>
+                    <a class="block px-3 py-2 text-gray-500 hover:bg-blue-50 rounded-md hover:text-blue-600"
+                        href="#">{{ $category->name }}</a>
+                </li>
+            @endforeach
+        </ul>
+    </aside>
+</x-slot>
+
 <!--  MAIN SECTION  -->
 <section class="pt-5">
-    <div class="container max-w-screen-xl mx-auto px-4">
+    <div class="mx-auto px-4">
         <article class="p-4 bg-white border border-gray-200 shadow-sm rounded-md">
             <div class="flex flex-col md:flex-row">
-                <aside class="md:w-1/4 flex-auto mb-4 pr-4 md:mb-0">
-                    <ul>
-                        @foreach ($categories as $category)
-                            <li>
-                                <a class="block px-3 py-2 hover:bg-blue-50 rounded-md hover:text-blue-600"
-                                    href="#">{{ $category->name }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </aside>
                 <main class="md:w-3/4 flex-auto">
                     <!-- banner-main -->
                     <article class="bg-blue-500 p-6 lg:p-16 rounded w-full h-full">
@@ -37,16 +41,14 @@
                 </main>
             </div> <!-- grid.// -->
         </article>
-
-
     </div> <!-- container //end -->
 </section>
 <!--  MAIN SECTION //END -->
 
 <!-- SECTION-CONTENT -->
 <section class="py-10">
-    <div class="max-w-screen-md mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-8">New products</h2>
+    <div class="mx-auto px-4">
+        <h2 class="text-lg font-medium mb-8 text-gray-500">New products</h2>
 
         <div class="grid auto-rows-max grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             @foreach ($newProducts as $product)

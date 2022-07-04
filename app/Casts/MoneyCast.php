@@ -5,7 +5,7 @@ namespace App\Casts;
 use Brick\Money\Money;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 
-class MoneyCast implements CastsAttributes 
+class MoneyCast implements CastsAttributes
 {
     /**
      * Transform the attribute from the underlying model values.
@@ -18,7 +18,7 @@ class MoneyCast implements CastsAttributes
      */
     public function get($model, string $key, $value, array $attributes)
     {
-        return Money::of($value, 'VND');
+        return $value == null ? null : Money::of($value, 'VND');
     }
 
     /**
@@ -32,10 +32,9 @@ class MoneyCast implements CastsAttributes
      */
     public function set($model, string $key, $value, array $attributes)
     {
-        if($value instanceof Money)
-        {
+        if ($value instanceof Money) {
             return (int)(string) $value->getAmount();
         }
         return $value;
     }
-} 
+}

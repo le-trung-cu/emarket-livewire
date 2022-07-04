@@ -1,3 +1,7 @@
+<x-slot name="aside">
+    
+</x-slot>
+
 <div>
     <!--  PAGE HEADER -->
     <section class="py-5 sm:py-7 bg-blue-100">

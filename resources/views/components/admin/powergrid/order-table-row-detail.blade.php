@@ -21,15 +21,17 @@
             @foreach ($order->orderItems as $item)
                 <tr>
                     <td class="py-2 w-20">
-                        <div class="block w-16 h-16 rounded border border-gray-200 overflow-hidden">
+                        <x-admin.powergrid.product-table-thumbnail :thumbnail="$item->sku->product->thumbnail"/>
+                        {{-- <div class="block w-16 h-16 rounded border border-gray-200 overflow-hidden">
                             <img src="{{ $item->sku->product->thumbnail }}" alt="{{ $item->product_name }}">
-                        </div>
+                        </div> --}}
                     </td>
-                    <td class="py-2">
+                    <td class="py-2 max-w-sm">
                         <div class="flex flex-col justify-between">
-                            <p>
+                            <p class="flex flex-col">
                                 <a href="{{ route('site.product.show', $item->sku->product) }}"
                                     class="hover:text-blue-600">{{ $item->product_name }}</a>
+                                <span class="text-xs text-purple-400 font-medium">{{$item->variation_string}}</span>
                             </p>
                             <span class="text-sm text-gray-600">{{ $item->price }}</span>
                         </div>
@@ -58,6 +60,18 @@
         <tfoot>
             <tr>
                 <td colspan="4">
+                    <p>
+                        <span class="font-light text-sm text-gray-600">Buyer Name: </span>
+                        <span class="text-sm font-medium"> {{ $order->buyer->name }}</span>
+                    </p>
+                    <p>
+                        <span class="font-light text-sm text-gray-600">Recipient Name: </span>
+                        <span class="text-sm font-medium"> {{ $order->recipient_name }}</span>
+                    </p>
+                    <p>
+                        <span class="font-light text-sm text-gray-600">Recipient Phone: </span>
+                        <span class="text-sm font-medium"> {{ $order->recipient_phone }}</span>
+                    </p>
                     <p>
                         <span class="font-light text-sm text-gray-600">Shipping address: </span>
                         <span class="text-sm font-medium"> {{ $order->shipping_address }}</span>

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('barcode')->nullable()->unique();
             $table->boolean('activity')->default(true);
             $table->unsignedInteger('weight')->nullable();
-            $table->unsignedDecimal('price')->nullable();
+            $table->unsignedDecimal('price', 12, 2)->nullable();
             $table->unsignedInteger('stock')->default(0);
             $table->foreignIdFor(Product::class)->constrained()->cascadeOnDelete();
             $table->timestamps();

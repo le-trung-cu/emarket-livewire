@@ -1,7 +1,7 @@
 <article class="group hover:shadow shadow-gray-400 p-4">
     <div class="relative">
         <a href="{{ route('site.product.show', $product) }}" class="relative block p-1">
-            <img src="images/items/10.jpg" alt="{{ $product->name }}" />
+            <img src="{{$product->thumbnail ?? 'images/items/10.jpg'}}" alt="{{ $product->name }}" style="height: 204px; width: auto;"/>
         </a>
         <div class="absolute top-0 right-0 h-full w-11 flex flex-col overflow-hidden">
             <button

@@ -20,7 +20,7 @@ final class ProductSkuTable extends PowerGridComponent
     use ActionButton;
     public bool $showErrorBag = true;
 
-    public $weight, $price, $stock, $barcode, $activity;
+    public $weight, $price, $stock, $barcode, $activity, $price_format;
     public Product $product;
     public $options = [];
 
@@ -99,7 +99,7 @@ final class ProductSkuTable extends PowerGridComponent
             })
             ->addColumn('activity')
             ->addColumn('weight')
-            ->addColumn('price_format', fn (SKU $sku) => Blade::render('{{$money}}', ['money' => $sku->price]))
+            ->addColumn('price_format', fn (SKU $sku) => Blade::render('{{$money}}', ['money' => $sku->price ?? 'NULL']))
             ->addColumn('stock');
     }
 
@@ -136,9 +136,9 @@ final class ProductSkuTable extends PowerGridComponent
                 ->sortable()
                 ->editOnClick(),
 
-            Column::make('PRICE', 'price')
+            Column::make('PRICE', 'price_format', 'price')
                 ->sortable()
-                ->editOnClick(),
+                ->editOnClick(dataField: 'price_format'),
 
             Column::make('STOCK', 'stock')
                 ->sortable()
@@ -160,9 +160,21 @@ final class ProductSkuTable extends PowerGridComponent
         $this->validate([
             'barcode.*' => 'string|unique:skus,barcode,' . $id . ',id',
             'weight.*' => 'integer|between:0,5000',
-            'price.*' => 'numeric|min:0',
+            'price_format.*' => 'string',
             'stock.*' => 'integer|min:0'
         ]);
+
+        if ($field == 'price_format' && strtoupper($value) != 'NULL') {
+            $value = str_replace([' ', 'VND', '₫', ','], '', $value);
+            $this->validate([
+                'price_format.*' => 'numeric|min:0',
+            ]);
+            SKU::query()->find($id)->update([
+                'price' => $value,
+            ]);
+
+            return;
+        }
 
         $value = strtoupper($value) === 'NULL' ? null : $value;
         SKU::query()->find($id)->update([

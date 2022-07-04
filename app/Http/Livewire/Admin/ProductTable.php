@@ -93,7 +93,7 @@ final class ProductTable extends PowerGridComponent
                     'thumbnail' => $product->thumbnail,
                 ]);
             })
-            ->addColumn('name')
+            ->addColumn('name_trim', fn(Product $product) => mb_strimwidth($product->name, 0, 30, '...'))
             ->addColumn('variant', function (Product $product) {
                 $options = $product->variationOptions->map(fn ($item) => $item->name)->join(', ');
                 return view('components.admin.powergrid.product-table-variant', [
@@ -135,7 +135,7 @@ final class ProductTable extends PowerGridComponent
         return [
             Column::make('', 'thumbnail'),
 
-            Column::make('NAME', 'name')
+            Column::make('NAME', 'name_trim')
                 ->sortable(),
 
             Column::make('Variant', 'variant'),
@@ -143,8 +143,7 @@ final class ProductTable extends PowerGridComponent
             Column::make('CATEGORY', 'category.name'),
 
             Column::make('PRICE', 'regular_price_format', 'regular_price')
-                ->sortable()
-                ->searchable(),
+                ->sortable(),
 
             Column::make('BRANCH', 'storeBranch.name')
                 ->makeInputSelect(StoreBranch::all(), 'name', 'store_branch_id')

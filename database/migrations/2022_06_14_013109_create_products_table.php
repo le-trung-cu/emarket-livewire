@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('thumbnail')->nullable();
             $table->text('description')->nullable();
             $table->enum('status', [1,2,3])->default(1);
-            $table->unsignedDecimal('regular_price');
+            $table->unsignedDecimal('regular_price', 12, 2);
             $table->foreignIdFor(StoreBranch::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Category::class)->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
