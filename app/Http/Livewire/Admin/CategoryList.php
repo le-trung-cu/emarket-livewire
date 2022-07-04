@@ -42,14 +42,16 @@ class CategoryList extends Component
         $this->categoriesLv1 = Category::query()->where('parent_id', null)->get();
     }
 
-    public function confirmDeleteCategory(Category $category)
+    public function confirmDeleteCategory(int $categoryId)
     {
+        $category = Category::find($categoryId);
         $this->confirmDeleteCategoryModal = true;
         $this->categoryForDeleting = $category;
     }
 
-    public function delete(Category $category)
+    public function delete(int $categoryId)
     {
+        $category = Category::find($categoryId);
         if ($category->delete()) {
             $this->confirmDeleteCategoryModal = false;
             $this->categoryForDeleting = null;
@@ -60,14 +62,16 @@ class CategoryList extends Component
         }
     }
 
-    public function onCategoryLv1Change(?Category $category)
+    public function onCategoryLv1Change(int $categoryId)
     {
+        $category = Category::where('id', $categoryId)->first();
         $this->selectedCategory1 = $category->id;
         $this->selectedCategory2 = null;
         $this->selectedCategory3 = null;
 
         if ($category) {
             $this->categoriesLv2 = $category->children;
+
             $this->categoriesLv3 = [];
         } else {
             $this->categoriesLv2 = [];
@@ -75,8 +79,9 @@ class CategoryList extends Component
         }
     }
 
-    public function onCategoryLv2Change(?Category $category)
+    public function onCategoryLv2Change(int $categoryId)
     {
+        $category = Category::where('id', $categoryId)->first();
         $this->selectedCategory2 = $category->id;
         $this->selectedCategory3 =  null;
         if ($category) {
@@ -86,8 +91,10 @@ class CategoryList extends Component
         }
     }
 
-    public function onCategoryLv3Change(?Category $category)
+    public function onCategoryLv3Change(int $categoryId)
     {
+        $category = Category::where('id', $categoryId)->first();
+
         $this->selectedCategory3 = $category->id;
     }
 
