@@ -6,6 +6,7 @@ use App\Http\Livewire\Admin\CategoryList;
 use App\Http\Livewire\Admin\OrderList;
 use App\Http\Livewire\Admin\ProductDetail;
 use App\Http\Livewire\Admin\ProductList;
+use App\Http\Livewire\Admin\SettingManager;
 use Illuminate\Support\Facades\Route;
 
 
@@ -34,5 +35,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('products', ProductList::class)->name('product.index');
         
         Route::get('orders', OrderList::class)->name('orders.index');
+
+        Route::get('settings', SettingManager::class)->name('settings');
     });
 });
