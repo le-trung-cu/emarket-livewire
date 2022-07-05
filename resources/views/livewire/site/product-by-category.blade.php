@@ -40,7 +40,19 @@
             <!--  MAIN SECTION //END -->
     
             <!-- SECTION-CONTENT -->
-       
+            <section class="py-10">
+                <div class="mx-auto px-4">
+                    <h2 class="text-lg font-medium mb-8 text-gray-500">New products</h2>
+    
+                    <div class="grid auto-rows-max grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                        @foreach ($products as $product)
+                            <!-- COMPONENT: PRODUCT CARD -->
+                            <livewire:site.product-item :product="$product" wire:key="list-new-product-{{ $product->id }}" />
+                            <!-- COMPONENT: PRODUCT CARD //END -->
+                        @endforeach
+                    </div> <!-- grid .// -->
+                </div>
+            </section>
             <!--  SECTION-CONTENT  //END -->
         </div>
     </div>

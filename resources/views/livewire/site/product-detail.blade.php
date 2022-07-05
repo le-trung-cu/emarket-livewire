@@ -64,13 +64,16 @@
                     <div class="mb-4">
                         <!-- select-custom -->
                         <template x-for="(option, optionIndex) in options" :key="option.id">
-                            <div class="flex flex-wrap space-x-3">
-                                <span class="font-medium inline-block capitalize w-36" x-text="option.name"></span>
+                            <div class="flex flex-wrap mb-2">
+                                <span class="font-medium inline-block capitalize w-24" x-text="option.name +  ':'"></span>
                                 <template x-for="value in option.values" :key="value.id">
                                     <label
-                                        :class="{ ' mx-2 inline-block cursor-pointer': true, 'text-gray-400': !
-                                                optionValueEnabled[optionIndex].has(value.id) }">
-                                        <input type="radio" x-model="selectedValueIds[optionIndex]"
+                                        class="border border-gray-300 mx-2 inline-block px-2 py-1 rounded-md cursor-pointer"
+                                        :class="{
+                                            'text-gray-400': !optionValueEnabled[optionIndex].has(value.id),
+                                            'bg-blue-400 text-gray-100': value.id == selectedValueIds[optionIndex]
+                                            }">
+                                        <input class="hidden" type="radio" x-model="selectedValueIds[optionIndex]"
                                             :value="value.id" :name="`selectedValueIds[${optionIndex}]`"
                                             @change="optionChange(optionIndex, value.id)"
                                             :disabled="!optionValueEnabled[optionIndex].has(value.id)" />

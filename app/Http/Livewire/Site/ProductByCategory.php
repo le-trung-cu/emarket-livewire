@@ -3,14 +3,26 @@
 namespace App\Http\Livewire\Site;
 
 use App\Models\Category;
+use App\Models\Product;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ProductByCategory extends Component
 {
-    public Category $category;
+    use WithPagination;
     
+    public Category $category;
+
     public function render()
     {
-        return view('livewire.site.product-by-category')->layout('layouts.site');
+        if ($this->category->isLeaf()) {
+            $products = Product::query()->where('category_id', $this->category->id)->paginate();
+        } else {
+            $categories = Category::query()->whereDescendantOf($this->category)->whereIsLeaf()->get()->pluck('id');
+            $products = Product::query()->whereIn('category_id', $categories)->inRandomOrder()->paginate();
+        }
+        return view('livewire.site.product-by-category', [
+            'products' => $products,
+        ])->layout('layouts.site');
     }
 }
