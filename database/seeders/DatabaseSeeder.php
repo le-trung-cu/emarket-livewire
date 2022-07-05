@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SKUSeeder::class);
         $this->callWith(OrderSeeder::class, ['buyer' => User::find(1)]);
         $this->callWith(OrderItemSeeder::class, ['orders' => Order::all()]);
+        $this->call(SettingSeeder::class);
         // $this->call(VariationOptionSeeder::class);
         // $this->call(VariationValueSeeder::class);
         // $this->call(ProductVariationSeeder::class);

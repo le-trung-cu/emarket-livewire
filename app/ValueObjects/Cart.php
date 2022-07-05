@@ -23,14 +23,17 @@ class Cart
     public $cartItems;
     public $weight;
 
+    private string $currencyCode;
+
     // The amount can be used to get the total price of all items in the cart before applying discount and taxes.
     public $amount;
 
     public function __construct()
     {
+        $this->currencyCode = config('settings.currency_code');
         $this->cart = FacadesCart::instance('cart');
 
-        $this->amount = Money::of($this->cart->priceTotal(), 'VND');
+        $this->amount = Money::of($this->cart->priceTotal(), $this->currencyCode);
         $this->weight = $this->cart->weight();
 
         $cartContent = $this->cart->content();
@@ -56,7 +59,7 @@ class Cart
     {
         if ($this->shippingFee != null) {
             return $this->amount
-                ->plus(collect($this->shippingFee)->reduce(fn ($result, $item) => $result->plus($item), Money::of(0, 'VND')));
+                ->plus(collect($this->shippingFee)->reduce(fn ($result, $item) => $result->plus($item), Money::of(0, $this->currencyCode)));
         } else {
             return $this->amount;
         }
@@ -80,13 +83,13 @@ class Cart
                 'to_district_id' => $address['district']['districtId'],
                 'to_ward_code' => $address['ward']['wardCode'],
                 'service_type_id' => $serviceTypeId,
-            ]), 'VND');
+            ]), config('settings.currency_code'));
         }
     }
 
     public function shippingFeeTotal()
     {
-        return collect($this->shippingFee)->reduce(fn ($result, $item) => $result->plus($item), Money::of(0, 'VND'));
+        return collect($this->shippingFee)->reduce(fn ($result, $item) => $result->plus($item), Money::of(0, $this->currencyCode));
     }
 
     public function getServices()
@@ -110,7 +113,7 @@ class Cart
                 $order = Order::create([
                     'store_branch_id' => $storeBranchId,
                     'group_id' => $firstOrder?->id,
-                    'amount' =>  collect($cartItems)->reduce(fn ($result, $item) => $result->plus($item->amount), Money::of(0, 'VND')),
+                    'amount' =>  collect($cartItems)->reduce(fn ($result, $item) => $result->plus($item->amount), Money::of(0, $this->currencyCode)),
                     'shipping_fee' => $this->shippingFee[$storeBranchId],
                     'shipping_payment_type' => $shippingPaymentType,
                     'payment_type' => $paymentType,

@@ -18,7 +18,7 @@ class MoneyCast implements CastsAttributes
      */
     public function get($model, string $key, $value, array $attributes)
     {
-        return $value == null ? null : Money::of($value, 'VND');
+        return $value == null ? null : Money::of($value, config('settings.currency_code'));
     }
 
     /**

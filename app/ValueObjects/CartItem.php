@@ -16,6 +16,8 @@ class CartItem
 
     public function __construct(ShoppingcartCartItem $cartItem, SKU $sku)
     {
+        $currencyCode = config('settings.currency_code');
+        
         $this->id = $cartItem->id;
         $this->cartItem = $cartItem;
         $this->sku = $sku;
@@ -24,8 +26,8 @@ class CartItem
         $this->rowId = $cartItem->rowId;
         $this->thumbnail = $this->sku->product->thumbnail;
 
-        $this->price_unit = Money::of($this->cartItem->price, 'VND');
-        $this->amount = Money::of($this->cartItem->price * $this->cartItem->qty, 'VND');
+        $this->price_unit = Money::of($this->cartItem->price, $currencyCode);
+        $this->amount = Money::of($this->cartItem->price * $this->cartItem->qty, $currencyCode);
     }
 
     public function getVariantionString()
