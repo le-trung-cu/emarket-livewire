@@ -6,25 +6,30 @@
     </div>
 </x-slot>
 
-<div class="table">
-    <div class="table-row">
-        <label class="table-cell">Site Name:</label>
-        <div class="table-cell py-1">
-            <x-input placeholder="your site's name"/>
+<form wire:submit.prevent="save" class=" max-w-3xl m-auto">
+    <div class="table">
+        <div class="table-row">
+            <label class="table-cell px-5">Site Name:</label>
+            <div class="table-cell py-1">
+                <x-input placeholder="your site's name" wire:model.defer="siteName" />
+            </div>
         </div>
-    </div>
 
-    <div class="table-row">
-        <label class="table-cell">Site Title:</label>
-        <div class="table-cell py-1">
-            <x-input placeholder="your site's title"/>
+        <div class="table-row">
+            <label class="table-cell px-5">Site Title:</label>
+            <div class="table-cell py-1">
+                <x-input placeholder="your site's title" wire:model.defer="siteTitle"/>
+            </div>
         </div>
-    </div>
 
-    <div class="table-row">
-        <label class="table-cell">Site Logo:</label>
-        <div class="table-cell py-1">
-            <x-input type="file" placeholder="your site's Logo"/>
+        <div class="table-row">
+            <label class="table-cell px-5">Site Logo:</label>
+            <div class="table-cell py-1">
+                <x-input type="file" placeholder="your site's Logo" />
+            </div>
         </div>
     </div>
-</div>
+    <div class="flex justify-end">
+        <x-button type="submit" spinner purple label="Save" />
+    </div>
+</form>

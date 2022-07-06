@@ -8,8 +8,7 @@
     <meta name="author" content="Type name" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-    <title>Tailwind Ecommerce Kit</title>
+    <title>{{ config('settings.site_title', 'Laravel') }}</title>
 
     <!-- Styles -->
     @livewireStyles
@@ -119,7 +118,7 @@
                     <aside class="w-full md:w-1/3 lg:w-1/4 mb-5">
                         <img src="{{ asset('images/logo-white.png') }}" height="38" alt="Company name">
                         <p class="my-4">
-                            Company name. <br> © 2018- 2021 Templatemount. <br>
+                            {{config('settings.site_name')}}. <br> © 2018- 2021 Templatemount. <br>
                             All rights reserved.
                         </p>
                     </aside> <!-- col .// -->

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('settings.site_title', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -34,7 +34,7 @@
             <div class="text-gray-500 relative dark:text-gray-400 py-4">
                 <a x-show="isShowDesktopMenuOpen" class="text-lg font-bold text-gray-800 dark:text-gray-200 ml-5"
                     href="#"  @click="isShowDesktopMenuOpen = !isShowDesktopMenuOpen" >
-                    Emarket
+                    {{config('settings.site_name')}}
                 </a>
                 <button x-show="!isShowDesktopMenuOpen" class="p-1 ml-5 rounded-md focus:outline-none focus:shadow-outline-purple text-purple-500"  @click="isShowDesktopMenuOpen = !isShowDesktopMenuOpen"  aria-label="Menu">
                     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
